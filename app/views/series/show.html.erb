@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @series.name %>
+</p>
+
+<p>
+  <strong>Archive:</strong>
+  <%= @series.archive %>
+</p>
+
+<p>
+  <strong>Thumbnail:</strong>
+  <%= @series.thumbnail %>
+</p>
+
+<p>
+  <strong>Gallery:</strong>
+  <%= @series.gallery %>
+</p>
+
+<%= link_to 'Edit', edit_series_path(@series) %> |
+<%= link_to 'Back', series_index_path %>
