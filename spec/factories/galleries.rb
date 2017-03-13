@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :gallery do
-    name "MyString"
-    archive false
+    name "Glass"
   end
 end
