@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
   def index
