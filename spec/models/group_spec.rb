@@ -15,6 +15,7 @@ RSpec.describe Group, type: :model do
 
   it "is invalid without a thumbnail" do
     group = build(:group, thumbnail: nil)
+    group.valid?
     expect(group.errors[:thumbnail]).to include("can't be blank")
   end
 
@@ -22,7 +23,7 @@ RSpec.describe Group, type: :model do
     group1 = create(:group, name: "Primordial")
     group2 = build(:group, name: "Primordial")
     group2.valid?
-    expect(group2.errors[:name]).to include("is already in use")
+    expect(group2.errors[:name]).to include("has already been taken")
   end
 
   describe ".active" do

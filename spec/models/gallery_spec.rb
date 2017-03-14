@@ -7,7 +7,7 @@ RSpec.describe Gallery, type: :model do
   end
 
   it "is invalid without a name" do
-    gallery = build(:gallery)
+    gallery = build(:gallery, name: nil)
     gallery.valid?
     expect(gallery.errors[:name]).to include("can't be blank")
   end
@@ -16,7 +16,7 @@ RSpec.describe Gallery, type: :model do
     gallery1 = create(:gallery, name: "Glass")
     gallery2 = build(:gallery, name: "Glass")
     gallery2.valid?
-    expect(gallery2.errors[:name]).to include("is already in use")
+    expect(gallery2.errors[:name]).to include("has already been taken")
   end
 
   describe ".active" do

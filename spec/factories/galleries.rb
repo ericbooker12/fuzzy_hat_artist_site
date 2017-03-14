@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :gallery do
-    name "Glass"
+    sequence :name do |n|
+    	"Name #{n}"
+    end
   end
 end
