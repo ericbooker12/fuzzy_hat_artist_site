@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :groups
+  resources :galleries
 
-	root 'groups#index'
+	root 'galleries#index'
 end
