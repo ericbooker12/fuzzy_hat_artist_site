@@ -1,7 +1,9 @@
+<h1>Mark Einert</h1>
+
 <% @galleries.each do |gallery|  %>
   <ul>
     <li>
-      <%= gallery.name %>
+      <%= link_to gallery.name, gallery_groups_path(gallery.id) %>
     </li>
   </ul>
 <% end %>

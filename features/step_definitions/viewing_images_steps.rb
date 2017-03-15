@@ -1,9 +1,10 @@
 Given(/^I am on the home page$/) do
-	visit galleries_path
+	visit root_path
 end
 
 When(/^I click on a gallery$/) do
-	click_link "Glass"
+	g = Gallery.create(name: "Glass")
+	visit gallery_groups_path(g.id)
 end
 
 Then(/^I see a list of that Gallery's series$/) do
