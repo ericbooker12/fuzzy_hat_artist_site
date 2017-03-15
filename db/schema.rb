@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311004620) do
+ActiveRecord::Schema.define(version: 20170315005707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "galleries", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "archive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +28,22 @@ ActiveRecord::Schema.define(version: 20170311004620) do
     t.integer  "thumbnail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "gallery_id"
+    t.index ["gallery_id"], name: "index_groups_on_gallery_id", using: :btree
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.integer  "length"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_items_on_group_id", using: :btree
+  end
+
+  add_foreign_key "groups", "galleries"
+  add_foreign_key "items", "groups"
 end

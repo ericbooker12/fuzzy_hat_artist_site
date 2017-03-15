@@ -4,7 +4,6 @@ class CreateGroups < ActiveRecord::Migration[5.0]
       t.string :name
       t.boolean :archive
       t.integer :thumbnail
-      # t.references :gallery, foreign_key: true
 
       t.timestamps
     end

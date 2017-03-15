@@ -4,7 +4,11 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    # @groups = Group.where(gallery_id: params[:id])
+    p params[:gallery_id]
+    p '*' * 40
+    @gallery = Gallery.find(params["gallery_id"])
+    @groups = @gallery.groups
   end
 
   # GET /groups/1
