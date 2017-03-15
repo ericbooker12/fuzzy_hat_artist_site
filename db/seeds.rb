@@ -1,3 +1,4 @@
+Item.delete_all
 Group.delete_all
 Gallery.delete_all
 
@@ -8,4 +9,11 @@ gallery3 = Gallery.create(name: "Photography")
 5.times do |i|
 	g = gallery1.groups.build(name: "Series#{i+1}", thumbnail: 1)
 	g.save
+
+	10.times do |j|
+		item = g.items.build(title: "Title#{j+1}")
+		item.save
+	end
+
 end
+
