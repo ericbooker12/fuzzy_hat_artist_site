@@ -3501,3 +3501,198 @@ Completed 200 OK in 156ms (Views: 148.5ms | ActiveRecord: 1.6ms)
 
 
   [1m[36mItem Load (6.9ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+Started GET "/groups/1" for ::1 at 2017-03-15 16:44:59 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (12.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (12.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered groups/show.html.erb within layouts/application (61.5ms)
+Completed 500 Internal Server Error in 134ms (ActiveRecord: 24.3ms)
+
+
+  
+SyntaxError (/Users/shawntuttle/fuzzyhat/fuzzy_hat_artist_site/app/models/item.rb:4: syntax error, unexpected tSTRING_BEG, expecting '}'
+/Users/shawntuttle/fuzzyhat/fuzzy_hat_artist_site/app/models/item.rb:4: unterminated string meets end of file):
+  
+app/models/item.rb:4: syntax error, unexpected tSTRING_BEG, expecting '}'
+app/models/item.rb:4: unterminated string meets end of file
+app/views/groups/show.html.erb:19:in `_app_views_groups_show_html_erb___4414169708802096582_70116073542000'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.0ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.7ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (146.2ms)
+Started GET "/groups/1" for ::1 at 2017-03-15 16:45:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (6.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (6.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered groups/show.html.erb within layouts/application (45.6ms)
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 14.6ms)
+
+
+  
+SyntaxError (/Users/shawntuttle/fuzzyhat/fuzzy_hat_artist_site/app/models/item.rb:4: syntax error, unexpected tSTRING_BEG, expecting '}'
+/Users/shawntuttle/fuzzyhat/fuzzy_hat_artist_site/app/models/item.rb:4: unterminated string meets end of file):
+  
+app/models/item.rb:4: syntax error, unexpected tSTRING_BEG, expecting '}'
+app/models/item.rb:4: unterminated string meets end of file
+app/views/groups/show.html.erb:19:in `_app_views_groups_show_html_erb__247939311045356530_70202196472580'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (16.4ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (142.8ms)
+Started GET "/groups/1" for ::1 at 2017-03-15 16:46:07 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.9ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (2.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 1]]
+  Rendered groups/show.html.erb within layouts/application (87.3ms)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 9.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `item' for #<Group:0x007fb2717da598>):
+    18: <ul>
+    19: 	<%	@group.items.each do |item| %>
+    20: 		<li>
+    21:       <%= image_tag @group.item.url(:thumb) %>
+    22: 			<%= link_to item.title, group_item_path(item), title: 'show image' %>
+    23: 		</li>
+    24: 	<% end %>
+  
+app/views/groups/show.html.erb:21:in `block in _app_views_groups_show_html_erb__247939311045356530_70202192479080'
+app/views/groups/show.html.erb:19:in `_app_views_groups_show_html_erb__247939311045356530_70202192479080'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.5ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (140.5ms)
+Started GET "/groups/1" for ::1 at 2017-03-15 16:48:33 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (3.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.8ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 1]]
+  Rendered groups/show.html.erb within layouts/application (47.0ms)
+Completed 500 Internal Server Error in 111ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `url' for #<Item:0x007fb276091688>):
+    19: <ul>
+    20: 	<%	@group.items.each do |item| %>
+    21: 		<li>
+    22:       <%= image_tag item.url(:thumb) %>
+    23: 			<%= link_to item.title, group_item_path(item), title: 'show image' %>
+    24: 		</li>
+    25: 	<% end %>
+  
+app/views/groups/show.html.erb:22:in `block in _app_views_groups_show_html_erb__247939311045356530_70202243233480'
+app/views/groups/show.html.erb:20:in `_app_views_groups_show_html_erb__247939311045356530_70202243233480'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.5ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (129.5ms)
+Started GET "/groups/1" for ::1 at 2017-03-15 16:49:29 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 1]]
+  Rendered groups/show.html.erb within layouts/application (90.0ms)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 15.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `url' for #<Item:0x007fb414a76a50>):
+    19: <ul>
+    20: 	<%	@group.items.each do |item| %>
+    21: 		<li>
+    22:       <%= image_tag item.url(:thumb) %>
+    23: 			<%= link_to item.title, group_item_path(item), title: 'show image' %>
+    24: 		</li>
+    25: 	<% end %>
+  
+app/views/groups/show.html.erb:22:in `block in _app_views_groups_show_html_erb__2933009840971654299_70205737359540'
+app/views/groups/show.html.erb:20:in `_app_views_groups_show_html_erb__2933009840971654299_70205737359540'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (13.7ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (160.9ms)
+Started GET "/groups/1" for ::1 at 2017-03-15 16:50:31 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (2.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 1]]
+  Rendered groups/show.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 573ms (Views: 552.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/images/thumb/missing.png" for ::1 at 2017-03-15 16:50:32 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/images/thumb/missing.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `call'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered collection of /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [25 times] (15.5ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (103.9ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (342.5ms)

@@ -1,3 +1,4 @@
+<h1>A Series has a bunch of images. See thumbnails below.</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -18,6 +19,7 @@
 <ul>
 	<%	@group.items.each do |item| %>
 		<li>
+      <%= image_tag item.image.url(:thumb) %>
 			<%= link_to item.title, group_item_path(item), title: 'show image' %>
 		</li>
 	<% end %>
