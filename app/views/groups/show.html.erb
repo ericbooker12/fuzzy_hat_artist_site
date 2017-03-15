@@ -6,19 +6,23 @@
 </p>
 
 <p>
-  <strong>Archive:</strong>
-  <%= @group.archive %>
-</p>
-
-<p>
   <strong>Thumbnail:</strong>
   <%= @group.thumbnail %>
 </p>
 
 <p>
   <strong>Gallery:</strong>
-  <%= @group.gallery %>
+  <%= @group.gallery.name %>
 </p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<ul>
+	<%	@group.items.each |item| %>
+		<li>
+			<%= item.title %>
+		</li>
+	<% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_gallery_group_path(@group) %> |
+<%= link_to 'Back', gallery_groups_path %>
