@@ -5569,3 +5569,1593 @@ Processing by GroupsController#index as HTML
   Rendered groups/index.html.erb within layouts/application (5.0ms)
 Completed 200 OK in 20ms (Views: 8.3ms | ActiveRecord: 2.1ms)
   [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (16.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-03-15 19:02:36 UTC], ["updated_at", 2017-03-15 19:02:36 UTC]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (135.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fuzzy_hat_artist_site_test"[0m
+  [1m[35m (466.2ms)[0m  [1m[35mCREATE DATABASE "fuzzy_hat_artist_site_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" serial primary key, "name" character varying, "archive" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "groups" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "gallery_id" integer)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_groups_on_gallery_id" ON "groups" USING btree ("gallery_id")[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "items" ("id" serial primary key, "title" character varying, "image" character varying, "length" integer, "width" integer, "height" integer, "group_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_items_on_group_id" ON "items" USING btree ("group_id")[0m
+  [1m[35m (20.1ms)[0m  [1m[35mALTER TABLE "groups" ADD CONSTRAINT "fk_rails_48205a7bbb"
+FOREIGN KEY ("gallery_id")
+  REFERENCES "galleries" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "items" ADD CONSTRAINT "fk_rails_4915438958"
+FOREIGN KEY ("group_id")
+  REFERENCES "groups" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315005707)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170311004620),
+(20170312191528),
+(20170312193205);
+
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-03-15 19:02:55 UTC], ["updated_at", 2017-03-15 19:02:55 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:02:56 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 404ms (Views: 351.8ms | ActiveRecord: 25.2ms)
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:02:57 UTC], ["updated_at", 2017-03-15 19:02:57 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/1/groups" for 127.0.0.1 at 2017-03-15 12:02:57 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered groups/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 58ms (Views: 9.0ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:02:57 UTC], ["updated_at", 2017-03-15 19:02:57 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/2/groups" for 127.0.0.1 at 2017-03-15 12:02:57 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"2"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 2]]
+  Rendered groups/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Kombucha"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Kombucha"], ["created_at", 2017-03-15 19:02:57 UTC], ["updated_at", 2017-03-15 19:02:57 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (14.2ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:02:57 UTC], ["updated_at", 2017-03-15 19:02:57 UTC], ["gallery_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/3/groups/1" for 127.0.0.1 at 2017-03-15 12:02:57 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"gallery_id"=>"3", "id"=>"1"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:04:39 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 274ms (Views: 250.7ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (7.0ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:04:40 UTC], ["updated_at", 2017-03-15 19:04:40 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/4/groups" for 127.0.0.1 at 2017-03-15 12:04:40 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 4]]
+  Rendered groups/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 44ms (Views: 11.9ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:05:02 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 285ms (Views: 262.2ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:05:02 UTC], ["updated_at", 2017-03-15 19:05:02 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/5/groups" for 127.0.0.1 at 2017-03-15 12:05:02 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"5"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 5]]
+  Rendered groups/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 49ms (Views: 13.0ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:05:02 UTC], ["updated_at", 2017-03-15 19:05:02 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/6/groups" for 127.0.0.1 at 2017-03-15 12:05:02 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"6"}
+  [1m[36mGallery Load (1.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 6]]
+  Rendered groups/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 13ms (Views: 7.5ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Kombucha"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Kombucha"], ["created_at", 2017-03-15 19:05:02 UTC], ["updated_at", 2017-03-15 19:05:02 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:05:02 UTC], ["updated_at", 2017-03-15 19:05:02 UTC], ["gallery_id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/7/groups/2" for 127.0.0.1 at 2017-03-15 12:05:02 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"gallery_id"=>"7", "id"=>"2"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:06:30 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 287ms (Views: 261.7ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (7.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:06:30 UTC], ["updated_at", 2017-03-15 19:06:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/8/groups" for 127.0.0.1 at 2017-03-15 12:06:30 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"8"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 8]]
+  Rendered groups/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 45ms (Views: 8.9ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:06:30 UTC], ["updated_at", 2017-03-15 19:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/9/groups" for 127.0.0.1 at 2017-03-15 12:06:30 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"9"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 9]]
+  Rendered groups/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 15ms (Views: 10.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:06:30 UTC], ["updated_at", 2017-03-15 19:06:30 UTC], ["gallery_id", 9]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:11:43 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 307ms (Views: 278.4ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (6.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:11:44 UTC], ["updated_at", 2017-03-15 19:11:44 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/10/groups" for 127.0.0.1 at 2017-03-15 12:11:44 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"10"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 10]]
+  Rendered groups/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 9.3ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:11:44 UTC], ["updated_at", 2017-03-15 19:11:44 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/11/groups" for 127.0.0.1 at 2017-03-15 12:11:44 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"11"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 11]]
+  Rendered groups/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 21ms (Views: 15.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:11:44 UTC], ["updated_at", 2017-03-15 19:11:44 UTC], ["gallery_id", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:13:16 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 333ms (Views: 307.7ms | ActiveRecord: 3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:13:16 UTC], ["updated_at", 2017-03-15 19:13:16 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/12/groups" for 127.0.0.1 at 2017-03-15 12:13:16 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"12"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 12]]
+  Rendered groups/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 48ms (Views: 8.7ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:13:16 UTC], ["updated_at", 2017-03-15 19:13:16 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/13/groups" for 127.0.0.1 at 2017-03-15 12:13:16 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"13"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 13]]
+  Rendered groups/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 15ms (Views: 9.6ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:13:16 UTC], ["updated_at", 2017-03-15 19:13:16 UTC], ["gallery_id", 13]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/5" for 127.0.0.1 at 2017-03-15 12:13:16 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:14:56 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.8ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 288ms (Views: 257.9ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:14:56 UTC], ["updated_at", 2017-03-15 19:14:56 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/14/groups" for 127.0.0.1 at 2017-03-15 12:14:56 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"14"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 14]]
+  Rendered groups/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 50ms (Views: 9.1ms | ActiveRecord: 3.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:14:56 UTC], ["updated_at", 2017-03-15 19:14:56 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:14:57 UTC], ["updated_at", 2017-03-15 19:14:57 UTC], ["gallery_id", 15]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/15/groups" for 127.0.0.1 at 2017-03-15 12:14:57 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"15"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 15]]
+  Rendered groups/index.html.erb within layouts/application (22.6ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:15:26 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 274ms (Views: 250.2ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:15:26 UTC], ["updated_at", 2017-03-15 19:15:26 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/16/groups" for 127.0.0.1 at 2017-03-15 12:15:26 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"16"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 16]]
+  Rendered groups/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 47ms (Views: 12.8ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:15:27 UTC], ["updated_at", 2017-03-15 19:15:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/17/groups" for 127.0.0.1 at 2017-03-15 12:15:27 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"17"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 17]]
+  Rendered groups/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:15:27 UTC], ["updated_at", 2017-03-15 19:15:27 UTC], ["gallery_id", 17]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:15:59 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.8ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 286ms (Views: 262.5ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (7.0ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:15:59 UTC], ["updated_at", 2017-03-15 19:15:59 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/18/groups" for 127.0.0.1 at 2017-03-15 12:15:59 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"18"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 18]]
+  Rendered groups/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 47ms (Views: 12.9ms | ActiveRecord: 4.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:15:59 UTC], ["updated_at", 2017-03-15 19:15:59 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/19/groups" for 127.0.0.1 at 2017-03-15 12:15:59 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"19"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 19]]
+  Rendered groups/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 13ms (Views: 7.3ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (7.5ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:15:59 UTC], ["updated_at", 2017-03-15 19:15:59 UTC], ["gallery_id", 19]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/8" for 127.0.0.1 at 2017-03-15 12:15:59 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:20:17 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 357ms (Views: 328.6ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (12.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:20:17 UTC], ["updated_at", 2017-03-15 19:20:17 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/20/groups" for 127.0.0.1 at 2017-03-15 12:20:17 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"20"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 20]]
+  Rendered groups/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 66ms (Views: 11.7ms | ActiveRecord: 4.2ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 19:20:17 UTC], ["updated_at", 2017-03-15 19:20:17 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/21/groups" for 127.0.0.1 at 2017-03-15 12:20:17 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"21"}
+  [1m[36mGallery Load (9.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (4.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 21]]
+  Rendered groups/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 31ms (Views: 11.4ms | ActiveRecord: 13.5ms)
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:20:17 UTC], ["updated_at", 2017-03-15 19:20:17 UTC], ["gallery_id", 21]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:21:35 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 270ms (Views: 245.9ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (7.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:21:35 UTC], ["updated_at", 2017-03-15 19:21:35 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/22/groups" for 127.0.0.1 at 2017-03-15 12:21:35 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"22"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 22]]
+  Rendered groups/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 58ms (Views: 8.7ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 19:21:35 UTC], ["updated_at", 2017-03-15 19:21:35 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/23/groups" for 127.0.0.1 at 2017-03-15 12:21:35 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"23"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 23]]
+  Rendered groups/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 18ms (Views: 12.0ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:21:35 UTC], ["updated_at", 2017-03-15 19:21:35 UTC], ["gallery_id", 23]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/10" for 127.0.0.1 at 2017-03-15 12:21:35 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:23:10 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 264ms (Views: 239.5ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:23:11 UTC], ["updated_at", 2017-03-15 19:23:11 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/24/groups" for 127.0.0.1 at 2017-03-15 12:23:11 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"24"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 24]]
+  Rendered groups/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 47ms (Views: 11.5ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 19:23:11 UTC], ["updated_at", 2017-03-15 19:23:11 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/25/groups" for 127.0.0.1 at 2017-03-15 12:23:11 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"25"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 25]]
+  Rendered groups/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 12ms (Views: 7.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (12.2ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:23:11 UTC], ["updated_at", 2017-03-15 19:23:11 UTC], ["gallery_id", 25]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/11" for 127.0.0.1 at 2017-03-15 12:23:11 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 11]]
+  Rendered groups/show.html.erb within layouts/application (43.0ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 5.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:23:51 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 265ms (Views: 240.6ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:23:51 UTC], ["updated_at", 2017-03-15 19:23:51 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/26/groups" for 127.0.0.1 at 2017-03-15 12:23:51 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"26"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 26]]
+  Rendered groups/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 46ms (Views: 12.0ms | ActiveRecord: 2.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 19:23:51 UTC], ["updated_at", 2017-03-15 19:23:51 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/27/groups" for 127.0.0.1 at 2017-03-15 12:23:51 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"27"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 27]]
+  Rendered groups/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 18ms (Views: 11.9ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:23:51 UTC], ["updated_at", 2017-03-15 19:23:51 UTC], ["gallery_id", 27]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/12" for 127.0.0.1 at 2017-03-15 12:23:51 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 12]]
+  Rendered groups/show.html.erb within layouts/application (25.8ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 2.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 12:24:55 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 267ms (Views: 243.1ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (6.9ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 19:24:55 UTC], ["updated_at", 2017-03-15 19:24:55 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/28/groups" for 127.0.0.1 at 2017-03-15 12:24:55 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"28"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 28]]
+  Rendered groups/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 50ms (Views: 10.3ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 19:24:55 UTC], ["updated_at", 2017-03-15 19:24:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/29/groups" for 127.0.0.1 at 2017-03-15 12:24:55 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"29"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 29]]
+  Rendered groups/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 17ms (Views: 12.7ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 19:24:55 UTC], ["updated_at", 2017-03-15 19:24:55 UTC], ["gallery_id", 29]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/13" for 127.0.0.1 at 2017-03-15 12:24:55 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 13]]
+  Rendered groups/show.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 25ms (Views: 19.5ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (13.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:17:17 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (26.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 315ms (Views: 263.6ms | ActiveRecord: 27.5ms)
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (25.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:17:17 UTC], ["updated_at", 2017-03-15 21:17:17 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:17:17 UTC], ["updated_at", 2017-03-15 21:17:17 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/31/groups" for 127.0.0.1 at 2017-03-15 14:17:17 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"31"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 31]]
+  Rendered groups/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 63ms (Views: 14.0ms | ActiveRecord: 3.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mGroup Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:17:17 UTC], ["updated_at", 2017-03-15 21:17:17 UTC], ["gallery_id", 31]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/14" for 127.0.0.1 at 2017-03-15 14:17:17 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mItem Load (3.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 14]]
+  Rendered groups/show.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 48ms (Views: 36.0ms | ActiveRecord: 7.6ms)
+  [1m[35m (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (12.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:29:33 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (29.2ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (39.1ms)
+Completed 200 OK in 378ms (Views: 317.6ms | ActiveRecord: 34.2ms)
+  [1m[35m (2.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (46.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:29:33 UTC], ["updated_at", 2017-03-15 21:29:33 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:29:33 UTC], ["updated_at", 2017-03-15 21:29:33 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/33/groups" for 127.0.0.1 at 2017-03-15 14:29:33 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"33"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 33]]
+  Rendered groups/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 66ms (Views: 8.5ms | ActiveRecord: 3.1ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (35.2ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:29:33 UTC], ["updated_at", 2017-03-15 21:29:33 UTC], ["gallery_id", 33]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/15" for 127.0.0.1 at 2017-03-15 14:29:34 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 15]]
+  Rendered groups/show.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 23ms (Views: 16.8ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:30:39 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 297ms (Views: 270.8ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (12.1ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:30:39 UTC], ["updated_at", 2017-03-15 21:30:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:30:39 UTC], ["updated_at", 2017-03-15 21:30:39 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/35/groups" for 127.0.0.1 at 2017-03-15 14:30:39 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"35"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 35]]
+  Rendered groups/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 44ms (Views: 9.8ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:30:39 UTC], ["updated_at", 2017-03-15 21:30:39 UTC], ["gallery_id", 35]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/16" for 127.0.0.1 at 2017-03-15 14:30:39 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 16]]
+  Rendered groups/show.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 30ms (Views: 21.7ms | ActiveRecord: 3.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:33:15 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 320ms (Views: 293.0ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (3.7ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (7.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:33:16 UTC], ["updated_at", 2017-03-15 21:33:16 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:33:16 UTC], ["updated_at", 2017-03-15 21:33:16 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/37/groups" for 127.0.0.1 at 2017-03-15 14:33:16 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"37"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 37]]
+  Rendered groups/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 81ms (Views: 12.2ms | ActiveRecord: 3.3ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:33:16 UTC], ["updated_at", 2017-03-15 21:33:16 UTC], ["gallery_id", 37]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/17" for 127.0.0.1 at 2017-03-15 14:33:16 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 17]]
+  Rendered groups/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 27ms (Views: 19.6ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:34:21 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 314ms (Views: 290.3ms | ActiveRecord: 1.8ms)
+  [1m[35m (2.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (11.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:34:21 UTC], ["updated_at", 2017-03-15 21:34:21 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (5.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:34:21 UTC], ["updated_at", 2017-03-15 21:34:21 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/39/groups" for 127.0.0.1 at 2017-03-15 14:34:21 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"39"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 39]]
+  Rendered groups/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 79ms (Views: 15.0ms | ActiveRecord: 3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:34:21 UTC], ["updated_at", 2017-03-15 21:34:21 UTC], ["gallery_id", 39]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/18" for 127.0.0.1 at 2017-03-15 14:34:21 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 18]]
+  Rendered groups/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 35ms (Views: 19.0ms | ActiveRecord: 2.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:35:11 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 336ms (Views: 310.7ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (6.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:35:11 UTC], ["updated_at", 2017-03-15 21:35:11 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:35:11 UTC], ["updated_at", 2017-03-15 21:35:11 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/41/groups" for 127.0.0.1 at 2017-03-15 14:35:11 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"41"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 41]]
+  Rendered groups/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 52ms (Views: 11.0ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:35:11 UTC], ["updated_at", 2017-03-15 21:35:11 UTC], ["gallery_id", 41]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/19" for 127.0.0.1 at 2017-03-15 14:35:11 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 19]]
+  Rendered groups/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 26ms (Views: 17.0ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:37:13 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 330ms (Views: 301.3ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (6.9ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:37:13 UTC], ["updated_at", 2017-03-15 21:37:13 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:37:13 UTC], ["updated_at", 2017-03-15 21:37:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/43/groups" for 127.0.0.1 at 2017-03-15 14:37:13 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"43"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 43]]
+  Rendered groups/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 65ms (Views: 10.2ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:37:13 UTC], ["updated_at", 2017-03-15 21:37:13 UTC], ["gallery_id", 43]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/20" for 127.0.0.1 at 2017-03-15 14:37:13 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 20]]
+  Rendered groups/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 23ms (Views: 17.2ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:40:16 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 303ms (Views: 277.0ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (18.1ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:40:16 UTC], ["updated_at", 2017-03-15 21:40:16 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/44/groups" for 127.0.0.1 at 2017-03-15 14:40:16 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"44"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 44]]
+  Rendered groups/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 49ms (Views: 12.9ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:40:16 UTC], ["updated_at", 2017-03-15 21:40:16 UTC], ["gallery_id", 44]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/21" for 127.0.0.1 at 2017-03-15 14:40:16 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 21]]
+  Rendered groups/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 25ms (Views: 16.3ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:40:43 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 301ms (Views: 277.4ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:40:44 UTC], ["updated_at", 2017-03-15 21:40:44 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:40:44 UTC], ["updated_at", 2017-03-15 21:40:44 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/46/groups" for 127.0.0.1 at 2017-03-15 14:40:44 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"46"}
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 46]]
+  Rendered groups/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 62ms (Views: 11.7ms | ActiveRecord: 3.0ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:40:44 UTC], ["updated_at", 2017-03-15 21:40:44 UTC], ["gallery_id", 46]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/22" for 127.0.0.1 at 2017-03-15 14:40:44 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (2.1ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 22]]
+  Rendered groups/show.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 55ms (Views: 43.6ms | ActiveRecord: 5.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:42:21 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 308ms (Views: 277.2ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (7.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:42:21 UTC], ["updated_at", 2017-03-15 21:42:21 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:42:21 UTC], ["updated_at", 2017-03-15 21:42:21 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/48/groups" for 127.0.0.1 at 2017-03-15 14:42:21 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"48"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 48]]
+  Rendered groups/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 99ms (Views: 25.4ms | ActiveRecord: 4.2ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:42:21 UTC], ["updated_at", 2017-03-15 21:42:21 UTC], ["gallery_id", 48]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/23" for 127.0.0.1 at 2017-03-15 14:42:21 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 23]]
+  Rendered groups/show.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 48ms (Views: 34.7ms | ActiveRecord: 4.9ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:48:47 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (13.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 697ms (Views: 479.0ms | ActiveRecord: 15.4ms)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (7.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (23.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:48:47 UTC], ["updated_at", 2017-03-15 21:48:47 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/49/groups" for 127.0.0.1 at 2017-03-15 14:48:48 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"49"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (8.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 49]]
+  Rendered groups/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 144ms (Views: 12.7ms | ActiveRecord: 12.3ms)
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (9.7ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:48:48 UTC], ["updated_at", 2017-03-15 21:48:48 UTC], ["gallery_id", 49]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/24" for 127.0.0.1 at 2017-03-15 14:48:48 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 24]]
+  Rendered groups/show.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 39ms (Views: 26.1ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (12.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:54:04 UTC], ["updated_at", 2017-03-15 21:54:04 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:54:04 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 286ms (Views: 268.3ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/50/groups" for 127.0.0.1 at 2017-03-15 14:54:05 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"50"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 50]]
+  Rendered groups/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 97ms (Views: 37.7ms | ActiveRecord: 3.9ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:54:05 UTC], ["updated_at", 2017-03-15 21:54:05 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/51/groups" for 127.0.0.1 at 2017-03-15 14:54:05 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"51"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 51]]
+  Rendered groups/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 21ms (Views: 14.2ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (5.9ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:54:05 UTC], ["updated_at", 2017-03-15 21:54:05 UTC], ["gallery_id", 51]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/25" for 127.0.0.1 at 2017-03-15 14:54:05 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 25]]
+  Rendered groups/show.html.erb within layouts/application (42.1ms)
+Completed 200 OK in 69ms (Views: 48.6ms | ActiveRecord: 3.3ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 21:57:54 UTC], ["updated_at", 2017-03-15 21:57:54 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 14:57:54 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 281ms (Views: 257.8ms | ActiveRecord: 0.3ms)
+Started GET "/galleries/52/groups" for 127.0.0.1 at 2017-03-15 14:57:54 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"52"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 52]]
+  Rendered groups/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 82ms (Views: 13.7ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 21:57:54 UTC], ["updated_at", 2017-03-15 21:57:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (7.5ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 21:57:54 UTC], ["updated_at", 2017-03-15 21:57:54 UTC], ["gallery_id", 53]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/53/groups" for 127.0.0.1 at 2017-03-15 14:57:54 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"53"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 53]]
+  Rendered groups/index.html.erb within layouts/application (18.7ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 22:00:36 UTC], ["updated_at", 2017-03-15 22:00:36 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 15:00:36 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 309ms (Views: 291.8ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/54/groups" for 127.0.0.1 at 2017-03-15 15:00:37 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"54"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 54]]
+  Rendered groups/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 55ms (Views: 9.7ms | ActiveRecord: 3.5ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 22:00:37 UTC], ["updated_at", 2017-03-15 22:00:37 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (17.0ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 22:00:37 UTC], ["updated_at", 2017-03-15 22:00:37 UTC], ["gallery_id", 55]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/55/groups" for 127.0.0.1 at 2017-03-15 15:00:37 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"55"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 55]]
+  Rendered groups/index.html.erb within layouts/application (9.6ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 22:01:32 UTC], ["updated_at", 2017-03-15 22:01:32 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 15:01:32 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 342ms (Views: 327.4ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/56/groups" for 127.0.0.1 at 2017-03-15 15:01:32 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"56"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 56]]
+  Rendered groups/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 52ms (Views: 12.5ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 22:01:32 UTC], ["updated_at", 2017-03-15 22:01:32 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (6.5ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 22:01:32 UTC], ["updated_at", 2017-03-15 22:01:32 UTC], ["gallery_id", 57]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/57/groups" for 127.0.0.1 at 2017-03-15 15:01:32 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"57"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 57]]
+  Rendered groups/index.html.erb within layouts/application (10.1ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 22:02:59 UTC], ["updated_at", 2017-03-15 22:02:59 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 15:02:59 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 365ms (Views: 350.7ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/58/groups" for 127.0.0.1 at 2017-03-15 15:02:59 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"58"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 58]]
+  Rendered groups/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 51ms (Views: 13.7ms | ActiveRecord: 2.9ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 22:02:59 UTC], ["updated_at", 2017-03-15 22:02:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 22:02:59 UTC], ["updated_at", 2017-03-15 22:02:59 UTC], ["gallery_id", 59]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/59/groups" for 127.0.0.1 at 2017-03-15 15:02:59 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"59"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 59]]
+  Rendered groups/index.html.erb within layouts/application (11.9ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 22:10:00 UTC], ["updated_at", 2017-03-15 22:10:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 15:10:00 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 286ms (Views: 270.9ms | ActiveRecord: 0.3ms)
+Started GET "/galleries/60/groups" for 127.0.0.1 at 2017-03-15 15:10:00 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"60"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 60]]
+  Rendered groups/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 53ms (Views: 11.8ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 22:10:00 UTC], ["updated_at", 2017-03-15 22:10:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (6.8ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 22:10:00 UTC], ["updated_at", 2017-03-15 22:10:00 UTC], ["gallery_id", 61]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/61/groups" for 127.0.0.1 at 2017-03-15 15:10:00 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"61"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 61]]
+  Rendered groups/index.html.erb within layouts/application (9.4ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 22:12:18 UTC], ["updated_at", 2017-03-15 22:12:18 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 15:12:18 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 299ms (Views: 283.7ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/62/groups" for 127.0.0.1 at 2017-03-15 15:12:18 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"62"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 62]]
+  Rendered groups/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 55ms (Views: 13.5ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (11.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 22:12:18 UTC], ["updated_at", 2017-03-15 22:12:18 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (12.3ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 22:12:19 UTC], ["updated_at", 2017-03-15 22:12:19 UTC], ["gallery_id", 63]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/63/groups" for 127.0.0.1 at 2017-03-15 15:12:19 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"63"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 63]]
+  Rendered groups/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 25ms (Views: 9.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Glass"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glass"], ["created_at", 2017-03-15 22:13:02 UTC], ["updated_at", 2017-03-15 22:13:02 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-03-15 15:13:02 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 298ms (Views: 281.5ms | ActiveRecord: 0.3ms)
+Started GET "/galleries/64/groups" for 127.0.0.1 at 2017-03-15 15:13:02 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"64"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.9ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 64]]
+  Rendered groups/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 63ms (Views: 13.2ms | ActiveRecord: 3.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "Ceramics"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ceramics"], ["created_at", 2017-03-15 22:13:02 UTC], ["updated_at", 2017-03-15 22:13:02 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[36mGroup Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "groups" WHERE "groups"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "groups" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 22:13:03 UTC], ["updated_at", 2017-03-15 22:13:03 UTC], ["gallery_id", 65]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/65/groups" for 127.0.0.1 at 2017-03-15 15:13:03 -0700
+Processing by GroupsController#index as HTML
+  Parameters: {"gallery_id"=>"65"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."gallery_id" = $1[0m  [["gallery_id", 65]]
+  Rendered groups/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 0.6ms)
+Started GET "/groups/32" for 127.0.0.1 at 2017-03-15 15:13:03 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 32]]
+  Rendered groups/show.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 28ms (Views: 20.9ms | ActiveRecord: 2.7ms)
+Started GET "/groups/32" for 127.0.0.1 at 2017-03-15 15:13:03 -0700
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mGallery Load (2.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."group_id" = $1[0m  [["group_id", 32]]
+  Rendered groups/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 31ms (Views: 25.2ms | ActiveRecord: 3.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

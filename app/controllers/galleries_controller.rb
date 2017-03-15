@@ -3,7 +3,7 @@ class GalleriesController < ApplicationController
 
   def index
     # @galleries = Gallery.active
-    @galleries = Gallery.all
+    @galleries = Gallery.active
 
   end
 
