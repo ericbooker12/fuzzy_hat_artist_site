@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 		resources :groups, only: [:index, :new, :create]
 	end
 
-	resources :groups, only: [:show, :edit, :update, :destroy]
-	resources :items
+	resources :groups, only: [:show, :edit, :update, :destroy] do
+		resources :items
+	end
+
 
 	root 'galleries#index'
 end

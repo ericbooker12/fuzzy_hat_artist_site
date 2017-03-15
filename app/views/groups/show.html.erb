@@ -18,7 +18,7 @@
 <ul>
 	<%	@group.items.each do |item| %>
 		<li>
-			<%= item.title %>
+			<%= link_to item.title, group_item_path(item), title: 'show image' %>
 		</li>
 	<% end %>
 </ul>
