@@ -1,8 +1,8 @@
 Started GET "/" for ::1 at 2017-03-10 16:29:01 -0800
-  
+
 ActiveRecord::NoDatabaseError (FATAL:  database "fuzzy_hat_artist_site_development" does not exist
 ):
-  
+
 activerecord (5.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:675:in `rescue in connect'
 activerecord (5.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:671:in `connect'
 activerecord (5.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:217:in `initialize'
@@ -209,9 +209,9 @@ Completed 200 OK in 20ms (Views: 7.8ms | ActiveRecord: 0.0ms)
 
 
 Started GET "/" for ::1 at 2017-03-10 16:49:54 -0800
-  
+
 ActionController::RoutingError (uninitialized constant GroupController):
-  
+
 activesupport (5.0.2) lib/active_support/inflector/methods.rb:268:in `const_get'
 activesupport (5.0.2) lib/active_support/inflector/methods.rb:268:in `block in constantize'
 activesupport (5.0.2) lib/active_support/inflector/methods.rb:266:in `each'
@@ -454,138 +454,7 @@ FOREIGN KEY ("gallery_id")
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-<<<<<<< HEAD
-Started GET "/" for ::1 at 2017-03-13 16:47:05 -0700
-  [1m[36mActiveRecord::SchemaMigration Load (25.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  
-ActiveRecord::PendingMigrationError (
 
-Migrations are pending. To resolve this issue, run:
-
-        bin/rails db:migrate RAILS_ENV=development
-
-):
-  
-activerecord (5.0.2) lib/active_record/migration.rb:573:in `check_pending!'
-activerecord (5.0.2) lib/active_record/migration.rb:549:in `call'
-=======
-Started GET "/" for ::1 at 2017-03-13 17:30:16 -0700
-  [1m[36mActiveRecord::SchemaMigration Load (12.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by GroupsController#index as HTML
-  Rendering groups/index.html.erb within layouts/application
-  [1m[36mGroup Load (6.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
-  [1m[36mGallery Load (11.9ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered groups/index.html.erb within layouts/application (111.5ms)
-Completed 200 OK in 682ms (Views: 588.4ms | ActiveRecord: 50.0ms)
-
-
-Started GET "/galleries" for ::1 at 2017-03-13 17:30:31 -0700
-  
-ActionController::RoutingError (No route matches [GET] "/galleries"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/method_override.rb:22:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.1) lib/puma/configuration.rb:224:in `call'
-puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
-puma (3.8.1) lib/puma/server.rb:425:in `process_client'
-puma (3.8.1) lib/puma/server.rb:289:in `block in run'
-puma (3.8.1) lib/puma/thread_pool.rb:120:in `call'
-puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
-  Rendered collection of /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [9 times] (14.3ms)
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.0ms)
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (186.8ms)
-Started GET "/galleries/index" for ::1 at 2017-03-13 17:30:37 -0700
-  
-ActionController::RoutingError (No route matches [GET] "/galleries/index"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/method_override.rb:22:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.1) lib/puma/configuration.rb:224:in `call'
-puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
-puma (3.8.1) lib/puma/server.rb:425:in `process_client'
-puma (3.8.1) lib/puma/server.rb:289:in `block in run'
-puma (3.8.1) lib/puma/thread_pool.rb:120:in `call'
-puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
-  Rendered collection of /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [9 times] (4.0ms)
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (150.5ms)
-Started GET "/galleries/index" for ::1 at 2017-03-13 17:42:01 -0700
-  
-LoadError (Unable to autoload constant GalleriesController, expected /Users/shawntuttle/fuzzyhat/fuzzy_hat_artist_site/app/controllers/galleries_controller.rb to define it):
-  
-activesupport (5.0.2) lib/active_support/dependencies.rb:512:in `load_missing_constant'
-activesupport (5.0.2) lib/active_support/dependencies.rb:203:in `const_missing'
-activesupport (5.0.2) lib/active_support/inflector/methods.rb:268:in `const_get'
-activesupport (5.0.2) lib/active_support/inflector/methods.rb:268:in `block in constantize'
-activesupport (5.0.2) lib/active_support/inflector/methods.rb:266:in `each'
-activesupport (5.0.2) lib/active_support/inflector/methods.rb:266:in `inject'
-activesupport (5.0.2) lib/active_support/inflector/methods.rb:266:in `constantize'
-activesupport (5.0.2) lib/active_support/dependencies.rb:583:in `get'
-activesupport (5.0.2) lib/active_support/dependencies.rb:614:in `constantize'
-actionpack (5.0.2) lib/action_dispatch/http/request.rb:81:in `controller_class'
-actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:44:in `controller'
-actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:30:in `serve'
-actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
-actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `each'
-actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
-actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
-rack (2.0.1) lib/rack/etag.rb:25:in `call'
-rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
-rack (2.0.1) lib/rack/head.rb:12:in `call'
-rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
-rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/cookies.rb:613:in `call'
-activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
->>>>>>> 7223a7c52d3b8f181be8af11832eb9c6585c2389
 actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
 activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
 activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
@@ -618,7 +487,6 @@ puma (3.8.1) lib/puma/configuration.rb:224:in `call'
 puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
 puma (3.8.1) lib/puma/server.rb:425:in `process_client'
 puma (3.8.1) lib/puma/server.rb:289:in `block in run'
-<<<<<<< HEAD
 puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -664,24 +532,10 @@ Processing by GroupsController#index as HTML
   [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
   Rendered groups/index.html.erb within layouts/application (6.6ms)
 Completed 200 OK in 236ms (Views: 218.7ms | ActiveRecord: 1.3ms)
-
-
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mGallery Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "galleries" WHERE "galleries"."name" = $1 LIMIT $2[0m  [["name", "gallery"], ["LIMIT", 1]]
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "gallery"], ["created_at", 2017-03-14 00:06:13 UTC], ["updated_at", 2017-03-14 00:06:13 UTC]]
   [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
-=======
-puma (3.8.1) lib/puma/thread_pool.rb:120:in `call'
-puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.8ms)
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
-  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.4ms)
-  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (126.3ms)
->>>>>>> 7223a7c52d3b8f181be8af11832eb9c6585c2389
 Started GET "/" for ::1 at 2017-03-14 15:46:16 -0700
   [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Processing by GalleriesController#index as HTML
@@ -737,7 +591,7 @@ Processing by GalleriesController#index as HTML
 Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.3ms)
 
 
-  
+
 ActionView::Template::Error (No route matches {:action=>"index", :controller=>"groups"} missing required keys: [:gallery_id]):
     2: <% @galleries.each do |gallery|  %>
     3:   <ul>
@@ -746,7 +600,7 @@ ActionView::Template::Error (No route matches {:action=>"index", :controller=>"g
     6:     </li>
     7:   </ul>
     8: <% end %>
-  
+
 app/views/galleries/index.html.erb:5:in `block in _app_views_galleries_index_html_erb__3648169225343236198_70098552786900'
 app/views/galleries/index.html.erb:2:in `_app_views_galleries_index_html_erb__3648169225343236198_70098552786900'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -830,7 +684,7 @@ Processing by GalleriesController#index as HTML
 Completed 500 Internal Server Error in 33ms (ActiveRecord: 3.6ms)
 
 
-  
+
 ActionView::Template::Error (No route matches {:action=>"index", :controller=>"groups"} missing required keys: [:gallery_id]):
     2: <% @galleries.each do |gallery|  %>
     3:   <ul>
@@ -839,7 +693,7 @@ ActionView::Template::Error (No route matches {:action=>"index", :controller=>"g
     6:     </li>
     7:   </ul>
     8: <% end %>
-  
+
 app/views/galleries/index.html.erb:5:in `block in _app_views_galleries_index_html_erb__2846211053676592144_70350381784020'
 app/views/galleries/index.html.erb:2:in `_app_views_galleries_index_html_erb__2846211053676592144_70350381784020'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -858,7 +712,7 @@ Processing by GalleriesController#index as HTML
 Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.9ms)
 
 
-  
+
 ActionView::Template::Error (No route matches {:action=>"show", :controller=>"galleries"} missing required keys: [:id]):
     2: <% @galleries.each do |gallery|  %>
     3:   <ul>
@@ -867,7 +721,7 @@ ActionView::Template::Error (No route matches {:action=>"show", :controller=>"ga
     6:     </li>
     7:   </ul>
     8: <% end %>
-  
+
 app/views/galleries/index.html.erb:5:in `block in _app_views_galleries_index_html_erb__2846211053676592144_70350381995120'
 app/views/galleries/index.html.erb:2:in `_app_views_galleries_index_html_erb__2846211053676592144_70350381995120'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -886,7 +740,7 @@ Processing by GalleriesController#index as HTML
 Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)
 
 
-  
+
 ActionView::Template::Error (No route matches {:action=>"show", :controller=>"galleries"} missing required keys: [:id]):
     2: <% @galleries.each do |gallery|  %>
     3:   <ul>
@@ -895,7 +749,7 @@ ActionView::Template::Error (No route matches {:action=>"show", :controller=>"ga
     6:     </li>
     7:   </ul>
     8: <% end %>
-  
+
 app/views/galleries/index.html.erb:5:in `block in _app_views_galleries_index_html_erb__2846211053676592144_70350369740560'
 app/views/galleries/index.html.erb:2:in `_app_views_galleries_index_html_erb__2846211053676592144_70350369740560'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -914,7 +768,7 @@ Processing by GalleriesController#index as HTML
 Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)
 
 
-  
+
 ActionView::Template::Error (No route matches {:action=>"index", :controller=>"groups"} missing required keys: [:gallery_id]):
     2: <% @galleries.each do |gallery|  %>
     3:   <ul>
@@ -923,7 +777,7 @@ ActionView::Template::Error (No route matches {:action=>"index", :controller=>"g
     6:     </li>
     7:   </ul>
     8: <% end %>
-  
+
 app/views/galleries/index.html.erb:5:in `block in _app_views_galleries_index_html_erb__2846211053676592144_70350379800160'
 app/views/galleries/index.html.erb:2:in `_app_views_galleries_index_html_erb__2846211053676592144_70350379800160'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -945,9 +799,9 @@ Completed 200 OK in 224ms (Views: 219.1ms | ActiveRecord: 0.2ms)
 
 
 Started GET "/gallery_groups_path" for ::1 at 2017-03-14 16:10:16 -0700
-  
+
 ActionController::RoutingError (No route matches [GET] "/gallery_groups_path"):
-  
+
 actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
@@ -991,9 +845,9 @@ Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.6ms)
 
 
 Started GET "/gallery_groups_path" for ::1 at 2017-03-14 16:10:21 -0700
-  
+
 ActionController::RoutingError (No route matches [GET] "/gallery_groups_path"):
-  
+
 actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
@@ -1052,14 +906,14 @@ Processing by GalleriesController#index as HTML
 Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
 
 
-  
+
 ActionView::Template::Error (undefined method `id' for #<ActionController::Parameters:0x007ff77a02c3c0>):
     1: <h1><%= @galleries.length %></h1>
     2: <h1><%= params.id %></h1>
     3: <% @galleries.each do |gallery|  %>
     4:   <ul>
     5:     <li>
-  
+
 app/views/galleries/index.html.erb:2:in `_app_views_galleries_index_html_erb__2846211053676592144_70350425449220'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1103,7 +957,7 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 128ms (ActiveRecord: 5.6ms)
 
 
-  
+
 ActionView::Template::Error (undefined method `group_path' for #<#<Class:0x007ff771e1f558>:0x007ff771e1ca60>):
     20:         <td><%= group.archive %></td>
     21:         <td><%= group.thumbnail %></td>
@@ -1112,7 +966,7 @@ ActionView::Template::Error (undefined method `group_path' for #<#<Class:0x007ff
     24:         <td><%= link_to 'Edit', edit_group_path(group) %></td>
     25:         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     26:       </tr>
-  
+
 app/views/groups/index.html.erb:23:in `block in _app_views_groups_index_html_erb__4213766222484806776_70350372152980'
 app/views/groups/index.html.erb:17:in `_app_views_groups_index_html_erb__4213766222484806776_70350372152980'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -1149,7 +1003,7 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.7ms)
 
 
-  
+
 ActionView::Template::Error (undefined method `group_path' for #<#<Class:0x007ff771e1f558>:0x007ff7784c5cf8>):
     20:         <td><%= group.archive %></td>
     21:         <td><%= group.thumbnail %></td>
@@ -1158,7 +1012,7 @@ ActionView::Template::Error (undefined method `group_path' for #<#<Class:0x007ff
     24:         <td><%= link_to 'Edit', edit_group_path(group) %></td>
     25:         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     26:       </tr>
-  
+
 app/views/groups/index.html.erb:23:in `block in _app_views_groups_index_html_erb__4213766222484806776_70350425961320'
 app/views/groups/index.html.erb:17:in `_app_views_groups_index_html_erb__4213766222484806776_70350425961320'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -1194,14 +1048,14 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 184ms (ActiveRecord: 3.3ms)
 
 
-  
+
 ActionView::Template::Error (undefined local variable or method `new_group_path' for #<#<Class:0x007ff771ee6130>:0x007ff771edf588>
 Did you mean?  new_gallery_group_path):
-    30: 
+    30:
     31: <br>
-    32: 
+    32:
     33: <%= link_to 'New Series', new_group_path %>
-  
+
 app/views/groups/index.html.erb:33:in `_app_views_groups_index_html_erb__4213766222484806776_70350372551200'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1228,14 +1082,14 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 246ms (ActiveRecord: 2.9ms)
 
 
-  
+
 ActionView::Template::Error (undefined local variable or method `new_group_path' for #<#<Class:0x007ff7733e1d00>:0x007ff7770d9a78>
 Did you mean?  new_gallery_group_path):
-    30: 
+    30:
     31: <br>
-    32: 
+    32:
     33: <%= link_to 'New Series', new_group_path %>
-  
+
 app/views/groups/index.html.erb:33:in `_app_views_groups_index_html_erb__4213766222484806776_70350383554280'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1254,14 +1108,14 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 188ms (ActiveRecord: 1.1ms)
 
 
-  
+
 ActionView::Template::Error (undefined local variable or method `new_group_path' for #<#<Class:0x007ff771c3f490>:0x007ff771c3c8d0>
 Did you mean?  new_gallery_group_path):
-    30: 
+    30:
     31: <br>
-    32: 
+    32:
     33: <%= link_to 'New Series', new_group_path %>
-  
+
 app/views/groups/index.html.erb:33:in `_app_views_groups_index_html_erb__4213766222484806776_70350371138280'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1288,14 +1142,14 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 196ms (ActiveRecord: 0.3ms)
 
 
-  
+
 ActionView::Template::Error (undefined local variable or method `new_group_path' for #<#<Class:0x007ff771c3f490>:0x007ff77a3b8fe8>
 Did you mean?  new_gallery_group_path):
-    30: 
+    30:
     31: <br>
-    32: 
+    32:
     33: <%= link_to 'New Series', new_group_path %>
-  
+
 app/views/groups/index.html.erb:33:in `_app_views_groups_index_html_erb__4213766222484806776_70350442188000'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1331,14 +1185,14 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 242ms (ActiveRecord: 2.5ms)
 
 
-  
+
 ActionView::Template::Error (undefined local variable or method `new_group_path' for #<#<Class:0x007fafd104ece0>:0x007fafd1000658>
 Did you mean?  new_gallery_group_path):
-    30: 
+    30:
     31: <br>
-    32: 
+    32:
     33: <%= link_to 'New Series', new_group_path %>
-  
+
 app/views/groups/index.html.erb:33:in `_app_views_groups_index_html_erb__50275918641990193_70196555558880'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1416,13 +1270,13 @@ Processing by GalleriesController#index as HTML
 Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
 
 
-  
+
 ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Galleries):
     1: <h1><%= Galleries %></h1>
-    2: 
+    2:
     3: <% @galleries.each do |gallery|  %>
     4:   <ul>
-  
+
 app/views/galleries/index.html.erb:1:in `_app_views_galleries_index_html_erb__2372279604776122591_70196569832960'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1500,9 +1354,9 @@ Processing by GroupsController#show as HTML
 Completed 404 Not Found in 8ms (ActiveRecord: 3.6ms)
 
 
-  
+
 ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=1):
-  
+
 app/controllers/groups_controller.rb:67:in `set_group'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1523,15 +1377,15 @@ Processing by GroupsController#show as HTML
 Completed 500 Internal Server Error in 100ms (ActiveRecord: 1.3ms)
 
 
-  
+
 ActionView::Template::Error (undefined method `edit_group_path' for #<#<Class:0x007fafd104ece0>:0x007fafd8231600>
 Did you mean?  edit_gallery_group_path):
     20:   <%= @group.gallery %>
     21: </p>
-    22: 
+    22:
     23: <%= link_to 'Edit', edit_group_path(@group) %> |
     24: <%= link_to 'Back', groups_path %>
-  
+
 app/views/groups/show.html.erb:23:in `_app_views_groups_show_html_erb__2112425517483339943_70196611094380'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1551,15 +1405,15 @@ Processing by GroupsController#show as HTML
 Completed 500 Internal Server Error in 90ms (ActiveRecord: 0.7ms)
 
 
-  
+
 ActionView::Template::Error (undefined method `edit_group_path' for #<#<Class:0x007fafd104ece0>:0x007fafd669efa0>
 Did you mean?  edit_gallery_group_path):
     20:   <%= @group.gallery %>
     21: </p>
-    22: 
+    22:
     23: <%= link_to 'Edit', edit_group_path(@group) %> |
     24: <%= link_to 'Back', groups_path %>
-  
+
 app/views/groups/show.html.erb:23:in `_app_views_groups_show_html_erb__2112425517483339943_70196596636860'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1841,9 +1695,9 @@ Processing by GroupsController#show as HTML
 Completed 404 Not Found in 7ms (ActiveRecord: 1.9ms)
 
 
-  
+
 ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=2):
-  
+
 app/controllers/groups_controller.rb:67:in `set_group'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1904,9 +1758,9 @@ Processing by GroupsController#index as HTML
 Completed 404 Not Found in 5ms (ActiveRecord: 0.2ms)
 
 
-  
+
 ActiveRecord::RecordNotFound (Couldn't find Gallery with 'id'=):
-  
+
 app/controllers/groups_controller.rb:10:in `index'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1931,9 +1785,9 @@ Processing by GroupsController#index as HTML
 Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
 
 
-  
+
 ActiveRecord::RecordNotFound (Couldn't find Gallery with 'id'=):
-  
+
 app/controllers/groups_controller.rb:10:in `index'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -1953,7 +1807,7 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.4ms)
 
 
-  
+
 ActionView::Template::Error (No route matches {:action=>"show", :controller=>"groups", :gallery_id=>"12"} missing required keys: [:id]):
     20:         <td><%= group.archive %></td>
     21:         <td><%= group.thumbnail %></td>
@@ -1962,7 +1816,7 @@ ActionView::Template::Error (No route matches {:action=>"show", :controller=>"gr
     24:         <td><%= link_to 'Edit', edit_gallery_group_path(group) %></td>
     25:         <td><%= link_to 'Destroy', gallery_group_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     26:       </tr>
-  
+
 app/views/groups/index.html.erb:23:in `block in _app_views_groups_index_html_erb__50275918641990193_70196569081620'
 app/views/groups/index.html.erb:17:in `_app_views_groups_index_html_erb__50275918641990193_70196569081620'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -1991,7 +1845,7 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
 
 
-  
+
 ActionView::Template::Error (No route matches {:action=>"show", :controller=>"groups", :gallery_id=>nil, :id=>"9"} missing required keys: [:gallery_id]):
     20:         <td><%= group.archive %></td>
     21:         <td><%= group.thumbnail %></td>
@@ -2000,7 +1854,7 @@ ActionView::Template::Error (No route matches {:action=>"show", :controller=>"gr
     24:         <td><%= link_to 'Edit', edit_gallery_group_path(group) %></td>
     25:         <td><%= link_to 'Destroy', gallery_group_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     26:       </tr>
-  
+
 app/views/groups/index.html.erb:23:in `block in _app_views_groups_index_html_erb__50275918641990193_70196559569060'
 app/views/groups/index.html.erb:17:in `_app_views_groups_index_html_erb__50275918641990193_70196559569060'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -2045,7 +1899,7 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
 
 
-  
+
 ActionView::Template::Error (undefined method `id' for nil:NilClass):
     20:         <td><%= group.archive %></td>
     21:         <td><%= group.thumbnail %></td>
@@ -2054,7 +1908,7 @@ ActionView::Template::Error (undefined method `id' for nil:NilClass):
     24:         <td><%= link_to 'Edit', edit_gallery_group_path(group) %></td>
     25:         <td><%= link_to 'Destroy', gallery_group_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     26:       </tr>
-  
+
 app/views/groups/index.html.erb:23:in `block in _app_views_groups_index_html_erb__50275918641990193_70196613647720'
 app/views/groups/index.html.erb:17:in `_app_views_groups_index_html_erb__50275918641990193_70196613647720'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -2091,7 +1945,7 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
 
 
-  
+
 ActionView::Template::Error (undefined method `id' for nil:NilClass):
     20:         <td><%= group.archive %></td>
     21:         <td><%= group.thumbnail %></td>
@@ -2100,7 +1954,7 @@ ActionView::Template::Error (undefined method `id' for nil:NilClass):
     24:         <td><%= link_to 'Edit', edit_gallery_group_path(group) %></td>
     25:         <td><%= link_to 'Destroy', gallery_group_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     26:       </tr>
-  
+
 app/views/groups/index.html.erb:23:in `block in _app_views_groups_index_html_erb__50275918641990193_70196596345800'
 app/views/groups/index.html.erb:17:in `_app_views_groups_index_html_erb__50275918641990193_70196596345800'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -2615,9 +2469,9 @@ Processing by GroupsController#index as HTML
 Completed 404 Not Found in 5ms (ActiveRecord: 0.6ms)
 
 
-  
+
 ActiveRecord::RecordNotFound (Couldn't find Gallery with 'id'=14):
-  
+
 app/controllers/groups_controller.rb:10:in `index'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
@@ -2653,7 +2507,7 @@ Processing by GroupsController#index as HTML
 Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.6ms)
 
 
-  
+
 ActionView::Template::Error (undefined method `id' for nil:NilClass):
     20:         <td><%= group.archive %></td>
     21:         <td><%= group.thumbnail %></td>
@@ -2662,7 +2516,7 @@ ActionView::Template::Error (undefined method `id' for nil:NilClass):
     24:         <td><%= link_to 'Edit', edit_gallery_group_path(group) %></td>
     25:         <td><%= link_to 'Destroy', gallery_group_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     26:       </tr>
-  
+
 app/views/groups/index.html.erb:23:in `block in _app_views_groups_index_html_erb__1263318897429290021_70097263021200'
 app/views/groups/index.html.erb:17:in `_app_views_groups_index_html_erb__1263318897429290021_70097263021200'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout

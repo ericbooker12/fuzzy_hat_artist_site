@@ -5,6 +5,7 @@ Feature: Viewing Images
 
 Scenario: Choosing a Gallery
 	Given I am on the home page
+	And I can choose from the artist's galleries
 	When I click on a gallery
 	Then I see a list of that Gallery's series
 
