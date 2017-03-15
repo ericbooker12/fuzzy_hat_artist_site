@@ -2,7 +2,9 @@ class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
   def index
-    @galleries = Gallery.active
+    # @galleries = Gallery.active
+    @galleries = Gallery.all
+
   end
 
   def new

@@ -53,10 +53,11 @@ end
 
 group :test do
   gem 'faker', '~> 1.7', '>= 1.7.3'
-  gem 'capybara', '~> 2.12', '>= 2.12.1'
+  # gem 'capybara', '~> 2.12', '>= 2.12.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'selenium-webdriver', '~> 3.3'
+  gem 'cucumber-rails', '~> 1.4', '>= 1.4.5', :require => false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

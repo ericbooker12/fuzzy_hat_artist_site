@@ -20,9 +20,9 @@
         <td><%= group.archive %></td>
         <td><%= group.thumbnail %></td>
         <td><%= group.gallery %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', gallery_group_path %></td>
+        <td><%= link_to 'Edit', edit_gallery_group_path(group) %></td>
+        <td><%= link_to 'Destroy', gallery_group_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Series', new_group_path %>
+<%= link_to 'New Series', new_gallery_group_path %>
