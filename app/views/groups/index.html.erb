@@ -20,7 +20,7 @@
         <td><%= group.archive %></td>
         <td><%= group.thumbnail %></td>
         <td><%= group.gallery.name %></td>
-        <td><%= link_to 'Show', group, title: 'series' %></td>
+        <td><%= link_to 'Show', group, title: group.name %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <td><%= link_to 'Destroy', group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

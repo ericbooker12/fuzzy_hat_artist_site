@@ -1,10 +1,32 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @group = Group.find(params["group_id"])
+    @items = @group.items
+  end
 
-
+  def new
+    @item = Item.new
+    @group = Group.find(1)
+  end
 
   def show
+  end
+
+  def create
+    id = params[:group_id]
+    @group = Group.find(id)
+    @item = @group.items.build(item_params)
+    respond_to do |format|
+      if @item.save
+        format.html { redirect_to group_items_path, notice: 'Series was successfully created.' }
+        format.json { render :show, status: :created, location: @item }
+      else
+        format.html { render :new }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
