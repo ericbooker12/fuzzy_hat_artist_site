@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     @item = @collection.items.build(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to collection_items_path, notice: 'Series was successfully created.' }
+        format.html { redirect_to collection_items_path, notice: 'Collection was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }

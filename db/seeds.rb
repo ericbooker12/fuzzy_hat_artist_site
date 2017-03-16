@@ -7,7 +7,7 @@ gallery2 = Gallery.create(name: "Ceramic")
 gallery3 = Gallery.create(name: "Photography")
 
 5.times do |i|
-	g = gallery1.collections.build(name: "Series#{i+1}", thumbnail: 1)
+	g = gallery1.collections.build(name: "Collection#{i+1}", thumbnail: 1)
 	g.save
 
 	10.times do |j|

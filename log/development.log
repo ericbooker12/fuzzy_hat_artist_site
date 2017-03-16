@@ -64,9 +64,9 @@ puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   [1m[35m (25.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateSeries (20170311002545)
+Migrating to CreateCollection (20170311002545)
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (27.7ms)[0m  [1m[35mCREATE TABLE "series" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
+  [1m[35m (27.7ms)[0m  [1m[35mCREATE TABLE "collection" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
 FOREIGN KEY ("gallery_id")
   REFERENCES "galleries" ("id")
 )[0m
@@ -74,9 +74,9 @@ FOREIGN KEY ("gallery_id")
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateSeries (20170311002545)
+Migrating to CreateCollection (20170311002545)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "series" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "collection" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
 FOREIGN KEY ("gallery_id")
   REFERENCES "galleries" ("id")
 )[0m
@@ -84,9 +84,9 @@ FOREIGN KEY ("gallery_id")
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateSeries (20170311002545)
+Migrating to CreateCollection (20170311002545)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "series" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "collection" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170311002545"]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
 Migrating to CreateGalleries (20170311003012)
@@ -112,9 +112,9 @@ Migrating to CreateGalleries (20170311003012)
   [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateSeries (20170311002545)
+Migrating to CreateCollection (20170311002545)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "series" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "collection" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
 FOREIGN KEY ("gallery_id")
   REFERENCES "galleries" ("id")
 )[0m
@@ -122,9 +122,9 @@ FOREIGN KEY ("gallery_id")
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateSeries (20170311002545)
+Migrating to CreateCollection (20170311002545)
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "series" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "collection" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
 FOREIGN KEY ("gallery_id")
   REFERENCES "galleries" ("id")
 )[0m
@@ -132,9 +132,9 @@ FOREIGN KEY ("gallery_id")
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateSeries (20170311002545)
+Migrating to CreateCollection (20170311002545)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "series" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "collection" ("id" serial primary key, "name" character varying, "archive" boolean, "thumbnail" integer, "gallery_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae76c8d30d"
 FOREIGN KEY ("gallery_id")
   REFERENCES "galleries" ("id")
 )[0m
@@ -635,8 +635,8 @@ app/views/galleries/index.html.erb:2:in `_app_views_galleries_index_html_erb__36
   [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" ORDER BY "galleries"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 2]]
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "series1"], ["LIMIT", 1]]
-  [1m[35mSQL (6.1ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "series1"], ["thumbnail", 1], ["created_at", 2017-03-14 23:02:10 UTC], ["updated_at", 2017-03-14 23:02:10 UTC], ["gallery_id", 2]]
+  [1m[36mCollection Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (6.1ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "collection1"], ["thumbnail", 1], ["created_at", 2017-03-14 23:02:10 UTC], ["updated_at", 2017-03-14 23:02:10 UTC], ["gallery_id", 2]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mSQL (46.8ms)[0m  [1m[31mDELETE FROM "galleries"[0m
@@ -656,24 +656,24 @@ app/views/galleries/index.html.erb:2:in `_app_views_galleries_index_html_erb__36
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series2"], ["LIMIT", 1]]
-  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series2"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
+  [1m[36mCollection Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection2"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series3"], ["LIMIT", 1]]
-  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series3"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection3"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series4"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series4"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection4"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series5"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series5"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
+  [1m[36mCollection Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection5"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection5"], ["thumbnail", 1], ["created_at", 2017-03-14 23:05:46 UTC], ["updated_at", 2017-03-14 23:05:46 UTC], ["gallery_id", 5]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
 Started GET "/galleries" for ::1 at 2017-03-14 16:06:31 -0700
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -1054,7 +1054,7 @@ Did you mean?  new_gallery_collection_path):
     30:
     31: <br>
     32:
-    33: <%= link_to 'New Series', new_collection_path %>
+    33: <%= link_to 'New Collection', new_collection_path %>
 
 app/views/collections/index.html.erb:33:in `_app_views_collections_index_html_erb__4213766222484806776_70350372551200'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -1088,7 +1088,7 @@ Did you mean?  new_gallery_collection_path):
     30:
     31: <br>
     32:
-    33: <%= link_to 'New Series', new_collection_path %>
+    33: <%= link_to 'New Collection', new_collection_path %>
 
 app/views/collections/index.html.erb:33:in `_app_views_collections_index_html_erb__4213766222484806776_70350383554280'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -1114,7 +1114,7 @@ Did you mean?  new_gallery_collection_path):
     30:
     31: <br>
     32:
-    33: <%= link_to 'New Series', new_collection_path %>
+    33: <%= link_to 'New Collection', new_collection_path %>
 
 app/views/collections/index.html.erb:33:in `_app_views_collections_index_html_erb__4213766222484806776_70350371138280'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -1148,7 +1148,7 @@ Did you mean?  new_gallery_collection_path):
     30:
     31: <br>
     32:
-    33: <%= link_to 'New Series', new_collection_path %>
+    33: <%= link_to 'New Collection', new_collection_path %>
 
 app/views/collections/index.html.erb:33:in `_app_views_collections_index_html_erb__4213766222484806776_70350442188000'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -1191,7 +1191,7 @@ Did you mean?  new_gallery_collection_path):
     30:
     31: <br>
     32:
-    33: <%= link_to 'New Series', new_collection_path %>
+    33: <%= link_to 'New Collection', new_collection_path %>
 
 app/views/collections/index.html.erb:33:in `_app_views_collections_index_html_erb__50275918641990193_70196555558880'
   Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
@@ -1442,8 +1442,8 @@ Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.5ms)
   [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
-  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series99"], ["thumbnail", 1], ["created_at", 2017-03-15 00:42:19 UTC], ["updated_at", 2017-03-15 00:42:19 UTC], ["gallery_id", 8]]
+  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection99"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection99"], ["thumbnail", 1], ["created_at", 2017-03-15 00:42:19 UTC], ["updated_at", 2017-03-15 00:42:19 UTC], ["gallery_id", 8]]
   [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
 Started GET "/galleries/5/collections/2" for ::1 at 2017-03-14 17:50:14 -0700
 Processing by CollectionsController#show as HTML
@@ -1498,8 +1498,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-15 01:01:58 UTC], ["updated_at", 2017-03-15 01:01:58 UTC]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-15 01:01:58 UTC], ["updated_at", 2017-03-15 01:01:58 UTC], ["gallery_id", 9]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-15 01:01:58 UTC], ["updated_at", 2017-03-15 01:01:58 UTC], ["gallery_id", 9]]
   [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "items"[0m
@@ -1518,8 +1518,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 9], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
@@ -1552,8 +1552,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 9], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series2"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series2"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection2"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 10], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
@@ -1586,8 +1586,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 10], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series3"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series3"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection3"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 11], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
@@ -1620,8 +1620,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 11], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series4"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series4"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection4"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 12], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
@@ -1654,8 +1654,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 12], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series5"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series5"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection5"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection5"], ["thumbnail", 1], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC], ["gallery_id", 12]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 13], ["created_at", 2017-03-15 01:04:59 UTC], ["updated_at", 2017-03-15 01:04:59 UTC]]
@@ -2098,8 +2098,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
@@ -2132,8 +2132,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series2"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series2"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection2"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 2], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
@@ -2166,8 +2166,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 2], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series3"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series3"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection3"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 3], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
@@ -2200,8 +2200,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 3], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series4"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series4"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection4"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 4], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
@@ -2234,8 +2234,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 4], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series5"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series5"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection5"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection5"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC], ["gallery_id", 1]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 5], ["created_at", 2017-03-15 01:13:10 UTC], ["updated_at", 2017-03-15 01:13:10 UTC]]
@@ -2284,8 +2284,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC], ["gallery_id", 4]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC], ["gallery_id", 4]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 6], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC]]
@@ -2318,8 +2318,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 6], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series2"], ["LIMIT", 1]]
-  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series2"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC], ["gallery_id", 4]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection2"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC], ["gallery_id", 4]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 7], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC]]
@@ -2352,8 +2352,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 7], ["created_at", 2017-03-15 01:13:17 UTC], ["updated_at", 2017-03-15 01:13:17 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series3"], ["LIMIT", 1]]
-  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series3"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC], ["gallery_id", 4]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection3"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC], ["gallery_id", 4]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 8], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC]]
@@ -2386,8 +2386,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 8], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series4"], ["LIMIT", 1]]
-  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series4"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC], ["gallery_id", 4]]
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection4"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC], ["gallery_id", 4]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 9], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC]]
@@ -2420,8 +2420,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 9], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series5"], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series5"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC], ["gallery_id", 4]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection5"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection5"], ["thumbnail", 1], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC], ["gallery_id", 4]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 10], ["created_at", 2017-03-15 01:13:18 UTC], ["updated_at", 2017-03-15 01:13:18 UTC]]
@@ -2544,7 +2544,7 @@ FOREIGN KEY ("collection_id")
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[36mGallery Load (22.8ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCollection Exists (3.1ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series99"], ["LIMIT", 1]]
+  [1m[36mCollection Exists (3.1ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection99"], ["LIMIT", 1]]
   [1m[36mGallery Load (1.9ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
 Started GET "/" for ::1 at 2017-03-15 14:19:58 -0700
   [1m[36mActiveRecord::SchemaMigration Load (15.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -2589,8 +2589,8 @@ Completed 200 OK in 161ms (Views: 134.7ms | ActiveRecord: 7.7ms)
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (6.8ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
+  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (6.8ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
   [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 3], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
@@ -2623,8 +2623,8 @@ Completed 200 OK in 161ms (Views: 134.7ms | ActiveRecord: 7.7ms)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 3], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series2"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series2"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection2"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 4], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
@@ -2657,8 +2657,8 @@ Completed 200 OK in 161ms (Views: 134.7ms | ActiveRecord: 7.7ms)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 4], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series3"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series3"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection3"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 5], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
@@ -2691,8 +2691,8 @@ Completed 200 OK in 161ms (Views: 134.7ms | ActiveRecord: 7.7ms)
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 5], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series4"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series4"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection4"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 6], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
@@ -2725,8 +2725,8 @@ Completed 200 OK in 161ms (Views: 134.7ms | ActiveRecord: 7.7ms)
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 6], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series5"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series5"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection5"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection5"], ["thumbnail", 1], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC], ["gallery_id", 2]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 7], ["created_at", 2017-03-15 22:03:29 UTC], ["updated_at", 2017-03-15 22:03:29 UTC]]
@@ -2964,8 +2964,8 @@ Migrating to AddDefaultValueToArchiveAttributeInGallery (20170315221748)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-15 22:20:57 UTC], ["updated_at", 2017-03-15 22:20:57 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (64.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:57 UTC], ["updated_at", 2017-03-15 22:20:57 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (64.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:57 UTC], ["updated_at", 2017-03-15 22:20:57 UTC], ["gallery_id", 1]]
   [1m[35m (14.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 1], ["created_at", 2017-03-15 22:20:57 UTC], ["updated_at", 2017-03-15 22:20:57 UTC]]
@@ -2998,8 +2998,8 @@ Migrating to AddDefaultValueToArchiveAttributeInGallery (20170315221748)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 1], ["created_at", 2017-03-15 22:20:57 UTC], ["updated_at", 2017-03-15 22:20:57 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series2"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series2"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:57 UTC], ["updated_at", 2017-03-15 22:20:57 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection2"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:57 UTC], ["updated_at", 2017-03-15 22:20:57 UTC], ["gallery_id", 1]]
   [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 2], ["created_at", 2017-03-15 22:20:57 UTC], ["updated_at", 2017-03-15 22:20:57 UTC]]
@@ -3032,8 +3032,8 @@ Migrating to AddDefaultValueToArchiveAttributeInGallery (20170315221748)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 2], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series3"], ["LIMIT", 1]]
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series3"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection3"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC], ["gallery_id", 1]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 3], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC]]
@@ -3066,8 +3066,8 @@ Migrating to AddDefaultValueToArchiveAttributeInGallery (20170315221748)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 3], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC]]
   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series4"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series4"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection4"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC], ["gallery_id", 1]]
   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 4], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC]]
@@ -3100,8 +3100,8 @@ Migrating to AddDefaultValueToArchiveAttributeInGallery (20170315221748)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 4], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series5"], ["LIMIT", 1]]
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series5"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection5"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection5"], ["thumbnail", 1], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC], ["gallery_id", 1]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 5], ["created_at", 2017-03-15 22:20:58 UTC], ["updated_at", 2017-03-15 22:20:58 UTC]]
@@ -3269,8 +3269,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
   [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
@@ -3303,8 +3303,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series2"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series2"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection2"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 2], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
@@ -3337,8 +3337,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 2], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
   [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series3"], ["LIMIT", 1]]
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series3"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection3"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
   [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 3], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
@@ -3371,8 +3371,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 3], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series4"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series4"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection4"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 4], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
@@ -3405,8 +3405,8 @@ FOREIGN KEY ("collection_id")
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 4], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series5"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series5"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection5"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection5"], ["thumbnail", 1], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC], ["gallery_id", 1]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title1"], ["collection_id", 5], ["created_at", 2017-03-15 22:23:55 UTC], ["updated_at", 2017-03-15 22:23:55 UTC]]
@@ -3806,7 +3806,7 @@ Completed 500 Internal Server Error in 128ms (ActiveRecord: 0.0ms)
 
   
 ActionView::Template::Error (Missing block):
-    1: <h1>New Series</h1>
+    1: <h1>New Collection</h1>
     2: 
     3: <%= simple_form_for @collection, html: { multipart: true } %>
     4: 
@@ -3831,7 +3831,7 @@ Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.0ms)
 
   
 ActionView::Template::Error (Missing block):
-    1: <h1>New Series</h1>
+    1: <h1>New Collection</h1>
     2: 
     3: <%= simple_form_for @collection, html: { multipart: true } %>
     4:   <%  if @collection.errors.any? %>
@@ -3879,7 +3879,7 @@ Completed 500 Internal Server Error in 427ms (ActiveRecord: 0.0ms)
 
   
 ActionView::Template::Error (undefined method `collections_path' for #<#<Class:0x007fc74c181e40>:0x007fc753069970>):
-    1: <h1>New Series</h1>
+    1: <h1>New Collection</h1>
     2: 
     3: <%= simple_form_for @collection, html: { multipart: true } do |f| %>
     4:   <%  if @collection.errors.any? %>
@@ -3905,7 +3905,7 @@ Completed 500 Internal Server Error in 472ms (ActiveRecord: 0.0ms)
 
   
 ActionView::Template::Error (undefined method `collections_path' for #<#<Class:0x007fc74c181e40>:0x007fc74ff7abe8>):
-    1: <h1>New Series</h1>
+    1: <h1>New Collection</h1>
     2: 
     3: <%= simple_form_for @collection do |f| %>
     4:   <%  if @collection.errors.any? %>
@@ -4205,7 +4205,7 @@ Completed 500 Internal Server Error in 134ms (ActiveRecord: 0.8ms)
 
   
 ActionView::Template::Error (undefined method `collections_path' for #<#<Class:0x007fc7505c69e8>:0x007fc752fec470>):
-    1: <h1>New Series</h1>
+    1: <h1>New Collection</h1>
     2: 
     3: <%= simple_form_for [@gallery, @collection], html: { multipart: true } do |f| %>
     4:   <% if @collection.errors.any? %>
@@ -4245,7 +4245,7 @@ Completed 500 Internal Server Error in 146ms (ActiveRecord: 0.8ms)
 
   
 ActionView::Template::Error (undefined method `collections_path' for #<#<Class:0x007fc7505c69e8>:0x007fc74fc71fa0>):
-    1: <h1>New Series</h1>
+    1: <h1>New Collection</h1>
     2: 
     3: <%= simple_form_for [@gallery, @collection], html: { multipart: true } do |f| %>
     4:   <% if @collection.errors.any? %>
@@ -5173,8 +5173,8 @@ Completed 200 OK in 436ms (Views: 382.5ms | ActiveRecord: 0.8ms)
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Photography"], ["created_at", 2017-03-16 04:54:02 UTC], ["updated_at", 2017-03-16 04:54:02 UTC]]
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series1"], ["LIMIT", 1]]
-  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series1"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection1"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
   [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
@@ -5217,8 +5217,8 @@ Completed 200 OK in 436ms (Views: 382.5ms | ActiveRecord: 0.8ms)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series2"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series2"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection2"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
@@ -5261,8 +5261,8 @@ Completed 200 OK in 436ms (Views: 382.5ms | ActiveRecord: 0.8ms)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 2], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series3"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series3"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection3"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
@@ -5305,8 +5305,8 @@ Completed 200 OK in 436ms (Views: 382.5ms | ActiveRecord: 0.8ms)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 3], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series4"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series4"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection4"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
@@ -5349,8 +5349,8 @@ Completed 200 OK in 436ms (Views: 382.5ms | ActiveRecord: 0.8ms)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "collection_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title10"], ["collection_id", 4], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Series5"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Series5"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "Collection5"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Collection5"], ["thumbnail", 1], ["created_at", 2017-03-16 04:54:03 UTC], ["updated_at", 2017-03-16 04:54:03 UTC], ["gallery_id", 1]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
@@ -7201,3 +7201,172 @@ Migrating to RenamesCollection (20170316214246)
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for ::1 at 2017-03-16 15:34:08 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (6.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.2) lib/active_record/migration.rb:573:in `check_pending!'
+activerecord (5.0.2) lib/active_record/migration.rb:549:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `call'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (137.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20170316223049)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170316223049"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for ::1 at 2017-03-16 15:35:43 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (8.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 838ms (Views: 796.3ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/galleries/1/collections" for ::1 at 2017-03-16 15:35:47 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (1.9ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 18.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "collections" does not exist
+LINE 8:                WHERE a.attrelid = '"collections"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+             (SELECT c.collname FROM pg_collation c, pg_type t
+               WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation),
+                     col_description(a.attrelid, a.attnum) AS comment
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"collections"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+  
+app/controllers/collections_controller.rb:11:in `index'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.6ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (123.8ms)
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  [1m[36mCollection Load (7.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (5037.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fuzzy_hat_artist_site_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (133.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fuzzy_hat_artist_site_development"[0m
+  [1m[35m (131.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fuzzy_hat_artist_site_test"[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGroups (20170311004620)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGroups (20170311004620)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (24.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (130.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fuzzy_hat_artist_site_development"[0m
+  [1m[35m (123.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fuzzy_hat_artist_site_test"[0m
+  [1m[35m (27.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGroups (20170311004620)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGroups (20170311004620)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGroups (20170311004620)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateControllers (20170311004620)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (141.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fuzzy_hat_artist_site_development"[0m
+  [1m[35m (141.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fuzzy_hat_artist_site_test"[0m
+  [1m[35m (25.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (46.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363223374234584485);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateControllers (20170311004620)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363223374234584485)[0m

@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 5.1'
 gem 'simple_form', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'devise', '~> 4.2', '>= 4.2.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -34,14 +35,14 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', collection: :development
 
-collection :development, :test do
+group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'factory_girl_rails', '~> 4.8'
 end
 
-collection :development do
+group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
@@ -50,7 +51,7 @@ collection :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-collection :test do
+group :test do
   gem 'faker', '~> 1.7', '>= 1.7.3'
   # gem 'capybara', '~> 2.12', '>= 2.12.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'

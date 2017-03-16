@@ -11,9 +11,9 @@ Feature: Uploading Images
 
   Scenario: upload an image
     When I upload an image
-    And I enter a title and series
+    And I enter a title and collection
     And I click submit
-    Then I should see the image on its series page
+    Then I should see the image on its collection page
 
   Scenario: not uploading anything
     When I fail to attach an image
@@ -23,6 +23,6 @@ Feature: Uploading Images
     When I fail to add a title
     Then a title should be assigned
 
-  Scenario: not specifying a series
-    When I fail to specify a series
+  Scenario: not specifying a collection
+    When I fail to specify a collection
     Then I should not be allowed to submit
