@@ -6,7 +6,7 @@ end
 
 Given(/^a series$/) do
   @s = Group.create(name: "Series99", thumbnail: 1, gallery_id: @g.id)
-	@s.items.build(title: 'A pretty vase', image: '/image1.jpg')
+	@s.items.build(title: 'A pretty vase', image_file_name: "image1")
 	@s.save
 end
 
@@ -14,28 +14,31 @@ Given(/^a collection of galleries$/) do
   @galleries = Gallery.active
 end
 
-# Viewing a gallery
-When(/^I click on a gallery$/) do
-	# visit gallery_groups_path(@g.id)
-	click_on 'gallery'
+# Choosing a gallery
+When(/^I follow the medium "([^"]*)"$/) do |medium|
+	click_on medium
 end
 
 Then(/^I see a list of that Gallery's series$/) do
-	# find('h1').should have_content "Series"
 	expect(body).to include "Series"
 end
 
-# Viewing a series
-When(/^I click on a series$/) do
-	click_on 'series'
+Then(/^I see an image for each series$/) do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^I see a list of thumbnails from that series$/) do
-	visit group_path(@s)
-	save_and_open_page
-	click_on 'show image'
+# Choosing a series
+When(/^I follow the series "([^"]*)"$/) do |series|
+	click_on series
+end
 
-	# find("a href[title='show image']").click
+Then(/^I see a list of items from that series$/) do
+	expect(body).to include "Artwork"
+	# find("a href[title='show image']").click      ## How to refer to images??
+end
+
+Then(/^I see many image thumbnails$/) do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 # Viewing images

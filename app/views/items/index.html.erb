@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Images of a series</h1>
+
+<ul>
+  <% @items.each do |item|   %>
+  <li>
+    <%= link_to 'Photo placeholder', group_item_path(item.group_id, item)  %>
+    <%= item.title %>
+  </li>
+  <% end %>
+</ul>

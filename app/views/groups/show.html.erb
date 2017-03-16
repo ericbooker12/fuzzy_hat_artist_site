@@ -1,4 +1,4 @@
-<h1>A Series has a bunch of images. See thumbnails below.</h1>
+<h1>Artwork</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -25,6 +25,6 @@
 	<% end %>
 </ul>
 
-
+<%= link_to 'New', new_group_item_path(@group) %> |
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', gallery_groups_path(@group.gallery_id) %>

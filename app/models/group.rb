@@ -5,6 +5,8 @@ class Group < ApplicationRecord
 	validates :thumbnail, presence: true
 	validates :name, uniqueness: true
 
+  accepts_nested_attributes_for :items   # ???
+
   def self.active
     Group.where(archive: false)
   end
