@@ -5,7 +5,7 @@
 <ul>
   <% @items.each do |item|   %>
   <li>
-    <%= link_to 'Photo placeholder', group_item_path(item.group_id, item)  %>
+    <%= link_to 'Photo placeholder', collection_item_path(item.collection_id, item)  %>
     <%= item.title %>
   </li>
   <% end %>

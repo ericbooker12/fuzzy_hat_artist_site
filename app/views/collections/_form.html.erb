@@ -1,10 +1,10 @@
-<%= simple_form_for [@gallery, @group], html: { multipart: true } do |f| %>
-  <% if @group.errors.any? %>
+<%= simple_form_for [@gallery, @collection], html: { multipart: true } do |f| %>
+  <% if @collection.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <h2><%= pluralize(@collection.errors.count, "error") %> prohibited this collection from being saved:</h2>
 
       <ul>
-      <% @group.errors.full_messages.each do |message| %>
+      <% @collection.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

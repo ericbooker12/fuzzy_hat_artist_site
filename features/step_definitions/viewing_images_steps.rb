@@ -5,7 +5,7 @@ Given(/^a gallery$/) do
 end
 
 Given(/^a series$/) do
-  @s = Group.create(name: "Series99", thumbnail: 1, gallery_id: @g.id)
+  @s = Collection.create(name: "Series99", thumbnail: 1, gallery_id: @g.id)
 	@s.items.build(title: 'A pretty vase', image_file_name: "image1")
 	@s.save
 end

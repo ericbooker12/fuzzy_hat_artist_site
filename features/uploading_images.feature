@@ -1,7 +1,7 @@
 Feature: Uploading Images
   In order to show my artwork in online gallery
   As an artist
-  I want to upload images to groups on my site
+  I want to upload images to collections on my site
   And add title and dimensions if I have them
 
   Background:

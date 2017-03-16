@@ -5,6 +5,6 @@ FactoryGirl.define do
     length 1
     width 1
     height 1
-    group nil
+    collection nil
   end
 end

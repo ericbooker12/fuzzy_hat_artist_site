@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316035055) do
+ActiveRecord::Schema.define(version: 20170316214246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(version: 20170316035055) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "collections", force: :cascade do |t|
     t.string   "name"
     t.boolean  "archive",    default: false
     t.integer  "thumbnail"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "gallery_id"
-    t.index ["gallery_id"], name: "index_groups_on_gallery_id", using: :btree
+    t.index ["gallery_id"], name: "index_collections_on_gallery_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
@@ -37,16 +37,16 @@ ActiveRecord::Schema.define(version: 20170316035055) do
     t.integer  "length"
     t.integer  "width"
     t.integer  "height"
-    t.integer  "group_id"
+    t.integer  "collection_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.index ["group_id"], name: "index_items_on_group_id", using: :btree
+    t.index ["collection_id"], name: "index_items_on_collection_id", using: :btree
   end
 
-  add_foreign_key "groups", "galleries"
-  add_foreign_key "items", "groups"
+  add_foreign_key "collections", "galleries"
+  add_foreign_key "items", "collections"
 end

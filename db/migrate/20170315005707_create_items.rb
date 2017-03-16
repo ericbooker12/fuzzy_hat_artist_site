@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer :length
       t.integer :width
       t.integer :height
-      t.references :group, foreign_key: true
+      t.references :collection, foreign_key: true
 
       t.timestamps
     end

@@ -1,4 +1,4 @@
-class Group < ApplicationRecord
+class Collection < ApplicationRecord
   belongs_to :gallery
   has_many :items
 	validates :name, presence: true
@@ -8,7 +8,7 @@ class Group < ApplicationRecord
   accepts_nested_attributes_for :items   # ???
 
   def self.active
-    Group.where(archive: false)
+    Collection.where(archive: false)
   end
 
 end

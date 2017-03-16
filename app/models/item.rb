@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :group
+  belongs_to :collection
 
   has_attached_file :image,
             styles: { medium: "800x600>", thumb: "300x200>" },

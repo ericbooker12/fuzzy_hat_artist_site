@@ -32,16 +32,16 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# gem 'capistrano-rails', collection: :development
 
-group :development, :test do
+collection :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'factory_girl_rails', '~> 4.8'
 end
 
-group :development do
+collection :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
@@ -50,7 +50,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :test do
+collection :test do
   gem 'faker', '~> 1.7', '>= 1.7.3'
   # gem 'capybara', '~> 2.12', '>= 2.12.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'

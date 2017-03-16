@@ -1,5 +1,5 @@
 Feature: Creating a new series
-In order to organize my artwork into relevant groups
+In order to organize my artwork into relevant collections
 As an artist
 I want to create a new series that is part of a gallery
 
