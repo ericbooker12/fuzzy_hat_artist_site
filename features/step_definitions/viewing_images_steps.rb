@@ -15,9 +15,9 @@ Given(/^a collection of galleries$/) do
 end
 
 # Viewing a gallery
-When(/^I click on a gallery$/) do
+When(/^I follow "([^"]*)"$/) do |medium|
 	# visit gallery_groups_path(@g.id)
-	click_on 'gallery'
+	click_on medium
 end
 
 Then(/^I see a list of that Gallery's series$/) do
