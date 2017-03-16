@@ -19,10 +19,10 @@
         <td><%= group.name %></td>
         <td><%= group.archive %></td>
         <td><%= group.thumbnail %></td>
-        <td><%= group.gallery %></td>
-        <td><%= link_to 'Show', gallery_group_path %></td>
-        <td><%= link_to 'Edit', edit_gallery_group_path(group) %></td>
-        <td><%= link_to 'Destroy', gallery_group_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= group.gallery.name %></td>
+        <td><%= link_to 'Show', group, title: 'series' %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

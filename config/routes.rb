@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
 	resources :galleries do
-		resources :groups
+		resources :groups, only: [:index, :new, :create]
 	end
 
-	resources :items
+	resources :groups, only: [:show, :edit, :update, :destroy] do
+		resources :items
+	end
+
 
 	root 'galleries#index'
 end
