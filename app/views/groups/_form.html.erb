@@ -1,37 +1,18 @@
-<%= form_for(group) do |f| %>
-  <% if group.errors.any? %>
+<%= simple_form_for [@gallery, @group], html: { multipart: true } do |f| %>
+  <% if @group.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
 
       <ul>
-      <% group.errors.full_messages.each do |message| %>
+      <% @group.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+  <%= f.input :name, input_html: {class: 'form-control'} %>
+  <h2>drop in gallery in case it needs to change</h2><br />
+  <%= f.button :submit, class: "btn btn-primary" %>
 
-  <div class="field">
-    <%= f.label :archive %>
-    <%= f.check_box :archive %>
-  </div>
-
-  <div class="field">
-    <%= f.label :thumbnail %>
-    <%= f.number_field :thumbnail %>
-  </div>
-
-  <div class="field">
-    <%= f.label :gallery_id %>
-    <%= f.text_field :gallery_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -19,20 +19,28 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    @gallery = Gallery.find(params["gallery_id"])
   end
 
   # GET /groups/1/edit
   def edit
+    # @group = Group.new
+    p '*' * 50
+    p @group
+    # @gallery = Gallery.find(params["gallery_id"])
   end
 
   # POST /groups
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    p '*' * 50
+    p group_params
+    p group_params[:gallery_id]
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.html { redirect_to @group, notice: 'Series was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }
