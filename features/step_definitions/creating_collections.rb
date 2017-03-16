@@ -1,6 +1,6 @@
 # Creating Collection
 Given(/^on my profile page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit user_path
 end
 
 When(/^I enter a name and gallery$/) do

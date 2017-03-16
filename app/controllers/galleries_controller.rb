@@ -6,9 +6,20 @@ class GalleriesController < ApplicationController
   end
 
   def new
+    @gallery = current_user.galleries.build
   end
 
   def create
+    @gallery = current_user.galleries.build(gallery_params)
+    respond_to do |format|
+      if @gallery.save
+        format.html { redirect_to galleries_path, notice: 'Gallery was successfully created.' }
+        format.json { render :show, status: :created, location: @gallery }
+      else
+        format.html { render :new }
+        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update

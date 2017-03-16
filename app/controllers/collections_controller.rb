@@ -18,8 +18,9 @@ class CollectionsController < ApplicationController
 
   # GET /collections/new
   def new
-    @collection = Collection.new
+    # @collection = Collection.new
     @gallery = Gallery.find(params["gallery_id"])
+    @collection = @gallery.collections.build
   end
 
   # GET /collections/1/edit
@@ -33,7 +34,9 @@ class CollectionsController < ApplicationController
   # POST /collections
   # POST /collections.json
   def create
-    @collection = Collection.new(collection_params)
+    # @collection = Collection.new(collection_params)
+    @collection = @gallery.collections.build(collection_params)
+
     p '*' * 50
     p collection_params
     p collection_params[:gallery_id]
