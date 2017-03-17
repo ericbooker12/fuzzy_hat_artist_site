@@ -1,7 +1,9 @@
-
+Given(/^a user$/) do
+	@user = User.create(email: "be@bop.com", password: "123456")
+end
 
 Given(/^a gallery$/) do
-	@g = Gallery.create(name: "Glass")
+	@g = Gallery.create(name: "Glass", user_id: @user.id)
 end
 
 Given(/^a collection$/) do

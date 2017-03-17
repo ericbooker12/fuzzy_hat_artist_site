@@ -3,8 +3,7 @@ class GalleriesController < ApplicationController
 
   def index
     @galleries = Gallery.active
-    @status = user_signed_in?
-    @id = current_user.id
+    # user_signed_in? ? @id = current_user.id : @id = "not signed in"
   end
 
   def new
@@ -38,6 +37,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:name, :archive)
+      params.require(:gallery).permit(:name, :archive, :user_id)
     end
 end
