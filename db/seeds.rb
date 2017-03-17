@@ -3,6 +3,7 @@ Collection.delete_all
 Gallery.delete_all
 User.delete_all
 
+# ga = Gallery.new(name: "gall")
 user = User.new(email: "be@bop.com", password: "123456")
 
 mediums = ["Glass", "Ceramics", "Photography"]
