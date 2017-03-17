@@ -55,7 +55,7 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   <<: *default
   database: fuzzy_hat_artist_site_test
 
@@ -83,3 +83,6 @@ production:
   database: fuzzy_hat_artist_site_production
   username: fuzzy_hat_artist_site
   password: <%= ENV['FUZZY_HAT_ARTIST_SITE_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test
