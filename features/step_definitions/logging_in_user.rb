@@ -3,7 +3,10 @@ Given(/^I already have an account$/) do
 end
 
 Given(/^I am not logged in$/) do
-  visit('/users/sign_out')
+  # visit('/users/sign_out')
+  # click_link "Log out"
+    visit root_path
+
 end
 
 When(/^I visit new_user_session_path$/) do
