@@ -3,10 +3,8 @@ Feature: Logging in a user
 	As an artist
 	I want to log in to website
 
-  Background:
-    Given I already have an account
-
 	Scenario: Logging in
+		Given I already have an account
     Given I am not logged in
     When I visit new_user_session_path
     And fill_in Email, with: "jim@bo.com"
