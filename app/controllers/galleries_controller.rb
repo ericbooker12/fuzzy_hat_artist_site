@@ -3,6 +3,8 @@ class GalleriesController < ApplicationController
 
   def index
     @galleries = Gallery.active
+    @status = user_signed_in?
+    @id = current_user.id
   end
 
   def new
