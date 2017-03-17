@@ -34,12 +34,8 @@ class CollectionsController < ApplicationController
   # POST /collections
   # POST /collections.json
   def create
-    # @collection = Collection.new(collection_params)
+    @gallery = Gallery.find(params["gallery_id"])
     @collection = @gallery.collections.build(collection_params)
-
-    p '*' * 50
-    p collection_params
-    p collection_params[:gallery_id]
 
     respond_to do |format|
       if @collection.save

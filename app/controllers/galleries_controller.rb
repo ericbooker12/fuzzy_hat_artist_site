@@ -3,7 +3,9 @@ class GalleriesController < ApplicationController
 
   def index
     @galleries = Gallery.active
-    # user_signed_in? ? @id = current_user.id : @id = "not signed in"
+    if user_signed_in?
+    	redirect_to user_path(current_user.id)
+    end
   end
 
   def new
