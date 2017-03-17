@@ -1,6 +1,6 @@
 # Creating Collection
 Given(/^on my profile page$/) do
-  visit @user
+  visit user_path(@user.id)
 end
 
 When(/^I enter a name and gallery$/) do
@@ -32,8 +32,9 @@ Given(/^on a collection page$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Given(/^I follow the "([^"]*)" link$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I visit "([^"]*)"$/) do |new_collection|
+	find_link(new_collection)
+  visit new_gallery_collection_path(@g.id)
 end
 
 When(/^I click on an image$/) do

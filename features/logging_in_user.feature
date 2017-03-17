@@ -3,11 +3,11 @@ Feature: Logging in a user
 	As an artist
 	I want to log in to website
 
-	Scenario: Logging in
-		Given I already have an account
-    Given I am not logged in
-    When I visit new_user_session_path
-    And fill_in Email, with: "jim@bo.com"
-    And fill_in Password, with: "password"
-    And click_button "Log in"
-    Then I see "Log out" link
+Scenario: Logging in
+	Given I already have an account
+  Given I am not logged in
+  When I visit new_user_session_path
+  And fill_in Email, with: "jim@bo.com"
+  And fill_in Password, with: "password"
+  And click_button "Log in"
+  Then I see "Log out" link

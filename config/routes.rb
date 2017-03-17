@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'users/show'
 
   devise_for :users
@@ -13,5 +12,14 @@ Rails.application.routes.draw do
 	end
 
   resources :users, only: [:show, :edit, :update]
-	root 'galleries#index'
+
+  root 'galleries#index'
+
+	#  if user_signed_in?
+	#  	root 'users#show'
+	#  else
+	# 	root 'galleries#index'
+	# end
+
 end
+p current_user
