@@ -1,5 +1,6 @@
 class Gallery < ApplicationRecord
-  has_many :groups
+  has_many :collections
+  belongs_to :user
   validates :name, presence: true
   validates :name, uniqueness: true
 

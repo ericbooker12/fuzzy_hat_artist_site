@@ -3,12 +3,24 @@ class GalleriesController < ApplicationController
 
   def index
     @galleries = Gallery.active
+    # user_signed_in? ? @id = current_user.id : @id = "not signed in"
   end
 
   def new
+    @gallery = current_user.galleries.build
   end
 
   def create
+    @gallery = current_user.galleries.build(gallery_params)
+    respond_to do |format|
+      if @gallery.save
+        format.html { redirect_to galleries_path, notice: 'Gallery was successfully created.' }
+        format.json { render :show, status: :created, location: @gallery }
+      else
+        format.html { render :new }
+        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
@@ -25,6 +37,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:name, :archive)
+      params.require(:gallery).permit(:name, :archive, :user_id)
     end
 end

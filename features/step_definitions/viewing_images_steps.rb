@@ -1,11 +1,13 @@
-
-
-Given(/^a gallery$/) do
-	@g = Gallery.create(name: "Glass")
+Given(/^a user$/) do
+	@user = User.create(email: "be@bop.com", password: "123456")
 end
 
-Given(/^a series$/) do
-  @s = Group.create(name: "Series99", thumbnail: 1, gallery_id: @g.id)
+Given(/^a gallery$/) do
+	@g = Gallery.create(name: "Glass", user_id: @user.id)
+end
+
+Given(/^a collection$/) do
+  @s = Collection.create(name: "Collection99", thumbnail: 1, gallery_id: @g.id)
 	@s.items.build(title: 'A pretty vase', image_file_name: "image1")
 	@s.save
 end
@@ -19,20 +21,20 @@ When(/^I follow the medium "([^"]*)"$/) do |medium|
 	click_on medium
 end
 
-Then(/^I see a list of that Gallery's series$/) do
-	expect(body).to include "Series"
+Then(/^I see a list of that Gallery's collection$/) do
+	expect(body).to include "Collection"
 end
 
-Then(/^I see an image for each series$/) do
+Then(/^I see an image for each collection$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-# Choosing a series
-When(/^I follow the series "([^"]*)"$/) do |series|
-	click_on series
+# Choosing a collection
+When(/^I follow the collection "([^"]*)"$/) do |collection|
+	click_on collection
 end
 
-Then(/^I see a list of items from that series$/) do
+Then(/^I see a list of items from that collection$/) do
 	expect(body).to include "Artwork"
 	# find("a href[title='show image']").click      ## How to refer to images??
 end

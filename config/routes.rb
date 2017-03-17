@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
 
+
+  get 'users/show'
+
+  devise_for :users
 	resources :galleries do
-		resources :groups, only: [:index, :new, :create]
+		resources :collections, only: [:index, :new, :create]
 	end
 
-	resources :groups, only: [:show, :edit, :update, :destroy] do
+	resources :collections, only: [:show, :edit, :update, :destroy] do
 		resources :items
 	end
 
-
+  resources :users, only: [:show, :edit, :update]
 	root 'galleries#index'
 end

@@ -2,25 +2,25 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @group = Group.find(params["group_id"])
-    @items = @group.items
+    @collection = Collection.find(params["collection_id"])
+    @items = @collection.items
   end
 
   def new
     @item = Item.new
-    @group = Group.find(1)
+    @collection = Collection.find(1)
   end
 
   def show
   end
 
   def create
-    id = params[:group_id]
-    @group = Group.find(id)
-    @item = @group.items.build(item_params)
+    id = params[:collection_id]
+    @collection = Collection.find(id)
+    @item = @collection.items.build(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to group_items_path, notice: 'Series was successfully created.' }
+        format.html { redirect_to collection_items_path, notice: 'Collection was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -37,6 +37,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:title, :image, :width, :length, :height, :group_id)
+      params.require(:item).permit(:title, :image, :width, :length, :height, :collection_id)
     end
 end

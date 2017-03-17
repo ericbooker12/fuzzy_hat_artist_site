@@ -4,20 +4,21 @@ Feature: Viewing Images
 	I want to view artist's images
 
 	Background:
-		Given a gallery
-		And a series
+		Given a user
+		And a gallery
+		And a collection
 		And a collection of galleries
 
 	Scenario: Choosing a Gallery
 		Given I am on the home page
 		When I follow the medium "Glass"
-		Then I see a list of that Gallery's series
-		And I see an image for each series
+		Then I see a list of that Gallery's collection
+		And I see an image for each collection
 
-	Scenario: Choosing a Series
-		Given I am on the series index page
-		When I follow the series "Series99"
-		Then I see a list of items from that series
+	Scenario: Choosing a Collection
+		Given I am on the collection index page
+		When I follow the collection "Collection99"
+		Then I see a list of items from that collection
 		And I see many image thumbnails
 
 	Scenario: Entering slide show mode

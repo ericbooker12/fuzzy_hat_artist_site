@@ -1,9 +1,10 @@
 <h1>Mark Einert</h1>
-
+<%= @status %>
+<%= @id %>
 <% @galleries.each do |gallery|  %>
   <ul id="main-galleries">
     <li>
-      <%= link_to gallery.name, gallery_groups_path(gallery.id), title: 'gallery' %>
+      <%= link_to gallery.name, gallery_collections_path(gallery.id), title: 'gallery' %>
     </li>
   </ul>
 <% end %>
