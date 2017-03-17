@@ -1,30 +1,16 @@
 # Creating Collection
 Given(/^on my profile page$/) do
-  visit user_path(@user.id)
-end
-
-When(/^I enter a name and gallery$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I click submit$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit user_path(@g.id)
 end
 
 Then(/^I should see the collection on its own page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I fail to choose a gallery$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+	save_and_open_page
+	expect(page).to have_content("Collection was successfully created.")
 end
 
 Then(/^I should not be allowed to submit$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I fail to enter a title$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+	save_and_open_page
+	expect(page).to have_content("Name can't be blank")
 end
 
 # Setting thumbnail for featured image

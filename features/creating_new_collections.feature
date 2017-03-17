@@ -4,26 +4,26 @@ Feature: Creating a new collection
   I want to create a new collection that is part of a gallery
 
   Background:
-    Given I already have an account
-    Given I am not logged in
+    Given a user
+    And a gallery
+    And I am not logged in
     When I visit new_user_session_path
-    And fill_in Email, with: "jim@bo.com"
-    And fill_in Password, with: "password"
+    And fill_in "Email", with: "be@bop.com"
+    And fill_in "Password", with: "123456"
     And click_button "Log in"
     And on my profile page
-    And a gallery
 
   Scenario: create a new collection
     When I visit "New Collection"
-    And I enter a name and gallery
-    And I click submit
+    And fill_in "Name", with: "Anything"
+    And fill_in "Thumbnail", with: "1"
+    And click_button "Create Collection"
     Then I should see the collection on its own page
 
-  Scenario: don't choose a gallery
-    When I fail to choose a gallery
-    Then I should not be allowed to submit
-
   Scenario: don't enter a title
-    When I fail to enter a title
+    When I visit "New Collection"
+    And fill_in "Name", with: ""
+    And fill_in "Thumbnail", with: "1"
+    And click_button "Create Collection"
     Then I should not be allowed to submit
 

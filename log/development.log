@@ -10565,3 +10565,282 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 43ms (Views: 40.2ms | ActiveRecord: 0.5ms)
 
 
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" ORDER BY "galleries"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1 ORDER BY "galleries"."id" ASC LIMIT $2[0m  [["archive", false], ["LIMIT", 1]]
+Started GET "/users/sign_out" for ::1 at 2017-03-17 15:17:16 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1 ORDER BY "galleries"."id" ASC LIMIT $2[0m  [["archive", false], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 63ms (Views: 52.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-17 15:17:22 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 73ms (Views: 60.1ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-03-17 15:17:32 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dYE8YXZ94snfPilFDHOXEFQjS4mM5qVZBiOdGohpkVS6fyH4E9i5aG+hJPNzVuYrcBsf5X56Jm7hdWsr7AmqIA==", "user"=>{"email"=>"ericbooker12@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ericbooker12@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-03-17 22:17:33 UTC], ["last_sign_in_at", 2017-03-17 21:50:01 UTC], ["sign_in_count", 3], ["updated_at", 2017-03-17 22:17:33 UTC], ["id", 2]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 157ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-17 15:17:33 -0700
+Processing by GalleriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 48ms (Views: 44.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/galleries/1/collections" for ::1 at 2017-03-17 15:17:34 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered collections/index.html.erb within layouts/application (9.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 67ms (Views: 54.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/galleries/1/collections/new" for ::1 at 2017-03-17 15:17:36 -0700
+Processing by CollectionsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (4.2ms)
+  Rendered collections/new.html.erb within layouts/application (6.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 55.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/galleries/1/collections" for ::1 at 2017-03-17 15:17:39 -0700
+Processing by CollectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZP0nkj1NHGtXVgKf8VWhXBx1iXbu3oUX08eUtBrRCMZzJGkMNIkbHYKiC+z82LiFxrIYjDhdohikknFD64KVJQ==", "collection"=>{"name"=>"/lkjkhjkhjgh"}, "commit"=>"Create Collection", "gallery_id"=>"1"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `collections' for nil:NilClass):
+  
+app/controllers/collections_controller.rb:38:in `create'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.4ms)
+Started GET "/galleries/1/collections" for ::1 at 2017-03-17 15:17:57 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered collections/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 49.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-03-17 15:17:58 -0700
+Processing by GalleriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 46ms (Views: 42.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-17 16:08:02 -0700
+Processing by GalleriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 15ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 16:08:02 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1 ORDER BY "galleries"."id" ASC LIMIT $2[0m  [["archive", false], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 39.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 16:08:38 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1 ORDER BY "galleries"."id" ASC LIMIT $2[0m  [["archive", false], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 81ms (Views: 76.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/galleries/1/collections/new" for ::1 at 2017-03-17 16:09:01 -0700
+Processing by CollectionsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (4.0ms)
+  Rendered collections/new.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 76ms (Views: 57.7ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/galleries/1/collections" for ::1 at 2017-03-17 16:12:35 -0700
+Processing by CollectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BHRY6dVGQLxfXEi6e13j3BWr4lPcolrZdM0I70OPO8ITrRZ33IJHyoqoQcl20PoFz2xzqQohfdYDmO0YstymIQ==", "collection"=>{"name"=>"sdfsfasdf"}, "commit"=>"Create Collection", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "sdfsfasdf"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (4.4ms)
+  Rendered collections/new.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 96ms (Views: 57.8ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-17 16:14:57 -0700
+Processing by GalleriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 15ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 16:14:57 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1 ORDER BY "galleries"."id" ASC LIMIT $2[0m  [["archive", false], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 41.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/galleries/1/collections/new" for ::1 at 2017-03-17 16:15:03 -0700
+Processing by CollectionsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (4.0ms)
+  Rendered collections/new.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 67ms (Views: 47.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/galleries/1/collections/new" for ::1 at 2017-03-17 16:19:06 -0700
+Processing by CollectionsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (4.2ms)
+  Rendered collections/new.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 53.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/galleries/1/collections" for ::1 at 2017-03-17 16:19:16 -0700
+Processing by CollectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q6ZTPM36y5Ai9rVv1oRMD+2/bXIZPreSrnj5FQB9cnlUfx2ixD7M5vcCvBzbCVXWN3j8iM+9kJ3ZLRzi8S7vmg==", "collection"=>{"name"=>"new collection"}, "commit"=>"Create Collection", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCollection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "new collection"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (4.6ms)
+  Rendered collections/new.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 51.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/galleries/1/collections" for ::1 at 2017-03-17 16:20:15 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered collections/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 61ms (Views: 56.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/galleries/1/collections/new" for ::1 at 2017-03-17 16:20:17 -0700
+Processing by CollectionsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (6.1ms)
+  Rendered collections/new.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 55.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/galleries/1/collections" for ::1 at 2017-03-17 16:20:26 -0700
+Processing by CollectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QynIift2LBe6E9ns1OoW585IZF6SkkZJh4BiFEVuLVNU8IYX8rIrYW/n0J/ZZw8+FI/1pEQRYUbw1YfjtD2wsA==", "collection"=>{"name"=>"new Collection", "thumbnail"=>"1"}, "commit"=>"Create Collection", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "new Collection"], ["LIMIT", 1]]
+  [1m[35mSQL (6.5ms)[0m  [1m[32mINSERT INTO "collections" ("name", "thumbnail", "created_at", "updated_at", "gallery_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "new Collection"], ["thumbnail", 1], ["created_at", 2017-03-17 23:20:26 UTC], ["updated_at", 2017-03-17 23:20:26 UTC], ["gallery_id", 1]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/collections/6
+Completed 302 Found in 18ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/collections/6" for ::1 at 2017-03-17 16:20:26 -0700
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 6]]
+  Rendered collections/show.html.erb within layouts/application (12.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 66ms (Views: 60.8ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/galleries/1/collections" for ::1 at 2017-03-17 16:34:23 -0700
+Processing by CollectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i6KgezRt+ruRvq9NgDjmSTZn9XWu71lGzlWB4feOjKISYqek1M0t9OHrLZru7eGj6MtBk7lolqogfffPhdUGhg==", "collection"=>{"name"=>"new Collection", "thumbnail"=>"1"}, "commit"=>"Create Collection", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", "new Collection"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (7.1ms)
+  Rendered collections/new.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 62ms (Views: 56.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/galleries/1/collections" for ::1 at 2017-03-17 16:34:34 -0700
+Processing by CollectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xOR9yVFpkA0Q6GtS6yOzeErr5K4A6y9HLFRADBDdIcpdJHoWsclHQmC96YWF9rSSlEdQSBds4KvCfDYiYoar7g==", "collection"=>{"name"=>"", "thumbnail"=>"1"}, "commit"=>"Create Collection", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCollection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "collections" WHERE "collections"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering collections/new.html.erb within layouts/application
+  Rendered collections/_form.html.erb (5.0ms)
+  Rendered collections/new.html.erb within layouts/application (6.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 54.4ms | ActiveRecord: 0.9ms)
+
+

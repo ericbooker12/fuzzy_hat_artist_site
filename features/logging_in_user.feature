@@ -7,7 +7,7 @@ Scenario: Logging in
 	Given I already have an account
   Given I am not logged in
   When I visit new_user_session_path
-  And fill_in Email, with: "jim@bo.com"
-  And fill_in Password, with: "password"
+  And fill_in "Email", with: "be@bop.com"
+  And fill_in "Password", with: "123456"
   And click_button "Log in"
   Then I see "Log out" link
