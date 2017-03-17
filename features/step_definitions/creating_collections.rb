@@ -32,7 +32,8 @@ Given(/^on a collection page$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-When(/^I visit "([^"]*)"$/) do |arg1|
+When(/^I visit "([^"]*)"$/) do |new_collection|
+	find_link(new_collection)
   visit new_gallery_collection_path(@g.id)
 end
 
