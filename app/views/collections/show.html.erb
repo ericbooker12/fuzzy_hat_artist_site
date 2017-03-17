@@ -1,0 +1,30 @@
+<h1>Artwork</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @collection.name %>
+</p>
+
+<p>
+  <strong>Thumbnail:</strong>
+  <%= @collection.thumbnail %>
+</p>
+
+<p>
+  <strong>Gallery:</strong>
+  <%= @collection.gallery.name %>
+</p>
+
+<ul>
+	<%	@collection.items.each do |item| %>
+		<li>
+      <%= image_tag item.image.url(:thumb) %>
+			<%= link_to item.title, collection_item_path(item), title: 'show image' %>
+		</li>
+	<% end %>
+</ul>
+
+<%= link_to 'New', new_collection_item_path(@collection) %> |
+<%= link_to 'Edit', edit_collection_path(@collection) %> |
+<%= link_to 'Back', gallery_collections_path(@collection.gallery_id) %>
