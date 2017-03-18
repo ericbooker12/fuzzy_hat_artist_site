@@ -8,4 +8,8 @@ class Gallery < ApplicationRecord
   	Gallery.where(archive: false)
   end
 
+  def self.archived
+    Gallery.where(archive: true)
+  end
+
 end
