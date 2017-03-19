@@ -1,5 +1,23 @@
 <h1>User Profile - Bingo</h1>
-<h1><%= @user.galleries.name %></h1>
-<% if @gallery %>
-	<%= link_to "New Collection", new_gallery_collection_path(@gallery.id) %>
+
+<%= link_to 'Add new gallery', new_gallery_path %>
+
+<% @galleries.each do |gallery| %>
+  <h2><%= gallery.name %></h2>
+  <%= link_to 'Edit', edit_gallery_path(gallery) %> |
+  <%= link_to 'Archive', archive_gallery_path(gallery.id), method: :patch %>
+  <br /><br />
+  <%= link_to "Add new collection in #{gallery.name}", new_gallery_collection_path(gallery.id) %>
+  <ul>
+    <% gallery.collections.each do |collection| %>
+    <li>
+      <%= link_to collection.name, collection %>
+    </li>
+    <% end %>
+  </ul>
 <% end %>
+
+<hr>
+<%= link_to 'Show Archived Galleries', archived_gallery_path %>
+<div class='archived_galleries'>
+</div>
