@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
 	resources :galleries do
 		resources :collections, only: [:index, :new, :create]
+    member do
+      patch :archive
+      get :archived
+    end
 	end
 
 	resources :collections, only: [:show, :edit, :update, :destroy] do

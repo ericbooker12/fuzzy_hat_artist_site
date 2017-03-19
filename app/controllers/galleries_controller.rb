@@ -25,15 +25,33 @@ class GalleriesController < ApplicationController
     end
   end
 
+  def show
+    @collections = @gallery.collections
+  end
+
   def update
   end
 
   def destroy
   end
 
+  def archive
+    p params
+    @gallery = Gallery.find(params[:id])
+    @gallery.update_attribute(:archive, true)
+    redirect_to galleries_path
+  end
+
+  def archived
+    @archived_galleries = Gallery.archived
+    render '_archived'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gallery
+      p params
+      p '*' * 50
       @gallery = Gallery.find(params[:id])
     end
 

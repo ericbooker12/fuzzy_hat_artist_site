@@ -1,0 +1,14 @@
+
+<ul>
+  <% @collections.each do |collection| %>
+  <li>
+    <%= link_to collection.name, collection %>
+  </li>
+  <% end %>
+</ul>
+
+link to: UN-Archive  (action not yet created)
+
+<br />
+<br />
+<%= link_to 'Archived galleries', archived_gallery_path %>
