@@ -7,11 +7,11 @@
   <%= link_to 'Edit', edit_gallery_path(gallery) %> |
   <%= link_to 'Archive', archive_gallery_path(gallery.id), method: :patch %>
   <br /><br />
-  <%= link_to "Add new collection in #{gallery.name}", new_gallery_collection_path(gallery.id) %>
+  <%= link_to "Add new collection in #{gallery.name}", new_gallery_collection_path(gallery.id), class: "add_new_collection" %>
   <ul>
     <% gallery.collections.each do |collection| %>
     <li>
-      <%= link_to collection.name, collection %>
+      <%= link_to collection.name, collection, class: "show-collection" %>
     </li>
     <% end %>
   </ul>
