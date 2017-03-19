@@ -1,0 +1,17 @@
+start 
+7 4
+
+after 4 min
+3 4
+
+after 3 min, 7 total, reset 4 min hourglass
+7 1
+
+after 1 min, 8 total, reset the 7 min hourglass which will have one minute of sand
+1 4
+
+after 1 min, 9 total
+0 3
+
+
+
