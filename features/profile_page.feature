@@ -22,12 +22,11 @@ Scenario: Adding a new gallery
 	And I fill in name with "Coffee Cups"
 	When I click on "Create Gallery" button
 	Then I should see the user profile
-	And I should see "Coffee Cups"
-
+	And I should see the gallery "Coffee Cups"
 
 Scenario: Creating a collection
-	Given I am on the user profile page
-	And a gallery exists
+	Given a gallery exists
+	And I am on the user profile page
 	When I click on the first link to add new Collection
 	Then I should see add collection page
 
