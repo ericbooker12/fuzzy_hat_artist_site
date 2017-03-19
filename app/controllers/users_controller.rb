@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
-  	@gallery = Gallery.active.first
+  	@user = current_user
+  	@gallery = @user.galleries.active.first
   end
 end
