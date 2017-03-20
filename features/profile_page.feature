@@ -29,8 +29,11 @@ Scenario: Creating a collection
 	And I am on the user profile page
 	When I click on the first link to add new Collection
 	Then I should see add collection page
-
-
+	When I fill in Name with "Series 99" and fill in Thumbnail with 1 and press "Create Collection"
+	Then I should see the collections show page
+	And I should see the name of the collection
+	When I click the "Back" link
+	Then I should see the collection index page
 
 
 

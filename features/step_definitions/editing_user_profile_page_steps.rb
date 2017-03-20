@@ -66,5 +66,33 @@ When(/^I click on the first link to add new Collection$/) do
 end
 
 Then(/^I should see add collection page$/) do
-  # expect(body).to include ("<h1>New Collection</h1>")
+  expect(page).to have_current_path(new_gallery_collection_path(Gallery.last.id))
 end
+
+When(/^I fill in Name with "([^"]*)" and fill in Thumbnail with (\d+) and press "([^"]*)"$/) do |collection_name, thumbnail_int, create_btn|
+  fill_in "Name", with: collection_name
+  fill_in "Thumbnail", with: thumbnail_int
+  click_button create_btn
+end
+
+Then(/^I should see the collections show page$/) do
+	expect(page).to have_current_path(collection_path(Collection.last.id))
+end
+
+Then(/^I should see the name of the collection$/) do
+	expect(body).to include(Collection.last.name)
+end
+
+When(/^I click the "([^"]*)" link$/) do |back|
+  click_link back
+end
+
+Then(/^I should see the collection index page$/) do
+	expect(page).to have_current_path( gallery_collections_path(Collection.last.gallery_id))
+end
+
+
+
+
+
+
