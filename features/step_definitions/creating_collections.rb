@@ -27,9 +27,9 @@ When(/^I click on an image$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-When(/^I click "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When(/^I click "([^"]*)"$/) do |arg1|
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 Then(/^I see success message 'Saved!'$/) do
   pending # Write code here that turns the phrase above into concrete actions
