@@ -2,25 +2,15 @@ Given(/^I am on the user log in page$/) do
 	visit user_session_path
 end
 
-Given(/^I fill in email with "([^"]*)"$/) do |email|
-	@user = User.create(email: email, password: "123456")
-	@email = email
-  fill_in "Email", with: email
-
-end
-
-Given(/^I fill in Password with "([^"]*)"$/) do |password|
-  fill_in "Password", with: password
-end
-
-When(/^I click on "([^"]*)" button$/) do |button|
-  click_button button
-end
+# Given(/^an artist$/) do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 Then(/^I am on the user profile page$/) do
-	expect(body).to include("User Profile - Bingo")
+	expect(page).to have_current_path( user_path(@user.id))
 end
 
+# Creating a collection
 When(/^I click on "([^"]*)"$/) do |add_new_gallery|
   click_link add_new_gallery
 end
@@ -83,14 +73,13 @@ Then(/^I should see the name of the collection$/) do
 	expect(body).to include(Collection.last.name)
 end
 
-When(/^I click the "([^"]*)" link$/) do |back|
-  click_link back
-end
-
 Then(/^I should see the collection index page$/) do
 	expect(page).to have_current_path( gallery_collections_path(Collection.last.gallery_id))
 end
 
+Then(/^I should not be allowed to submit$/) do
+	expect(page).to have_content("Name can't be blank")
+end
 
 
 

@@ -19,7 +19,7 @@
 <ul>
 	<%	@collection.items.each do |item| %>
 		<li>
-      <%= image_tag item.image.url(:thumb) %>
+      <%= image_tag item.image.url(:thumb), class: "image" %>
 			<%= link_to item.title, collection_item_path(item), title: 'show image' %>
 		</li>
 	<% end %>

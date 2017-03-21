@@ -4,7 +4,7 @@ Feature: Viewing Images
 	I want to view artist's images
 
 	Background:
-		Given a user
+		Given an artist
 		And a gallery
 		And a collection
 		And a collection of galleries

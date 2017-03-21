@@ -8,11 +8,6 @@ Then(/^I should see the collection on its own page$/) do
 	expect(page).to have_content("Collection was successfully created.")
 end
 
-Then(/^I should not be allowed to submit$/) do
-	save_and_open_page
-	expect(page).to have_content("Name can't be blank")
-end
-
 # Setting thumbnail for featured image
 Given(/^on a collection page$/) do
   pending # Write code here that turns the phrase above into concrete actions
