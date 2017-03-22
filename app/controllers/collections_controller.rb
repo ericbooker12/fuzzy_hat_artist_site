@@ -4,9 +4,6 @@ class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.json
   def index
-    # @collections = Collection.where(gallery_id: params[:id])
-    p params[:gallery_id]
-    p '*' * 40
     @gallery = Gallery.find(params["gallery_id"])
     @collections = @gallery.collections.active
   end
@@ -14,11 +11,12 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
+    @item = @collection.items.build
+
   end
 
   # GET /collections/new
   def new
-    # @collection = Collection.new
     @gallery = Gallery.find(params["gallery_id"])
     @collection = @gallery.collections.build
   end

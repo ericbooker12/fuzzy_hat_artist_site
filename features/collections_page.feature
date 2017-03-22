@@ -43,8 +43,9 @@ Feature: collection page features
 
 @wip
 	Scenario: Managing images
+		Given I am on the collections page
 		When I click on "Add Image"
-		Then I go to "New Image" page
+		Then I see form to add an image on the same page
 		When I click on "Remove Image"
 		Then the image is no longer visible
 		When I click on "Edit Image"

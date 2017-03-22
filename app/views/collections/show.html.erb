@@ -1,30 +1,45 @@
-<h1>Artwork</h1>
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-3">
+    <h1>Artwork</h1>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @collection.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @collection.name %>
+    </p>
 
-<p>
-  <strong>Thumbnail:</strong>
-  <%= @collection.thumbnail %>
-</p>
+    <p>
+      <strong>Thumbnail:</strong>
+      <%= @collection.thumbnail %>
+    </p>
 
-<p>
-  <strong>Gallery:</strong>
-  <%= @collection.gallery.name %>
-</p>
+    <p>
+      <strong>Gallery:</strong>
+      <%= @collection.gallery.name %>
+    </p>
 
-<ul>
-	<%	@collection.items.each do |item| %>
-		<li>
-      <%= image_tag item.image.url(:thumb), class: "image" %>
-			<%= link_to item.title, collection_item_path(item), title: 'show image' %>
-		</li>
-	<% end %>
-</ul>
+    <ul>
+    	<%	@collection.items.each do |item| %>
+    		<li>
+          <%= image_tag item.image.url(:thumb), class: "image" %>
+    			<%= link_to item.title, [@collection, item], title: 'show image' %>
+    		</li>
+    	<% end %>
+    </ul>
+  </div>
+  <div class="col-md-9" id="new-image-form">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <%= render 'form_new_item' %>
+  </div>
+</div>
 
-<%= link_to 'New Image', new_collection_item_path(@collection), class: 'btn btn-primary' %> |
-<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-primary' %> |
-<%= link_to 'Back', gallery_collections_path(@collection.gallery_id), class: 'btn btn-primary' %>
+<div class="row">
+  <%= link_to 'Add Image', new_collection_item_path(@collection), class: 'btn btn-primary' %>
+  <%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-primary' %>
+  <%= link_to 'Back', gallery_collections_path(@collection.gallery_id), class: 'btn btn-primary' %>
+</div>

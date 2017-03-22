@@ -8,7 +8,7 @@ end
 
 # Creating a collection
 When(/^I click on "([^"]*)"$/) do |link_or_button|
-  click_link link_or_button
+  click_link_or_button link_or_button
 end
 
 When(/^show me the page$/) do
