@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @collection = Collection.find(1)
+    @collection = Collection.find(params["collection_id"])
   end
 
   def show

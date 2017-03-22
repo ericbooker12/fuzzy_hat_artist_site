@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: [:show, :edit, :update, :destroy]
+  before_action :set_collection, only: [:show, :edit, :update, :destroy, :archive]
 
   # GET /collections
   # GET /collections.json
@@ -8,7 +8,7 @@ class CollectionsController < ApplicationController
     p params[:gallery_id]
     p '*' * 40
     @gallery = Gallery.find(params["gallery_id"])
-    @collections = @gallery.collections
+    @collections = @gallery.collections.active
   end
 
   # GET /collections/1
@@ -25,9 +25,6 @@ class CollectionsController < ApplicationController
 
   # GET /collections/1/edit
   def edit
-    # @collection = Collection.new
-    p '*' * 50
-    p @collection
     # @gallery = Gallery.find(params["gallery_id"])
   end
 
@@ -62,6 +59,11 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def archive
+  	p params
+  	@collection.update_attribute(:archive, true)
+  	redirect_to gallery_collections_path(@collection.gallery_id)
+  end
   # DELETE /collections/1
   # DELETE /collections/1.json
   def destroy

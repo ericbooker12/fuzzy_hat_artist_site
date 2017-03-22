@@ -40,6 +40,9 @@ Scenario: don't enter a title
 	When I fill in Name with "" and fill in Thumbnail with 1 and press "Create Collection"
 	Then I should not be allowed to submit
 
+Scenario: view archived galleries
+
+Scenario: view archived collections
 
 
 

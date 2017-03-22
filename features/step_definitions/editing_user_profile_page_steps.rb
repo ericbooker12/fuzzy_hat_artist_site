@@ -2,17 +2,13 @@ Given(/^I am on the user log in page$/) do
 	visit user_session_path
 end
 
-# Given(/^an artist$/) do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-
 Then(/^I am on the user profile page$/) do
 	expect(page).to have_current_path( user_path(@user.id))
 end
 
 # Creating a collection
-When(/^I click on "([^"]*)"$/) do |add_new_gallery|
-  click_link add_new_gallery
+When(/^I click on "([^"]*)"$/) do |link_or_button|
+  click_link link_or_button
 end
 
 When(/^show me the page$/) do

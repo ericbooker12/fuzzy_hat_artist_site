@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Collection</h1>
+<h1><%= @gallery.name %> Gallery</h1>
 
 <table>
   <thead>
@@ -22,7 +22,8 @@
         <td><%= collection.gallery.name %></td>
         <td><%= link_to 'Show', collection, title: collection.name %></td>
         <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
-        <td><%= link_to 'Destroy', collection_path(collection), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', collection_path(collection), method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' } %></td>
+        <td><%= link_to 'Archive', archive_collection_path(collection.id), method: :patch, data: { confirm: 'Are you sure? Do you want to move images?' }  %></td>
       </tr>
     <% end %>
   </tbody>

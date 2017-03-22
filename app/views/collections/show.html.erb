@@ -25,6 +25,6 @@
 	<% end %>
 </ul>
 
-<%= link_to 'New', new_collection_item_path(@collection) %> |
-<%= link_to 'Edit', edit_collection_path(@collection) %> |
-<%= link_to 'Back', gallery_collections_path(@collection.gallery_id) %>
+<%= link_to 'New Image', new_collection_item_path(@collection), class: 'btn btn-primary' %> |
+<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-primary' %> |
+<%= link_to 'Back', gallery_collections_path(@collection.gallery_id), class: 'btn btn-primary' %>

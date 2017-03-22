@@ -4,6 +4,7 @@ Feature: collection page features
 	As an artist
 	I want to manage a collection that is part of a gallery
 
+
 	Background: Logging in an artist
 		Given I am on the user log in page
 		And an artist
@@ -14,25 +15,33 @@ Feature: collection page features
 		When I click the button "Log in"
 		Then I am on the user profile page
 
-@wip
 	Scenario: Viewing a collection
 		When I click on a collection
 		Then I should see collection name
 		And I should see collection images
 		And I should see image titles
 
-	Scenario: Confirming navigation
+	Scenario: Clicking on home
+		Given I am on the collections page
 		When I click on "Home"
 		Then I should see the user profile
+
+	Scenario: Clicking on edit
+		Given I am on the collections page
 		When I click on "Edit"
 		Then I should see the edit collection page
+
+	Scenario: Clicking on new
+		Given I am on the collections page
 		When I click on "New"
-		Then I should see add collection page
+		Then I should see add image page
+
+	Scenario: Clicking on back
+		Given I am on the collections page
 		When I click on "Back"
 		Then I should see the list of collections from the same gallery
-		When I click on "Archive"
-		Then the collection is no longer visible
 
+@wip
 	Scenario: Managing images
 		When I click on "Add Image"
 		Then I go to "New Image" page
