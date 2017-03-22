@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
 	resources :collections, only: [:show, :edit, :update, :destroy] do
 		resources :items
+		member do
+      patch :archive
+      get :archived
+    end
 	end
 
   resources :users, only: [:show, :edit, :update]

@@ -36,8 +36,6 @@ class GalleriesController < ApplicationController
   end
 
   def archive
-    p params
-    @gallery = Gallery.find(params[:id])
     @gallery.update_attribute(:archive, true)
     redirect_to galleries_path
   end
@@ -50,8 +48,6 @@ class GalleriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gallery
-      p params
-      p '*' * 50
       @gallery = Gallery.find(params[:id])
     end
 

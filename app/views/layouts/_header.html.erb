@@ -1,0 +1,6 @@
+<div class="navbar navbar-fixed-top header">
+  <% if user_signed_in? %>
+  	<%= link_to "Home", root_path, alt: "Go Home", class: "links" %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, alt: "Log out", class: "links" %>
+  <% end %>
+</div>
