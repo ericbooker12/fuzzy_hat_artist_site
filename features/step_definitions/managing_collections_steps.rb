@@ -7,7 +7,7 @@ Then(/^I should see collection name$/) do
 end
 
 Then(/^I should see collection images$/) do
-  page.find('.image')
+  page.all('.image')
 end
 
 Then(/^I should see image titles$/) do
@@ -24,6 +24,15 @@ end
 
 Then(/^I should see add image page$/) do
   expect(page).to have_current_path( new_collection_item_path(@collection.id))
+end
+
+When(/^I click on the button to add an image$/) do
+	save_and_open_page
+  find_button("Add image")
+end
+
+Then(/^I should see add image form appear$/) do
+  expect(page).to include( "Add an image to this collection" )
 end
 
 Then(/^I should see the list of collections from the same gallery$/) do
