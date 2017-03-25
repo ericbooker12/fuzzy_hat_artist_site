@@ -21,6 +21,12 @@ Feature: collection page features
 		And I should see collection images
 		And I should see image titles
 
+	Scenario: Viewing a collection that has no items
+		When I click on a collection
+		Then I should see collection name
+		And I should not see item images
+		And I should see message saying "There are no images in this collection"
+
 	Scenario: Clicking on home
 		Given I am on the collections page
 		When I click on "Home"
@@ -31,10 +37,10 @@ Feature: collection page features
 		When I click on "Edit"
 		Then I should see the edit collection page
 
-	Scenario: Clicking on new
+	Scenario: Clicking on add image
 		Given I am on the collections page
-		When I click on "New"
-		Then I should see add image page
+		When I click on the button to add an image
+		Then I should see add image form appear
 
 	Scenario: Clicking on back
 		Given I am on the collections page
@@ -54,6 +60,3 @@ Feature: collection page features
 		Then the images stay in their new order
 
 	Scenario: Collection contains no images
-
-
-

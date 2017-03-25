@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   root 'galleries#index'
+  get "/fetch_new_form" => 'items#show_new_item_form', as: 'fetch_new_form'
 
 end

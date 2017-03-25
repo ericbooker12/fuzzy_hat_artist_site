@@ -20,12 +20,21 @@ class ItemsController < ApplicationController
     @item = @collection.items.build(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to collection_items_path, notice: 'Collection was successfully created.' }
+        format.html { redirect_to collection_path(@item.collection_id), notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def show_new_item_form
+    p "*" * 50
+    @item = Item.new
+    @collection = Collection.find(params["collection_id"])
+    respond_to do |format|
+        format.js
     end
   end
 
