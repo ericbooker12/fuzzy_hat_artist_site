@@ -28,11 +28,13 @@ end
 
 When(/^I click on the button to add an image$/) do
   find_link("Add image")
-	# save_and_open_page
 end
 
 Then(/^I should see add image form appear$/) do
-  expect(page).to include( "Add an image to this collection" )
+	xhr :get, '/fetch_new_form', collection_id: @collection.id, format: :js
+	# get '/fetch_new_form', collection_id: @collection.id, xhr: true, format: :js  // doesn't work
+	expect(page).to have_css("#gotcha", visible: :visible)
+  # expect(page).to include( "Add an image to this collection" )
 end
 
 Then(/^I should see the list of collections from the same gallery$/) do
@@ -54,7 +56,3 @@ end
 Then(/^I go to "([^"]*)" page$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
-
-
-
-
