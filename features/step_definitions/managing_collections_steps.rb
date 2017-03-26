@@ -14,6 +14,17 @@ Then(/^I should see image titles$/) do
   find_link @collection.items.first.title
 end
 
+Then(/^I should not see item images$/) do
+	@collection.items = []
+	visit collection_path(@collection)
+	expect(page).not_to have_selector(:xpath, "//a[@title='show image']")
+end
+
+Then(/^I should see message saying "([^"]*)"$/) do |arg1|
+# save_and_open_page
+	expect(page).to have_content('There are no images in this collection')
+end
+
 Given(/^I am on the collections page$/) do
  visit collection_path(@collection.id)
 end
@@ -31,9 +42,11 @@ When(/^I click on the button to add an image$/) do
 end
 
 Then(/^I should see add image form appear$/) do
-	xhr :get, '/fetch_new_form', collection_id: @collection.id, format: :js
+	pending
+	# xhr :get, '/fetch_new_form', collection_id: @collection.id, format: :js
+	# expect(page).to have_css("#gotcha", visible: :visible)
+
 	# get '/fetch_new_form', collection_id: @collection.id, xhr: true, format: :js  // doesn't work
-	expect(page).to have_css("#gotcha", visible: :visible)
   # expect(page).to include( "Add an image to this collection" )
 end
 

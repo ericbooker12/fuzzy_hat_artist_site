@@ -19,13 +19,17 @@
     </p>
 
     <ul>
-    	<%	@collection.items.each do |item| %>
-    		<li id="item-<%= item.id %>" >
-          <%= image_tag item.image.url(:thumb), class: "image" %>
-    			<%= link_to item.title, [@collection, item], title: 'show image' %>
-          <%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
-    		</li>
-    	<% end %>
+      <% if @collection.items.count > 0 %>
+      	<%	@collection.items.each do |item| %>
+      		<li id="item-<%= item.id %>" >
+            <%= image_tag item.image.url(:thumb), class: "image" %>
+      			<%= link_to item.title, [@collection, item], title: 'show image' %>
+            <%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
+      		</li>
+      	<% end %>
+      <% else %>
+        There are no images in this collection.
+      <% end %>
     </ul>
   </div>
   <div class="col-md-9" id="new-image-form">

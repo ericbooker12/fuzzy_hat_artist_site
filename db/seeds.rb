@@ -14,12 +14,12 @@ mediums.each do |medium|
 end
 
 5.times do |i|
-	gallery1 = Gallery.first
-	coll = gallery1.collections.build(name: "Collection#{i+1}", thumbnail: 1)
-	coll.save
+	gallery = Gallery.first
+	collection = gallery.collections.build(name: "Collection#{i+1}", thumbnail: 1)
+	collection.save
 
 	10.times do |j|
-		item = coll.items.build(title: "Title#{j+1}")
+		item = collection.items.build(title: "Title#{j+1}")
 		item.save
 	end
 

@@ -5,7 +5,7 @@ class Collection < ApplicationRecord
 	validates :thumbnail, presence: true
 	validates :name, uniqueness: true
 
-  accepts_nested_attributes_for :items   # ???
+  # accepts_nested_attributes_for :items   # ???
 
   def self.active
     Collection.where(archive: false)
