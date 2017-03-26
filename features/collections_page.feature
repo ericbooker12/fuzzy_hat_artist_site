@@ -50,13 +50,10 @@ Feature: collection page features
 @wip
 	Scenario: Managing images
 		Given I am on the collections page
-		When I click on "Add Image"
-		Then I see form to add an image on the same page
-		When I click on "Remove Image"
+		And an item
+		When I click on Delete
 		Then the image is no longer visible
-		When I click on "Edit Image"
+		When I click on "Edit"
 		Then I go to "Edit Image" page
-		When I click, drag and reorder images
-		Then the images stay in their new order
 
 	Scenario: Collection contains no images

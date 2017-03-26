@@ -27,8 +27,8 @@ Then(/^I should see add image page$/) do
 end
 
 When(/^I click on the button to add an image$/) do
-	save_and_open_page
-  find_button("Add image")
+  find_link("Add image")
+	# save_and_open_page
 end
 
 Then(/^I should see add image form appear$/) do
@@ -42,3 +42,19 @@ end
 Then(/^the collection is no longer visible$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
+
+When(/^I click on Delete$/) do
+  page.find("li", id:"item-#{@item.id}").click_link('Delete')
+end
+
+Then(/^the image is no longer visible$/) do
+	expect(page).not_to have_selector("#item-#{@item.id}")
+end
+
+Then(/^I go to "([^"]*)" page$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
+
+

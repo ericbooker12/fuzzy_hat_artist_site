@@ -16,3 +16,7 @@ Given(/^an artist$/) do
   @user = User.create(email: "be@bop.com", password: "123456")
 end
 
+Given(/^an item$/) do
+	@item = @collection.items.first
+end
+

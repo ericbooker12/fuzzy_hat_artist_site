@@ -29,12 +29,21 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+  	p "In destroy"
+  	@collection = Collection.find(params["collection_id"])
+  	@item.destroy
+  	redirect_to collection_path(@collection)
+  end
+
   def show_new_item_form
     p "*" * 50
     @item = Item.new
     @collection = Collection.find(params["collection_id"])
     respond_to do |format|
-        format.js
+    		p '#' * 40
+    		p format
+        format.js {}
     end
   end
 
