@@ -11,8 +11,6 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
-    @item = @collection.items.build
-
   end
 
   # GET /collections/new
@@ -24,6 +22,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1/edit
   def edit
     # @gallery = Gallery.find(params["gallery_id"])
+    @galleries = Gallery.active
   end
 
   # POST /collections
@@ -58,16 +57,16 @@ class CollectionsController < ApplicationController
   end
 
   def archive
-  	p params
   	@collection.update_attribute(:archive, true)
   	redirect_to gallery_collections_path(@collection.gallery_id)
   end
   # DELETE /collections/1
   # DELETE /collections/1.json
   def destroy
+    gallery = @collection.gallery_id
     @collection.destroy
     respond_to do |format|
-      format.html { redirect_to collections_url, notice: 'Collection was successfully destroyed.' }
+      format.html { redirect_to gallery_collections_path(gallery), notice: 'Collection was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

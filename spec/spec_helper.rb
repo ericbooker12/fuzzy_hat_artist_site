@@ -41,7 +41,7 @@ RSpec.configure do |config|
   end
 
   Capybara.configure do |config|
-  	config.default_wait_time = 7
+  	config.default_max_wait_time = 7
   end
 
   # This option will default to `:apply_to_host_collections` in RSpec 4 (and will

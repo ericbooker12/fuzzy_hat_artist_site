@@ -1,6 +1,8 @@
-<h1>Editing Collection</h1>
+<h1>Editing <%= @collection.name %></h1>
 
 <%= render 'form' %>
-
+<%= link_to 'Archive', archive_collection_path(@collection.id), method: :patch, data: { confirm: 'Do you want to move images first?' }, class: "btn btn-primary"  %>
+<%= link_to 'Destroy', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure? This deletws all images also! This cannot be undone.' }, class: "btn btn-warning" %>
+<br />
 <%= link_to 'Show', @collection %> |
 <%= link_to 'Back', gallery_collections_path(@collection.gallery_id) %>
