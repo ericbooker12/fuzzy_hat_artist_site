@@ -24,7 +24,7 @@ Feature: collection page features
 		When I click on a collection
 		Then I should see collection name
 		And I should not see item images
-		And I should see message saying "There are no images in this collection"
+		And I should see a message saying  "There are no images in this collection"
 
 	Scenario: Clicking on home
 		Given I am on the collections page
@@ -46,7 +46,6 @@ Feature: collection page features
 		When I click on "Back"
 		Then I should see the list of collections from the same gallery
 
-@wip
 	Scenario: Managing images
 		Given I am on the collections page
 		And an item
@@ -54,5 +53,3 @@ Feature: collection page features
 		Then the image is no longer visible
 		When I click on "Edit"
 		Then I go to "Edit Image" page
-
-	Scenario: Collection contains no images

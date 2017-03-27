@@ -20,9 +20,8 @@ Then(/^I should not see item images$/) do
 	expect(page).not_to have_selector(:xpath, "//a[@title='show image']")
 end
 
-Then(/^I should see message saying "([^"]*)"$/) do |arg1|
-# save_and_open_page
-	expect(page).to have_content('There are no images in this collection')
+Then(/^I should see a message saying "([^"]*)"$/) do |message|
+  expect(page).to have_content(message)
 end
 
 Given(/^I am on the collections page$/) do

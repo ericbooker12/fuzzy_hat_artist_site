@@ -63,9 +63,10 @@ class CollectionsController < ApplicationController
   # DELETE /collections/1
   # DELETE /collections/1.json
   def destroy
+    gallery = @collection.gallery_id
     @collection.destroy
     respond_to do |format|
-      format.html { redirect_to collections_url, notice: 'Collection was successfully destroyed.' }
+      format.html { redirect_to gallery_collections_path(gallery), notice: 'Collection was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

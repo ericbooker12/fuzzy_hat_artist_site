@@ -8,18 +8,7 @@ Feature: Viewing Images
 		And a gallery
 		And a collection
 		And a collection of galleries
-
-	Scenario: Choosing a Gallery
-		Given I am on the home page
-		When I follow the medium "Glass"
-		Then I see a list of that Gallery's collection
-		And I see an image for each collection
-
-	Scenario: Choosing a Collection
-		Given I am on the collection index page
-		When I follow the collection "Collection99"
-		Then I see a list of items from that collection
-		And I see many image thumbnails
+		And an item
 
 	Scenario: Entering slide show mode
 		Given I am on the item index page
