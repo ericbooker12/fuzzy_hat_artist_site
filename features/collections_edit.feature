@@ -22,3 +22,8 @@ Feature: Collections edit page
     When I select a different gallery
     And I click "Update Collection"
     Then the collection now belong to a different gallery
+
+  Scenario: Deleting a collection if no images in it
+
+  Scenario: Attempting to delete collection if it has images
+    Then get an error message saying "Collection has images so you can't delete it."
