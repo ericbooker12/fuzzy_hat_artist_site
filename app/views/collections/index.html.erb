@@ -8,13 +8,7 @@
     <li>
       <% item = Item.find(collection.thumbnail) %>
       <%= image_tag item.image.url(:thumb), title: "show image", class: "image" %>
-      <%= collection.name %></td>
-
-
-        <%= link_to 'Show', collection, title: collection.name %>
-        <%= link_to 'Edit', edit_collection_path(collection) %>
-        <%= link_to 'Destroy', collection_path(collection), method: :delete, data: { confirm: 'Are you sure? This delets all images also! This cannot be undone.' } %>
-        <%= link_to 'Archive', archive_collection_path(collection.id), method: :patch, data: { confirm: 'Do you want to move images first?' }  %>
+      <%= link_to collection.name, collection, title: collection.name %></td>        
       </li>
     <% end %>
   </ul>
