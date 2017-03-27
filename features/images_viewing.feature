@@ -7,7 +7,6 @@ Feature: Viewing Images
 		Given an artist
 		And a gallery
 		And a collection
-		And a collection of galleries
 		And an item
 
 	Scenario: Entering slide show mode

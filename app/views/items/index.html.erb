@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Images of a collection</h1>
+<h1>Images of <%= @collection.name %></h1>
 
 <ul>
   <% @items.each do |item|   %>
-  <li>
-    <%= link_to 'Photo placeholder', collection_item_path(item.collection_id, item)  %>
+  <li id="thumb-<%= item.id %>">
+    <%= link_to 'Photo placeholder', collection_item_path(item.collection_id, item), title: "image thumb" %>  %>
     <%= item.title %>
   </li>
   <% end %>
