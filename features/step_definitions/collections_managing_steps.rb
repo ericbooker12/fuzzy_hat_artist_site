@@ -53,10 +53,6 @@ Then(/^I should see the list of collections from the same gallery$/) do
   expect(page).to have_current_path( gallery_collections_path(@gallery.id))
 end
 
-Then(/^the collection is no longer visible$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 When(/^I click on Delete$/) do
   page.find("li", id:"item-#{@item.id}").click_link('Delete')
 end

@@ -22,6 +22,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1/edit
   def edit
     # @gallery = Gallery.find(params["gallery_id"])
+    @galleries = Gallery.active
   end
 
   # POST /collections
@@ -56,7 +57,6 @@ class CollectionsController < ApplicationController
   end
 
   def archive
-  	p params
   	@collection.update_attribute(:archive, true)
   	redirect_to gallery_collections_path(@collection.gallery_id)
   end

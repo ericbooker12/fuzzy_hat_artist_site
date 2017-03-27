@@ -2,6 +2,10 @@ Given(/^a gallery$/) do
 	@gallery = Gallery.create(name: "Glass", user_id: @user.id)
 end
 
+Given(/^a new gallery$/) do
+	@new_gallery = Gallery.create(name: "FlameThrowingNinjas", user_id: @user.id)
+end
+
 Given(/^a collection$/) do
   @collection = Collection.create(name: "Collection99", thumbnail: 1, gallery_id: @gallery.id)
 	@collection.items.build(title: 'A pretty vase', image_file_name: "image1.jpg")

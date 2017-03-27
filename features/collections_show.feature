@@ -4,7 +4,7 @@ Feature: collection page features
 	As an artist
 	I want to manage a collection that is part of a gallery
 
-	Background: Logging in an artist
+	Background: Logged in as an artist
 		Given I am on the user log in page
 		And an artist
 		And a gallery
