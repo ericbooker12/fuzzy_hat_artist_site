@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_collection, only: [:index, :new, :create, :destroy, :show_new_item_form]
+  before_action :set_collection, only: [:index, :new, :create, :edit, :destroy, :show_new_item_form]
 
   def index
     @items = @collection.items
@@ -13,6 +13,9 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def create
     @item = @collection.items.build(item_params)
     respond_to do |format|
@@ -21,6 +24,18 @@ class ItemsController < ApplicationController
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @item.update(item_params)
+        format.html { redirect_to collection_items_path(@item.collection_id), notice: 'Item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @collection_item }
+      else
+        format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
