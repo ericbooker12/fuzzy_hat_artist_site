@@ -11,6 +11,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
+  	p "collections controller"
   end
 
   # GET /collections/new

@@ -18,11 +18,11 @@
       <%= @collection.gallery.name %>
     </p>
 
-    <ul>
+    <ul id="list-of-images">
       <% if @collection.items.count > 0 %>
       	<%	@collection.items.each do |item| %>
       		<li id="item-<%= item.id %>" >
-            <%= image_tag item.image.url(:thumb), class: "image" %>
+            <%= link_to (image_tag(item.image.url(:thumb))), [@collection, item], class: "image" %>
       			<%= link_to item.title, [@collection, item], title: 'show image' %>
             <%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
       		</li>
