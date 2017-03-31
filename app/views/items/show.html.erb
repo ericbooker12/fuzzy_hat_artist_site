@@ -6,17 +6,15 @@
 	<div id="myCarousel" class="carousel slide" data-ride="">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<% @items.each_with_index do |item, index| %>
+				<li data-target="#myCarousel" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+			<% end %>
 		</ol>
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<% @items.each_with_index do |item, index| %>
 				<div class="item <%= index == 0 ? 'active' : '' %>">
-					<!-- <img src="img_chania2.jpg" alt="Chania" width="460" height="345"> -->
 					<%= image_tag(item.image.url(:medium))  %>
 				</div>
 			<% end %>
