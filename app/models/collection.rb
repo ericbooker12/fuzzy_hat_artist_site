@@ -1,6 +1,6 @@
 class Collection < ApplicationRecord
   belongs_to :gallery
-  # has_many :items, dependent: :destroy  
+  has_many :items
 	validates :name, presence: true
 	validates :thumbnail, presence: true
 	validates :name, uniqueness: true
