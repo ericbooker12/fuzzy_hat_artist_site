@@ -12,6 +12,15 @@ class ItemsController < ApplicationController
 
   def show
   	@items = @collection.items
+
+  	if request.xhr?
+    	# render :'contacts/_form', layout: false
+    	render 'show'
+  	else
+    	# erb :'contacts/new'
+    	p "Else"
+  	end
+
   end
 
   def edit
