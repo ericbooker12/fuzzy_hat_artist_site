@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_collection, only: [:index, :new, :create, :edit, :destroy, :show_new_item_form]
+  before_action :set_collection, only: [:show, :index, :new, :create, :edit, :destroy, :show_new_item_form]
 
   def index
     @items = @collection.items
@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+  	@items = @collection.items
   end
 
   def edit
