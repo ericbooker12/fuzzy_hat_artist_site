@@ -7,14 +7,15 @@
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<% @items.each_with_index do |item, index| %>
-				<li data-target="#myCarousel" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+				<li data-target="#myCarousel" data-slide-to="<%= index %>" class="<%= index == @thumb_index ? 'active' : '' %>"></li>
 			<% end %>
 		</ol>
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<% @items.each_with_index do |item, index| %>
-				<div class="item <%= index == 0 ? 'active' : '' %>">
+
+				<div class="item <%= index == @thumb_index ? 'active' : '' %>">
 					<%= image_tag(item.image.url(:medium))  %>
 				</div>
 			<% end %>

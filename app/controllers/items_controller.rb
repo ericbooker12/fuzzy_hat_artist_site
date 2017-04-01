@@ -12,14 +12,23 @@ class ItemsController < ApplicationController
 
   def show
   	@items = @collection.items
+    # p "in Item show"
+    # p @items
 
-  	if request.xhr?
-    	# render :'contacts/_form', layout: false
-    	render 'show'
-  	else
-    	# erb :'contacts/new'
-    	p "Else"
-  	end
+    @items.each_with_index do |item, index|
+      @thumb_index = index if item.id == @item.id
+    end
+    p @thumb_index
+
+    p '*' * 40
+    # [1,2,3,4,5].select { |num|  num.even?  }   #=> [2, 4]
+  	# if request.xhr?
+    # 	# render :'contacts/_form', layout: false
+    # 	render 'show'
+  	# else
+    # 	# erb :'contacts/new'
+    # 	p "Else"
+  	# end
 
   end
 
