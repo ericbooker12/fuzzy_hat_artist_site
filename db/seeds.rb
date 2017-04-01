@@ -22,5 +22,6 @@ end
 		item = collection.items.build(title: "Title#{j+1}")
 		item.save
 	end
-
+	collection.thumbnail = collection.items.first.id
+	collection.save
 end
