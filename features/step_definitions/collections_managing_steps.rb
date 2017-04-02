@@ -47,8 +47,6 @@ end
 Then(/^I should see add image form appear$/) do
 	save_and_open_page
 	# expect(page).to have_css("#gotcha", visible: :visible)
-
-
 end
 
 Then(/^I should see the list of collections from the same gallery$/) do

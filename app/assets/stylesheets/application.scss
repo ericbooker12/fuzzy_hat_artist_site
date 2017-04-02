@@ -21,6 +21,7 @@ body {
 
 .item {
 	list-style-type: none;
+	padding-bottom: 10px;
 }
 
 .btn-custom {
@@ -32,16 +33,12 @@ body {
 	box-shadow: 4px 4px 2px $btn-color;
 }
 
-.item-image {
-	box-shadow: 4px 4px 2px $btn-color;
-}
-
 .item-image:hover, .item-image:focus {
-	box-shadow: 2px 2px 1px $btn-color;
+	box-shadow: 4px 4px 1px #84A9C0;
 }
 
 .img-caption {
-	padding-top: 10px;
+	padding-top: 5px;
 	margin-top: 10px;
 }
 
@@ -53,8 +50,21 @@ body {
 	ul {
 		list-style-type: none;
 	}
-
 }
+
+.chosen_thumbnail {
+  background-color: #CBCBCB;
+	border-style: solid;
+	border-color: #CBCBCB;
+}
+
+.caption {
+	padding-left: 5px;
+	font-size: .8em;
+}
+
+
+
 
 
 

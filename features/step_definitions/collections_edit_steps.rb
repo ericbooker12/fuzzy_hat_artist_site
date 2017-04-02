@@ -12,7 +12,11 @@ When(/^I select a different gallery$/) do
 end
 
 When(/^I click "([^"]*)"$/) do |link_name|
-  click_button link_name
+  click_link_or_button link_name
+end
+
+Then(/^I see success message "([^"]*)"$/) do |notice|
+  expect(page).to have_content(notice)
 end
 
 Then(/^the collection now belong to a different gallery$/) do

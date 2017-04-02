@@ -1,11 +1,11 @@
-When(/^I enter a name$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I enter "([^"]*)"$/) do |name|
+  page.fill_in 'Name', :with => name
 end
 
-Then(/^I should see the gallery my profile page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see "([^"]*)" on my profile page$/) do |name|
+  expect(page).to have_content(name)
 end
 
 When(/^I fail to enter a name$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.fill_in 'Name', :with => ""
 end

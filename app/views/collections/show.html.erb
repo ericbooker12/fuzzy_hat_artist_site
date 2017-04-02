@@ -21,17 +21,23 @@
 		<ul id="list-of-images">
 			<% if @collection.items.count > 0 %>
 				<%	@collection.items.each do |item| %>
-					<div class="col-md-4">
-						<div class="thumbnail img-fluid">
-							<li id="item-<%= item.id %>" class="item" >
-								<%= link_to (image_tag(item.image.url(:thumb), class: "item-image img-fluid")), [@collection, item], class: "image img-fluid" %>
-								</br>
-								<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
-								<% if user_signed_in? %>
-									<%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
-								<% end %>
+					<div class="col-md-3 col-lg-4">
+
+						<div class="thumb img-fluid">
+							<li id="item-<%= item.id %>" class="item <%= @collection.thumbnail == item.id ? 'chosen_thumbnail' : '' %>" >
+
+								<%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail ")), [@collection, item], class: "image" %>
+								<div class="caption">
+									<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
+									<br>
+									<% if user_signed_in? %>
+										<%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %> |
+										<%= link_to "Feature", thumbnail_collection_path(@collection, item), method: :patch  %>
+									<% end %>
+								</div>
 							</li>
 						</div>
+						<br>
 					</div>
 				<% end %>
 			<% else %>

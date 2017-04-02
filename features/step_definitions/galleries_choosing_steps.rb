@@ -1,4 +1,3 @@
-# Choosing a gallery
 When(/^I follow the medium "([^"]*)"$/) do |medium|
 	click_on medium
 end
@@ -11,7 +10,6 @@ Then(/^I see an image for each collection$/) do
   page.all('.image')
 end
 
-# Gallery has no collections
 Then(/^I should not see any collections$/) do
   @gallery.collections = []
 	visit gallery_collections_path(@gallery)
