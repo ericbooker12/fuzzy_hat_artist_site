@@ -35,6 +35,7 @@ end
 When(/^I click on the button to add an image$/) do
 	pending
 	xhr :get, '/fetch_new_form', collection_id: @collection.id, format: :js
+	follow_redirect!
 	sleep 3
 	expect(page).to have_content( "Add an image to this collection" )
 	# get '/fetch_new_form', collection_id: @collection.id, xhr: true, format: :js  // doesn't work
@@ -62,7 +63,5 @@ Then(/^I go to "([^"]*)" page$/) do |arg1|
 end
 
 Then(/^I click 'Destroy'$/) do
-	pending
-	# page.driver.submit :destroy, "/items/#{@item.id}", {}
-  # visit(collection_item_path(@collection, @item.id), method: :delete)
+	page.driver.submit :delete, "/collections/#{@collection.id}/items/#{@item.id}", {}
 end
