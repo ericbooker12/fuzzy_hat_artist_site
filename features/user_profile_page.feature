@@ -14,7 +14,6 @@ Background: Logging in an artist
 
 Scenario: Following add new gallery link
 	When I click on "Add new gallery"
-	And show me the page
 	Then I should see the add gallery page
 
 Scenario: Adding a new gallery
@@ -24,6 +23,13 @@ Scenario: Adding a new gallery
 	Then I should see the user profile
 	And I should see the gallery "Coffee Cups"
 
+Scenario: don't enter a name
+	Given I am on the create gallery page
+	And I fill in name with ""
+	When I click the button "Create Gallery"
+	Then I should not be allowed to submit
+
+Scenario: add a new collection
 	Given a gallery exists
 	And I am on the user profile page
 	When I click on the first link to add new Collection
@@ -43,10 +49,3 @@ Scenario: don't enter a title
 Scenario: view archived galleries
 
 Scenario: view archived collections
-
-
-
-
-
-
-
