@@ -24,7 +24,9 @@
       		<li id="item-<%= item.id %>" >
             <%= link_to (image_tag(item.image.url(:thumb))), [@collection, item], class: "image" %>
       			<%= link_to item.title, [@collection, item], title: 'show image' %>
-            <%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
+            <% if user_signed_in? %>
+              <%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
+            <% end %>
       		</li>
       	<% end %>
       <% else %>
@@ -37,7 +39,9 @@
 </div>
 
 <div class="row" id="links">
-  <%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-primary', id: "add-image", remote: true %>
-  <%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-primary' %>
+  <% if user_signed_in? %>
+    <%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-primary', id: "add-image", remote: true %>
+    <%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-primary' %>
+  <% end %>
   <%= link_to 'Back', gallery_collections_path(@collection.gallery_id), class: 'btn btn-primary' %>
 </div>

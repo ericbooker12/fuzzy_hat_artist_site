@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%  @gallery.name %> Collections</h1>
-click on one to go to contact sheet
 <% if @collections.count > 0 %>
   <ul>
     <% @collections.each do |collection| %>
@@ -16,5 +15,6 @@ click on one to go to contact sheet
   No collections added yet
 <% end %>
 <br>
-
-<%= link_to 'New Collection', new_gallery_collection_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Collection', new_gallery_collection_path %>
+<% end %>

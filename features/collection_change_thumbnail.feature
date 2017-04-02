@@ -4,12 +4,17 @@ Feature: Assigning a thumbnail image to a Collection
   I want to assign a thumbnail image to a collection
 
   Background:
-    # Given I am logged in
-    And on a collection page
-    And I follow the "Add Thumbnail" link
+    Given I am on the user log in page
+    And an artist
+    And a gallery
+    And a new gallery
+    And a collection
+    And I fill in "Email" with "be@bop.com"
+    And I fill in "Password" with "123456"
+    And I click the button "Log in"
+    Then I am on the user profile page
+    When I click on a collection
 
   Scenario: change the collection thumbnail
-    When I click on an image
     And I click "save as thumbnail"
     Then I see success message 'Saved!'
-     

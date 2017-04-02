@@ -10,7 +10,7 @@ end
 
 # Setting thumbnail for featured image
 Given(/^on a collection page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_current_path( collection_path(@collection.id))
 end
 
 When(/^I visit "([^"]*)"$/) do |new_collection|
@@ -19,7 +19,7 @@ When(/^I visit "([^"]*)"$/) do |new_collection|
 end
 
 When(/^I click on an image$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  
 end
 
 Then(/^I see success message 'Saved!'$/) do

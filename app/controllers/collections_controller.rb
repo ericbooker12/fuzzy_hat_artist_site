@@ -1,5 +1,7 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show, :edit, :update, :destroy, :archive]
+  before_action :authenticate_user!, except: [:index, :show]
+  
 
   # GET /collections
   # GET /collections.json
@@ -11,7 +13,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
-  	p "collections controller"
+  	# p "collections controller"
   end
 
   # GET /collections/new
@@ -22,7 +24,6 @@ class CollectionsController < ApplicationController
 
   # GET /collections/1/edit
   def edit
-    # @gallery = Gallery.find(params["gallery_id"])
     @galleries = Gallery.active
   end
 
@@ -73,12 +74,10 @@ class CollectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_collection
       @collection = Collection.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def collection_params
       params.require(:collection).permit(:name, :archive, :thumbnail, :gallery_id)
     end
