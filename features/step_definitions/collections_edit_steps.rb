@@ -23,3 +23,16 @@ Then(/^the collection now belong to a different gallery$/) do
   visit collection_path(@collection)
   expect(page).to have_content(@new_gallery.name)
 end
+
+When(/^I click to Destroy collection$/) do
+  page.driver.submit :delete, "/collections/#{@collection.id}", {}
+end
+
+Given(/^collection has no items$/) do
+  @collection.items = []
+end
+
+Then(/^I no longer see collection$/) do
+  expect(page).not_to have_content(@collection.name)
+
+end

@@ -42,6 +42,7 @@ When(/^I click on the button to add an image$/) do
 end
 
 Then(/^I should see add image form appear$/) do
+	pending
 	save_and_open_page
 	# expect(page).to have_css("#gotcha", visible: :visible)
 end
