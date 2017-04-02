@@ -1,22 +1,19 @@
 <div class="row">
-	<div class="col-md-4 col-offset-4">
-		<h1><%= @collection.name %></h1>
 
-		<p>
-			<strong>Name:</strong>
-			<%= @collection.name %>
-		</p>
+	<div class="col-lg-12">
+    <h1 class="page-header"><%= @collection.name %></h1>
+  </div>
 
-		<p>
-			<strong>Thumbnail:</strong>
-			<%= @collection.thumbnail %>
-		</p>
+	<p>
+		<strong>Thumbnail:</strong>
+		<%= @collection.thumbnail %>
+	</p>
 
-		<p>
-			<strong>Gallery:</strong>
-			<%= @collection.gallery.name %>
-		</p>
-	</div>
+	<p>
+		<strong>Gallery:</strong>
+		<%= @collection.gallery.name %>
+	</p>
+
 </div>
 
 <div class="row">
@@ -24,18 +21,23 @@
 		<ul id="list-of-images">
 			<% if @collection.items.count > 0 %>
 				<%	@collection.items.each do |item| %>
-					<div class="col-md-4">
-						<div class="thumbnail">
+					<div class="col-md-3 col-lg-4">
+
+						<div class="thumb img-fluid">
 							<li id="item-<%= item.id %>" class="item <%= @collection.thumbnail == item.id ? 'chosen_thumbnail' : '' %>" >
-								<%= link_to (image_tag(item.image.url(:thumb), class: "item-image img-responsive")), [@collection, item], class: "image" %>
-								</br>
-								<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
-								<% if user_signed_in? %>
-									<%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %>
-									<%= link_to "Set as thumbnail", thumbnail_collection_path(@collection, item), class: "btn btn-primary", method: :patch  %>
-								<% end %>
+
+								<%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail ")), [@collection, item], class: "image" %>
+								<div class="caption">
+									<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
+									<br>
+									<% if user_signed_in? %>
+										<%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %> |
+										<%= link_to "Feature", thumbnail_collection_path(@collection, item), method: :patch  %>
+									<% end %>
+								</div>
 							</li>
 						</div>
+						<br>
 					</div>
 				<% end %>
 			<% else %>
