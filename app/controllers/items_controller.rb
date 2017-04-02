@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_collection, only: [:show, :index, :new, :create, :edit, :destroy, :show_new_item_form]
   before_action :authenticate_user!, except: [:index, :show]
-  
+
 
   def index
     @items = @collection.items
