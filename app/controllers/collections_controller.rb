@@ -64,7 +64,7 @@ class CollectionsController < ApplicationController
     id_of_item = params["format"]
     @collection.thumbnail = id_of_item
     @collection.save
-    redirect_to 
+    redirect_to
   end
 
   def archive
