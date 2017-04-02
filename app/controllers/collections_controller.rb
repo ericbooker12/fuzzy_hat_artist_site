@@ -1,7 +1,7 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show, :edit, :update, :destroy, :archive]
   before_action :authenticate_user!, except: [:index, :show]
-  
+
 
   # GET /collections
   # GET /collections.json
@@ -56,6 +56,15 @@ class CollectionsController < ApplicationController
         format.json { render json: @collection.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def thumbnail
+    p '^' * 40
+    p 'In the Thumbnail action'
+    id_of_item = params["format"]
+    @collection.thumbnail = id_of_item
+    @collection.save
+    redirect_to 
   end
 
   def archive

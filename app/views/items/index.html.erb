@@ -9,6 +9,7 @@
     <%= item.title %>
     <% if user_signed_in? %>
       <%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %>
+      <%= link_to "Set as thumbnail", thumbnail_collection_path(item.collection_id, item), method: :patch  %>
     <% end %>
   </li>
   <% end %>
