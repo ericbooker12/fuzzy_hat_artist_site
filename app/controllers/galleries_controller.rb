@@ -31,6 +31,15 @@ class GalleriesController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @gallery.update(gallery_params)
+        format.html { redirect_to user_path, notice: 'Gallery was successfully updated.' }
+        format.json { render :show, status: :ok, location: @gallery }
+      else
+        format.html { render :edit }
+        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
