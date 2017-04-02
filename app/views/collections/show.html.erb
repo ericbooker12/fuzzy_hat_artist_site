@@ -1,22 +1,19 @@
 <div class="row">
-	<div class="col-md-4 col-offset-4">
-		<h1><%= @collection.name %></h1>
 
-		<p>
-			<strong>Name:</strong>
-			<%= @collection.name %>
-		</p>
+	<div class="col-lg-12">
+    <h1 class="page-header"><%= @collection.name %></h1>
+  </div>
 
-		<p>
-			<strong>Thumbnail:</strong>
-			<%= @collection.thumbnail %>
-		</p>
+	<p>
+		<strong>Thumbnail:</strong>
+		<%= @collection.thumbnail %>
+	</p>
 
-		<p>
-			<strong>Gallery:</strong>
-			<%= @collection.gallery.name %>
-		</p>
-	</div>
+	<p>
+		<strong>Gallery:</strong>
+		<%= @collection.gallery.name %>
+	</p>
+
 </div>
 
 <div class="row">
@@ -25,9 +22,9 @@
 			<% if @collection.items.count > 0 %>
 				<%	@collection.items.each do |item| %>
 					<div class="col-md-4">
-						<div class="thumbnail">
+						<div class="thumbnail img-fluid">
 							<li id="item-<%= item.id %>" class="item" >
-								<%= link_to (image_tag(item.image.url(:thumb), class: "item-image img-responsive")), [@collection, item], class: "image" %>
+								<%= link_to (image_tag(item.image.url(:thumb), class: "item-image img-fluid")), [@collection, item], class: "image img-fluid" %>
 								</br>
 								<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
 								<% if user_signed_in? %>

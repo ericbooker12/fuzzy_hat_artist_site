@@ -2,7 +2,7 @@
  @import "bootstrap";
 
 $btn-color: rgba(100, 100, 100, 1);
-
+$gray-light: #CBCBCB;
 
 body {
 	font-family: Futura;
@@ -21,8 +21,6 @@ body {
 
 .item {
 	list-style-type: none;
-	// width: 100px;
-	// height: 100px;
 }
 
 .btn-custom {
@@ -31,7 +29,7 @@ body {
 }
 
 .btn-custom:hover, .btn-custom:focus {
-		box-shadow: 4px 4px 2px $btn-color;
+	box-shadow: 4px 4px 2px $btn-color;
 }
 
 .item-image {
@@ -39,13 +37,25 @@ body {
 }
 
 .item-image:hover, .item-image:focus {
-		box-shadow: 2px 2px 1px $btn-color;;
+	box-shadow: 2px 2px 1px $btn-color;
 }
 
 .img-caption {
 	padding-top: 10px;
 	margin-top: 10px;
 }
+
+#gallery {
+	background-color: $gray-light;
+	padding: 10px 20px 20px 40px;
+	margin: 10px;
+	box-shadow: 2px 2px 1px $btn-color;
+	ul {
+		list-style-type: none;
+	}
+
+}
+
 
 
 
