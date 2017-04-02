@@ -16,5 +16,5 @@ Feature: Assigning a thumbnail image to a Collection
     When I click on a collection
 
   Scenario: change the collection thumbnail
-    And I click "save as thumbnail"
-    Then I see success message 'Saved!'
+    And I click "Set as thumbnail"
+    Then I see success message "Thumbnail set"

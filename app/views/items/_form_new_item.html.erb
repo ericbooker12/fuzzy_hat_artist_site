@@ -1,4 +1,3 @@
-<h2>Add an image to this collection</h2>
 <%= simple_form_for [@collection, @item], html: { multipart: true }, id: "gotcha" do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
@@ -17,6 +16,5 @@
   <%= f.association :collection %>
 
   <%= f.button :submit, class: "btn btn-primary" %>
-  <h2>drop in collection in case it needs to change</h2><br />
 
 <% end %>
