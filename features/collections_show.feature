@@ -36,11 +36,6 @@ Feature: collection page features
 		When I click on "Edit"
 		Then I should see the edit collection page
 
-	Scenario: Clicking on add image
-		Given I am on the collections page
-		When I click on the button to add an image
-		Then I should see add image form appear
-
 	Scenario: Clicking on back
 		Given I am on the collections page
 		When I click on "Back"

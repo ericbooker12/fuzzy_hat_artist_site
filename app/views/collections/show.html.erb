@@ -30,7 +30,9 @@
 								<%= link_to (image_tag(item.image.url(:thumb), class: "item-image img-responsive")), [@collection, item], class: "image" %>
 								</br>
 								<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
-								<%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
+								<% if user_signed_in? %>
+									<%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
+								<% end %>
 							</li>
 						</div>
 					</div>
@@ -46,7 +48,9 @@
 </div>
 
 <div class="row" id="links">
-	<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-custom btn-sm', id: "add-image", remote: true %>
-	<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-custom btn-sm' %>
+  <% if user_signed_in? %>
+		<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-custom btn-sm', id: "add-image", remote: true %>
+		<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-custom btn-sm' %>
+	<% end %>
 	<%= link_to 'Back', gallery_collections_path(@collection.gallery_id), class: 'btn btn-custom btn-sm' %>
 </div>

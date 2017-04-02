@@ -6,7 +6,11 @@ When(/^I enter a title and collection$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^I should see the image on its collection page$/) do
+When(/^I click submit$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should see the image on the same collection page$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
 

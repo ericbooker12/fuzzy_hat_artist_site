@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 		resources :items
 		member do
       patch :archive
+      patch :thumbnail
       get :archived
     end
 	end

@@ -7,7 +7,10 @@
   <li id="thumb-<%= item.id %>">
     <%= link_to (image_tag(item.image.url(:thumb))), collection_item_path(item.collection_id, item), title: "image thumb", class: "image" %>
     <%= item.title %>
-    <%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %>
+    <% if user_signed_in? %>
+      <%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %>
+      <%= link_to "Set as thumbnail", thumbnail_collection_path(item.collection_id, item), method: :patch  %>
+    <% end %>
   </li>
   <% end %>
 </ul>

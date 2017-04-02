@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_collection, only: [:show, :index, :new, :create, :edit, :destroy, :show_new_item_form]
+  before_action :authenticate_user!, except: [:index, :show]
+  
 
   def index
     @items = @collection.items
@@ -12,16 +14,10 @@ class ItemsController < ApplicationController
 
   def show
   	@items = @collection.items
-    # p "in Item show"
-    # p @items
-
     @items.each_with_index do |item, index|
       @thumb_index = index if item.id == @item.id
     end
-    p @thumb_index
 
-    p '*' * 40
-    # [1,2,3,4,5].select { |num|  num.even?  }   #=> [2, 4]
   	# if request.xhr?
     # 	# render :'contacts/_form', layout: false
     # 	render 'show'

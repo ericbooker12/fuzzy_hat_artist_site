@@ -14,7 +14,7 @@ Feature: Collections edit page
     And I click the button "Log in"
     And I visit the collection's edit page
 
-  Scenario: Clicking on archive
+  Scenario: Archiving a collection
     When I click on "Archive"
     Then the collection is no longer visible
 
