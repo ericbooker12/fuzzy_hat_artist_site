@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 	resources :collections, only: [:show, :edit, :update, :destroy] do
 		resources :items
 		member do
-      patch :archive
       patch :thumbnail
+      patch :archive
       get :archived
     end
 	end

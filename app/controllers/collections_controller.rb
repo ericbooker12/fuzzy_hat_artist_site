@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: [:show, :edit, :update, :destroy, :archive]
+  before_action :set_collection, only: [:show, :edit, :update, :destroy, :archive, :thumbnail]
   before_action :authenticate_user!, except: [:index, :show]
 
 
@@ -59,12 +59,10 @@ class CollectionsController < ApplicationController
   end
 
   def thumbnail
-    p '^' * 40
-    p 'In the Thumbnail action'
     id_of_item = params["format"]
     @collection.thumbnail = id_of_item
     @collection.save
-    redirect_to
+    redirect_to @collection, notice: 'Thumbnail set.'
   end
 
   def archive

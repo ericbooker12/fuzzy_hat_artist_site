@@ -26,12 +26,13 @@
 				<%	@collection.items.each do |item| %>
 					<div class="col-md-4">
 						<div class="thumbnail">
-							<li id="item-<%= item.id %>" class="item" >
+							<li id="item-<%= item.id %>" class="item <%= @collection.thumbnail == item.id ? 'chosen_thumbnail' : '' %>" >
 								<%= link_to (image_tag(item.image.url(:thumb), class: "item-image img-responsive")), [@collection, item], class: "image" %>
 								</br>
 								<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
 								<% if user_signed_in? %>
-									<%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
+									<%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %>
+									<%= link_to "Set as thumbnail", thumbnail_collection_path(@collection, item), class: "btn btn-primary", method: :patch  %>
 								<% end %>
 							</li>
 						</div>
