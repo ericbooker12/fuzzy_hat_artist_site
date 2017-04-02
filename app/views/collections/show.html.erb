@@ -1,43 +1,52 @@
 <div class="row">
-  <div class="col-md-3">
-    <h1><%= @collection.name %></h1>
-    <p id="notice"><%= notice %></p>
+	<div class="col-md-4 col-offset-4">
+		<h1><%= @collection.name %></h1>
 
-    <p>
-      <strong>Name:</strong>
-      <%= @collection.name %>
-    </p>
+		<p>
+			<strong>Name:</strong>
+			<%= @collection.name %>
+		</p>
 
-    <p>
-      <strong>Thumbnail:</strong>
-      <%= @collection.thumbnail %>
-    </p>
+		<p>
+			<strong>Thumbnail:</strong>
+			<%= @collection.thumbnail %>
+		</p>
 
-    <p>
-      <strong>Gallery:</strong>
-      <%= @collection.gallery.name %>
-    </p>
+		<p>
+			<strong>Gallery:</strong>
+			<%= @collection.gallery.name %>
+		</p>
+	</div>
+</div>
 
-    <ul id="list-of-images">
-      <% if @collection.items.count > 0 %>
-      	<%	@collection.items.each do |item| %>
-      		<li id="item-<%= item.id %>" >
-            <%= link_to (image_tag(item.image.url(:thumb))), [@collection, item], class: "image" %>
-      			<%= link_to item.title, [@collection, item], title: 'show image' %>
-            <%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
-      		</li>
-      	<% end %>
-      <% else %>
-        There are no images in this collection.
-      <% end %>
-    </ul>
-  </div>
-  <div class="col-md-9" id="new-image-form">
-  </div>
+<div class="row">
+	<div class="col-md-12">
+		<ul id="list-of-images">
+			<% if @collection.items.count > 0 %>
+				<%	@collection.items.each do |item| %>
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<li id="item-<%= item.id %>" class="item" >
+								<%= link_to (image_tag(item.image.url(:thumb), class: "item-image img-responsive")), [@collection, item], class: "image" %>
+								</br>
+								<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
+								<%= link_to "Delete", [@collection, item], title: 'delete image', method: :delete  %>
+							</li>
+						</div>
+					</div>
+				<% end %>
+			<% else %>
+				<p>There are no images in this collection.</p>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3" id="new-image-form"></div>
 </div>
 
 <div class="row" id="links">
-  <%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-primary', id: "add-image", remote: true %>
-  <%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-primary' %>
-  <%= link_to 'Back', gallery_collections_path(@collection.gallery_id), class: 'btn btn-primary' %>
+	<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-custom btn-sm', id: "add-image", remote: true %>
+	<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-custom btn-sm' %>
+	<%= link_to 'Back', gallery_collections_path(@collection.gallery_id), class: 'btn btn-custom btn-sm' %>
 </div>
