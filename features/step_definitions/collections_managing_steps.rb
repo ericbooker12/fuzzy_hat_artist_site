@@ -37,16 +37,18 @@ Then(/^I should see add image page$/) do
 end
 
 When(/^I click on the button to add an image$/) do
-  find_link("Add image")
+	xhr :get, '/fetch_new_form', collection_id: @collection.id, format: :js
+	sleep 3
+	expect(page).to have_content( "Add an image to this collection" )
+	# get '/fetch_new_form', collection_id: @collection.id, xhr: true, format: :js  // doesn't work
+
 end
 
 Then(/^I should see add image form appear$/) do
-	pending
-	# xhr :get, '/fetch_new_form', collection_id: @collection.id, format: :js
+	save_and_open_page
 	# expect(page).to have_css("#gotcha", visible: :visible)
 
-	# get '/fetch_new_form', collection_id: @collection.id, xhr: true, format: :js  // doesn't work
-  # expect(page).to include( "Add an image to this collection" )
+
 end
 
 Then(/^I should see the list of collections from the same gallery$/) do
