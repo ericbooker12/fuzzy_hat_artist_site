@@ -1,10 +1,13 @@
-
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+$btn-color: rgba(100, 100, 100, 1);
+
+
 body {
-  font-family: Futura;
-   padding-top: 50px;
+	font-family: Futura;
+	padding-top: 50px;
+	padding-bottom: 100px;
 }
 
 .header {
@@ -15,3 +18,37 @@ body {
 	color: white;
 	font-size: 20px;
 }
+
+.item {
+	list-style-type: none;
+	// width: 100px;
+	// height: 100px;
+}
+
+.btn-custom {
+	background: #CBCBCB;
+	box-shadow: 2px 2px 1px $btn-color;
+}
+
+.btn-custom:hover, .btn-custom:focus {
+		box-shadow: 4px 4px 2px $btn-color;
+}
+
+.item-image {
+	box-shadow: 4px 4px 2px $btn-color;
+}
+
+.item-image:hover, .item-image:focus {
+		box-shadow: 2px 2px 1px $btn-color;;
+}
+
+.img-caption {
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+
+
+
+
+
