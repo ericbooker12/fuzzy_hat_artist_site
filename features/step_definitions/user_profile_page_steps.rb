@@ -6,13 +6,8 @@ Then(/^I am on the user profile page$/) do
 	expect(page).to have_current_path( user_path(@user.id))
 end
 
-# Creating a collection
 When(/^I click on "([^"]*)"$/) do |link_or_button|
   click_link_or_button link_or_button
-end
-
-When(/^show me the page$/) do
-  # save_and_open_page
 end
 
 Then(/^I should see the add gallery page$/) do
@@ -76,8 +71,3 @@ end
 Then(/^I should not be allowed to submit$/) do
 	expect(page).to have_content("Name can't be blank")
 end
-
-
-
-
-

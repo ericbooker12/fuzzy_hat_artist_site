@@ -4,10 +4,13 @@ Feature: Logging in a user
 	I want to log in to website
 
 Scenario: Logging in
-	Given I already have an account
-  Given I am not logged in
-  When I visit new_user_session_path
-  And I fill in "Email" with "be@bop.com"
-  And I fill in "Password" with "123456"
-  And I click the button "Log in"
+	Given I am on the user log in page
+	And an artist
+	And a gallery
+	And a new gallery
+	And a collection
+	And I fill in "Email" with "be@bop.com"
+	And I fill in "Password" with "123456"
+	And I click the button "Log in"
+	Then I am on the user profile page
   Then I see "Log out" link
