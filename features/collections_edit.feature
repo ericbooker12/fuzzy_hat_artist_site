@@ -23,7 +23,11 @@ Feature: Collections edit page
     And I click "Update Collection"
     Then the collection now belong to a different gallery
 
-  Scenario: Deleting a collection if no images in it
-
   Scenario: Attempting to delete collection if it has images
-    Then get an error message saying "Collection has images so you can't delete it."
+    When I click to Destroy collection
+    Then I should see a message saying "Collection could not be destroyed because it has images in it"
+
+  Scenario: Deleting a collection if no images in it
+    Given collection has no items
+    When I click to Destroy collection
+    Then the collection is no longer visible

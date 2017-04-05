@@ -47,5 +47,5 @@ Feature: collection page features
 		When I click on "Edit"
 		Then I go to "Edit Image" page
 		And I click 'Destroy'
-		Then I return to the collection page
+		Then I am on the collections page
 		And the image is no longer visible

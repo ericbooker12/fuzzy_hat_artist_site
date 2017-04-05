@@ -3,13 +3,20 @@
 
 $btn-color: rgba(100, 100, 100, 1);
 $gray-light: #CBCBCB;
+$gray-lighter: #ecf0f1;
+$gray-dark: #383636;
 
 body {
 	font-family: Futura;
+  color: $gray-dark;
+  font-size: 2em;
 	padding-top: 50px;
 	padding-bottom: 100px;
 }
 
+a {
+  // font-color: ;
+}
 .header {
 	background-color: #676767;
 }
@@ -25,7 +32,7 @@ body {
 }
 
 .btn-custom {
-	background: #CBCBCB;
+	background: $gray-light;
 	box-shadow: 2px 2px 1px $btn-color;
 }
 
@@ -43,19 +50,23 @@ body {
 }
 
 #gallery {
-	background-color: $gray-light;
+	background-color: $gray-lighter;
 	padding: 10px 20px 20px 40px;
 	margin: 10px;
 	box-shadow: 2px 2px 1px $btn-color;
 	ul {
 		list-style-type: none;
 	}
+  li {
+    line-height: 200%;
+
+  }
 }
 
 .chosen_thumbnail {
-  background-color: #CBCBCB;
+  background-color: $gray-light;
 	border-style: solid;
-	border-color: #CBCBCB;
+	border-color: $gray-light;
 }
 
 .caption {
@@ -63,12 +74,6 @@ body {
 	font-size: .8em;
 }
 
-
-
-
-
-
-
-
-
-
+.top {
+  margin-bottom: 50px;
+}

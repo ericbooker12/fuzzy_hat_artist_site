@@ -73,9 +73,14 @@ class CollectionsController < ApplicationController
   # DELETE /collections/1.json
   def destroy
     gallery = @collection.gallery_id
-    @collection.destroy
+    if @collection.destroy
+      message = "Collection destroyed successfully"
+    else
+      message = "Collection could not be destroyed because it has images in it"
+    end
+
     respond_to do |format|
-      format.html { redirect_to gallery_collections_path(gallery), notice: 'Collection was successfully destroyed.' }
+      format.html { redirect_to gallery_collections_path(gallery), notice: message }
       format.json { head :no_content }
     end
   end

@@ -1,12 +1,9 @@
 class Collection < ApplicationRecord
   belongs_to :gallery
-  has_many :items
+  has_many :items, dependent: :restrict_with_error
 	validates :name, presence: true
 	validates :thumbnail, presence: true
 	validates :name, uniqueness: true
-
-
-  # accepts_nested_attributes_for :items   # ???
 
   def self.active
     Collection.where(archive: false)
