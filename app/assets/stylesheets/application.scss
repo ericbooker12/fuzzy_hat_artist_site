@@ -12,18 +12,27 @@ body {
   font-size: 2em;
 	padding-top: 50px;
 	padding-bottom: 100px;
-  // background-image: image-url("/images/glass/DSCF9637.jpg");
 }
 
 .artwork {
   background-color: #000;
 }
 
-a {
-  // font-color: ;
-}
 .header {
 	background-color: #676767;
+}
+
+.home-header {
+  color: $gray-light;
+  font-size: 4em;
+  text-align: right;
+}
+
+.home-image {
+  background-image: image-url("/images/glass/DSCF9688.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 
 .links {
@@ -35,9 +44,17 @@ a {
 	list-style-type: none;
 	padding-bottom: 10px;
 }
-// .thumbnail {
-//   margin: auto;
-// }
+
+#main-galleries {
+  margin-top: 200px;
+  font-size: 2em;
+  .item {
+    text-align: right;
+  }
+  a {
+    color: $gray-dark;
+  }
+}
 
 .btn-custom {
 	background: $gray-light;
@@ -51,8 +68,6 @@ a {
 .item-image:hover, .item-image:focus {
 	box-shadow: 4px 4px 1px #84A9C0;
 }
-
-
 
 .img-caption {
 	padding-top: 5px;
@@ -69,7 +84,6 @@ a {
 	}
   li {
     line-height: 200%;
-
   }
 }
 
@@ -86,12 +100,6 @@ a {
 .top {
   margin-bottom: 50px;
 }
-
-// .artwork .carousel-inner .item {
-//   // height: 800px;
-//   // width: 100%;
-//   background-color: #000;
-// }
 
 .carousel-inner {
   .item {
