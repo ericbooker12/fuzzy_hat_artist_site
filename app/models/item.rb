@@ -1,4 +1,4 @@
-class Item < ApplicationRecord
+  class Item < ApplicationRecord
   belongs_to :collection
 
   has_attached_file :image,
