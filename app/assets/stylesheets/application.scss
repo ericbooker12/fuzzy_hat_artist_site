@@ -77,3 +77,16 @@ a {
 .top {
   margin-bottom: 50px;
 }
+
+// .artwork .carousel-inner .item {
+//   height: 800px;
+//   width: 100%;
+// }
+
+.carousel-inner {
+  .item {
+    img {
+        margin: 0 auto;
+    }
+  }
+}
