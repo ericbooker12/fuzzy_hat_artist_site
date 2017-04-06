@@ -35,6 +35,9 @@ a {
 	list-style-type: none;
 	padding-bottom: 10px;
 }
+// .thumbnail {
+//   margin: auto;
+// }
 
 .btn-custom {
 	background: $gray-light;
@@ -48,6 +51,8 @@ a {
 .item-image:hover, .item-image:focus {
 	box-shadow: 4px 4px 1px #84A9C0;
 }
+
+
 
 .img-caption {
 	padding-top: 5px;
@@ -69,9 +74,8 @@ a {
 }
 
 .chosen_thumbnail {
-  background-color: $gray-light;
+  background-color: #2c28ef;
 	border-style: solid;
-	border-color: $gray-light;
 }
 
 .caption {
