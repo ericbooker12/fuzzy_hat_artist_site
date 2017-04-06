@@ -1,5 +1,6 @@
 <!-- <h1>This will be the Carousel, yes?</h1> -->
-<div class="container artwork">
+<div class="artwork" >
+<div class="container">
 	<br>
 
 
@@ -16,7 +17,7 @@
 			<% @items.each_with_index do |item, index| %>
 
 				<div class="item <%= index == @thumb_index ? 'active' : '' %>" id="item-<%= item.id %>">
-					<%= image_tag(item.image.url(:large))  %>
+					<%= image_tag(item.image.url(:large)) %>
 				</div>
 			<% end %>
 
@@ -32,4 +33,5 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
+</div>
 </div>

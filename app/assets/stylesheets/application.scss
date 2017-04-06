@@ -12,6 +12,11 @@ body {
   font-size: 2em;
 	padding-top: 50px;
 	padding-bottom: 100px;
+  // background-image: image-url("/images/glass/DSCF9637.jpg");
+}
+
+.artwork {
+  background-color: #000;
 }
 
 a {
@@ -79,8 +84,9 @@ a {
 }
 
 // .artwork .carousel-inner .item {
-//   height: 800px;
-//   width: 100%;
+//   // height: 800px;
+//   // width: 100%;
+//   background-color: #000;
 // }
 
 .carousel-inner {
