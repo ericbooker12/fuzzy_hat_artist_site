@@ -24,10 +24,6 @@ Then(/^I should see a message saying "([^"]*)"$/) do |message|
   expect(page).to have_content(message)
 end
 
-Given(/^I am on the collections page$/) do
- visit collection_path(@collection.id)
-end
-
 Then(/^I should see the edit collection page$/) do
 	expect(page).to have_current_path( edit_collection_path(@collection.id))
 end
@@ -37,14 +33,16 @@ Then(/^I should see add image page$/) do
 end
 
 When(/^I click on the button to add an image$/) do
+	pending
 	xhr :get, '/fetch_new_form', collection_id: @collection.id, format: :js
+	follow_redirect!
 	sleep 3
 	expect(page).to have_content( "Add an image to this collection" )
 	# get '/fetch_new_form', collection_id: @collection.id, xhr: true, format: :js  // doesn't work
-
 end
 
 Then(/^I should see add image form appear$/) do
+	pending
 	save_and_open_page
 	# expect(page).to have_css("#gotcha", visible: :visible)
 end
@@ -62,5 +60,9 @@ Then(/^the image is no longer visible$/) do
 end
 
 Then(/^I go to "([^"]*)" page$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+ 	expect(page).to have_current_path( edit_collection_item_path(@collection, @item.id))
+end
+
+Then(/^I click 'Destroy'$/) do
+	page.driver.submit :delete, "/collections/#{@collection.id}/items/#{@item.id}", {}
 end
