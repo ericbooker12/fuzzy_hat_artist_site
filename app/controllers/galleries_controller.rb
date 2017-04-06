@@ -4,6 +4,7 @@ class GalleriesController < ApplicationController
 
   def index
     @galleries = Gallery.active
+    @home_page = true
     if user_signed_in?
     	redirect_to user_path(current_user.id)
     end

@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     @items.each_with_index do |item, index|
       @thumb_index = index if item.id == @item.id
     end
-
+    @show_page = true
   	# if request.xhr?
     # 	# render :'contacts/_form', layout: false
     # 	render 'show'

@@ -8,10 +8,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+
+
+  <body class="<%= @show_page ? 'artwork' : ''%> <%= @home_page ? 'home-image' : ''%>">
     <div class="container">
       <p class="notice"><%= notice %></p>
-      <%= render 'layouts/header' %>
+      <% if user_signed_in? %>
+        <%= render 'layouts/header' %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
