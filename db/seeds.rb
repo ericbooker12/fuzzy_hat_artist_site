@@ -41,7 +41,6 @@ images = Dir.glob("#{Rails.root}/public/images/glass/*.jpg")
 	i = 1
 images.each do |photo_image|
 	item = collection.items.build(title: "Title #{i}")
-	p item.title
 	item.image = File.new(photo_image)
 	item.save
 	i += 1
