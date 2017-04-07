@@ -1,9 +1,5 @@
-<!-- <h1>This will be the Carousel, yes?</h1> -->
-<div class="container">
-	<br>
 
-
-	<div id="myCarousel" class="carousel slide" data-ride="">
+	<div id="myCarousel" class="carousel" data-ride="">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<% @items.each_with_index do |item, index| %>
@@ -16,7 +12,7 @@
 			<% @items.each_with_index do |item, index| %>
 
 				<div class="item <%= index == @thumb_index ? 'active' : '' %>" id="item-<%= item.id %>">
-					<%= image_tag(item.image.url(:medium))  %>
+					<%= image_tag(item.image.url(:large)) %>
 				</div>
 			<% end %>
 
@@ -32,4 +28,3 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-</div>
