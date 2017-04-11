@@ -5,6 +5,7 @@ $btn-color: rgba(100, 100, 100, 1);
 $gray-light: #CBCBCB;
 $gray-lighter: #ecf0f1;
 $gray-dark: #383636;
+$dusty-blue: #337ab7;
 
 body {
 	font-family: Futura;
@@ -66,6 +67,16 @@ body {
 	box-shadow: 4px 4px 2px $btn-color;
 }
 
+.btn {
+  border: 1px solid $dusty-blue;
+  margin: 5px 5px 0px 5px;
+  font-family: 'Droid Serif', serif;
+}
+
+.btn-header-area {
+  margin-top: 35px;
+}
+
 .item-image:hover, .item-image:focus {
 	box-shadow: 4px 4px 1px #84A9C0;
 }
@@ -125,11 +136,21 @@ body {
     color: $gray-light;
   }
 // }
-
+.form-control {
+  height: 44px;
+  font-size: 22px;
+  border-radius: 6px;
+  margin: 7px;
+  color: $gray-light;
+}
 .inline {
   display: inline-block;
 }
 
 .right {
   float: right;
+}
+
+#new-image-form {
+  margin-bottom: 20px;
 }

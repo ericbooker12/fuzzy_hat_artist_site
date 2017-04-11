@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item = @collection.items.build
   end
 
   def show
@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
   end
 
   def show_new_item_form
-    @item = Item.new
+    @item = @collection.items.build
     respond_to do |format|
         format.js
     end

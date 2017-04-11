@@ -2,8 +2,8 @@
 	<div class="col-lg-10">
     <h1 class="page-header inline"><%= @collection.name %></h1>
 		<% if user_signed_in? %>
-			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-custom btn-sm right', id: "add-image", remote: true %>
-			<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-custom btn-sm right' %>
+			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-outline-primary btn-lg right btn-header-area', id: "add-image", remote: true %>
+			<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-outline-primary btn-lg right btn-header-area' %>
 		<% end %>
 
 		<p>
