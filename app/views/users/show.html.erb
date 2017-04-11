@@ -1,0 +1,38 @@
+
+<div class="row top" >
+  <div class="col-lg-10">
+    <h1 class="page-header inline">Galleries</h1>
+    <%= link_to 'New gallery', new_gallery_path, class: "btn btn-outline-primary btn-lg right btn-header-area" %>
+  </div>
+</div>
+
+<div class="row" >
+  <% @galleries.each do |gallery| %>
+  <div class="col-lg-4">
+    <div id="gallery">
+      <h2><%= link_to gallery.name, gallery_collections_path(gallery.id) %></h2>
+      <br>
+
+      <ul class="gallery-list">
+        <% gallery.collections.each do |collection| %>
+          <li><%= link_to collection.name, collection, class: "show-collection" %></li>
+        <% end %>
+        <%= link_to "Add new collection", new_gallery_collection_path(gallery.id), class: "add_new_collection" %><br />
+      </ul>
+
+      <br>
+
+      <small>
+        Gallery:
+        <%= link_to 'Edit name', edit_gallery_path(gallery) %> |
+        <%= link_to 'Archive', archive_gallery_path(gallery.id), method: :patch %>
+      </small>
+    </div>
+  </div>
+  <% end %>
+</div>
+<hr>
+<div class="row" >
+  <%= link_to 'Show archived galleries', archived_gallery_path %>
+  <div class='archived_galleries'></div>
+</div>

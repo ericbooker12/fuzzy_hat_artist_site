@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FuzzyHatArtistSite</title>
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-92efe01092c597789d3e8d868aca2cf7b67cd8b267f15cdaf321bf8ce60dd990.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-79cc9d05412e6af5f4d51a42213262ca6b4815695b5114f45fb259f1e7ce544b.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navbar navbar-fixed-top header">
+  	<a alt="Go Home" class="links" href="/">Home</a>
+    <a alt="Log out" class="links" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a>
+</div>
+      <p class="notice"></p>
+
+      <h1>Editing Collection99</h1>
+
+<form novalidate="novalidate" class="simple_form edit_collection" id="edit_collection_603" enctype="multipart/form-data" action="/collections/603" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" />
+
+  <div class="input string required collection_name"><label class="string required" for="collection_name"><abbr title="required">*</abbr> Name</label><input class="string required form-control" type="text" value="Collection99" name="collection[name]" id="collection_name" /></div>
+  <div class="input integer required collection_thumbnail"><label class="integer required" for="collection_thumbnail"><abbr title="required">*</abbr> Thumbnail</label><input class="numeric integer required form-control" type="number" step="1" value="600" name="collection[thumbnail]" id="collection_thumbnail" /></div>
+  <div class="input select required collection_gallery"><label class="select required" for="collection_gallery_id"><abbr title="required">*</abbr> Gallery</label><select class="select required" name="collection[gallery_id]" id="collection_gallery_id"><option value=""></option>
+<option selected="selected" value="622">Glass</option>
+<option value="623">FlameThrowingNinjas</option></select></div>
+  <br />
+
+  <input type="submit" name="commit" value="Update Collection" class="btn btn btn-primary" data-disable-with="Update Collection" />
+
+</form>
+<a data-confirm="Do you want to move images first?" class="btn btn-primary" rel="nofollow" data-method="patch" href="/collections/603/archive">Archive</a>
+<a data-confirm="Are you sure? This deletws all images also! This cannot be undone." class="btn btn-warning" rel="nofollow" data-method="delete" href="/collections/603">Destroy</a>
+<br />
+<a href="/collections/603">Show</a> |
+<a href="/galleries/622/collections">Back</a>
+
+    </div>
+  </body>
+</html>
