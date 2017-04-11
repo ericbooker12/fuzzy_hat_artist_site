@@ -1,8 +1,11 @@
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-lg-10">
     <p id="notice"><%= notice %></p>
-		
-    <h1 class="page-header"><%= @gallery.name %> <%= "Collection".pluralize(@collections.count > 1 ? 2 : 1 ) %></h1>
+
+    <h1 class="page-header inline"><%= @gallery.name %> <%= "Collection".pluralize(@collections.count > 1 ? 2 : 1 ) %></h1>
+		<% if user_signed_in? %>
+      <%= link_to 'New Collection', new_gallery_collection_path, class: "btn btn-custom btn-sm right" %>
+    <% end %>
   </div>
 </div>
 
@@ -29,6 +32,3 @@
     <br>
   </div>
 </div>
-    <% if user_signed_in? %>
-      <%= link_to 'New Collection', new_gallery_collection_path %>
-    <% end %>
