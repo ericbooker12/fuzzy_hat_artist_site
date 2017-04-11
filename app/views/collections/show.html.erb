@@ -1,14 +1,22 @@
 <div class="row">
-	<div class="col-lg-12">
-    <h1 class="page-header"><%= @collection.name %></h1>
+	<div class="col-lg-10">
+    <h1 class="page-header inline"><%= @collection.name %></h1>
+		<% if user_signed_in? %>
+			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-custom btn-sm right', id: "add-image", remote: true %>
+			<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-custom btn-sm right' %>
+		<% end %>
 
 		<p>
 			<strong>Gallery:</strong>
-			<%= @collection.gallery.name %>
+			<%= link_to @collection.gallery.name, gallery_collections_path(@collection.gallery_id) %>
 		</p>
 	</div>
+
 </div>
 
+<div class="row">
+	<div class="col-md-6" id="new-image-form"></div>
+</div>
 <div class="row">
 	<div class="col-md-12">
 		<ul id="list-of-images">
@@ -38,9 +46,6 @@
 			<% end %>
 		</ul>
 	</div>
-</div>
-<div class="row">
-	<div class="col-md-3" id="new-image-form"></div>
 </div>
 
 <div class="row" id="links">

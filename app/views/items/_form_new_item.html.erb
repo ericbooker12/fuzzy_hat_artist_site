@@ -1,4 +1,4 @@
-<%= simple_form_for [@collection, @item], html: { multipart: true }, id: "gotcha" do |f| %>
+<%= minimal_form_for [@collection, @item], html: { multipart: true }, id: "gotcha" do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this collection from being saved:</h2>
