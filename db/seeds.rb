@@ -29,14 +29,14 @@ end
 gallery = user.galleries.build(name: "Glass")
 gallery.save
 
-collection = gallery.collections.build(name: "Primordial Soup", thumbnail: 1)
+collection = gallery.collections.build(name: "Primordial Roots", thumbnail: 1)
 collection.save
 
 images = Dir.glob("#{Rails.root}/public/images/glass/*.jpg")
 # images = Dir.glob(File.join(Rails.root, '/public/images/glass/*.jpg')
 
+i = 1
 images.each do |photo_image|
-	i = 1
 	item = collection.items.build(title: "Title #{i}")
 	item.image = File.new(photo_image)
 	item.save
