@@ -71,6 +71,7 @@ body {
   border: 1px solid $dusty-blue;
   margin: 5px 5px 0px 5px;
   font-family: 'Droid Serif', serif;
+  font-size: 1em;
 }
 
 .btn-header-area {
@@ -130,12 +131,6 @@ body {
   z-index:150;
 }
 
-// .form-inputs {
-  // color: $gray-light;
-// .string .email .optional .user_email {
-//     color: $gray-light;
-//   }
-// }
 input {
   height: 44px;
   font-size: 22px;
@@ -152,10 +147,22 @@ input[type=checkbox] {
   line-height: 2;
 }
 
+.email, .password  {
+  width: 400px;
+}
+
+input.btn {
+  background-color: #fff;
+  color: $dusty-blue;
+  border: 1px solid $dusty-blue;
+  margin: 10px 5px 20px 5px;
+  font-family: 'Droid Serif', serif;
+}
+
 ​label {
   line-height: 2;
-   display: inline-block;
-   vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .boolean {
