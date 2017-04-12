@@ -1,3 +1,1 @@
-# Ignore all logfiles and tempfiles.
-/log/*
-/tmp
+*.rbccapybara-*.html.rspec/log/tmp/db/*.sqlite3/db/*.sqlite3-journal/public/system/coverage//spec/tmp*.origrerun.txtpickle-email-*.html
