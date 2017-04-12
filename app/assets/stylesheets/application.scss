@@ -132,10 +132,40 @@ body {
 
 // .form-inputs {
   // color: $gray-light;
-  .input .string .email .optional .user_email {
-    color: $gray-light;
-  }
+// .string .email .optional .user_email {
+//     color: $gray-light;
+//   }
 // }
+input {
+  height: 44px;
+  font-size: 22px;
+  border-radius: 6px;
+  margin: 7px;
+  color: $gray-light;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
+  display: inline-block;
+  vertical-align: middle;
+  margin: -5px;
+  line-height: 2;
+}
+
+​label {
+  line-height: 2;
+   display: inline-block;
+   vertical-align: middle;
+}
+
+.boolean {
+  display: inline-block;
+  vertical-align:middle;
+}
+.checkbox {
+  margin-left: 30px;
+}
+
 .form-control {
   height: 44px;
   font-size: 22px;
@@ -143,6 +173,7 @@ body {
   margin: 7px;
   color: $gray-light;
 }
+
 .inline {
   display: inline-block;
 }
