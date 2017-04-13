@@ -25,7 +25,6 @@ $(document).ready(function(){
 		var dom = "bop"
 		var user = 'be';
 
-		var email = 'be@bop.com';
 		var subject = "Want to learn more";
 		var emailBody = "Hi Mark, \r\nI really like your artwork and would like to inquire about purchasing some of your pieces.";
 
