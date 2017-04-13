@@ -13,6 +13,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
+  	@gallery = Gallery.find(@collection.gallery_id)
   	# p "collections controller"
   end
 
