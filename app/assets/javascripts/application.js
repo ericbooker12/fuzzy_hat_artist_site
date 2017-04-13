@@ -15,3 +15,21 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(document).ready(function(){
+
+	$('#contact-artist').click(function (e) {
+		e.preventDefault();
+		var at = '@'
+		var ending = ".com"
+		var dom = "bop"
+		var user = 'be';
+
+		var email = 'be@bop.com';
+		var subject = "Want to learn more";
+		var emailBody = "Hi Mark, \r\nI really like your artwork and would like to inquire about purchasing some of your pieces.";
+
+		document.location = "mailto:"+ user +  at + dom + ending + "?subject="+subject+"&body="+emailBody;
+	});
+
+})
