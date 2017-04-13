@@ -13,6 +13,7 @@ mediums.each do |medium|
 	gallery.save
 end
 
+
 3.times do |i|
 	gallery = Gallery.first
 	collection = gallery.collections.build(name: "Collection#{i+1}", thumbnail: 1)
@@ -22,8 +23,10 @@ end
 		item = collection.items.build(title: "Title#{j+1}")
 		item.save
 	end
+
 	collection.thumbnail = collection.items.first.id
 	collection.save
+
 end
 
 gallery = user.galleries.build(name: "Glass")
@@ -34,6 +37,7 @@ collection.save
 
 images = Dir.glob("#{Rails.root}/public/images/glass/*.jpg")
 # images = Dir.glob(File.join(Rails.root, '/public/images/glass/*.jpg')
+
 
 i = 1
 images.each do |photo_image|
