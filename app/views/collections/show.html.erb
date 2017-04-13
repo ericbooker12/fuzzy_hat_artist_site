@@ -1,0 +1,57 @@
+<div class="row">
+	<div class="col-lg-12">
+    <h1 class="page-header inline"><%= @collection.name %></h1>
+		<% if user_signed_in? %>
+			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-outline-primary btn-lg right btn-header-area', id: "add-image", remote: true %>
+			<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-outline-primary btn-lg right btn-header-area' %>
+		<% end %>
+
+		<p>
+			<strong>Gallery:</strong>
+			<%= link_to @collection.gallery.name, gallery_collections_path(@collection.gallery_id) %>
+		</p>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-6" id="new-image-form"></div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<ul id="list-of-images">
+			<% if @collection.items.count > 0 %>
+				<%	@collection.items.each do |item| %>
+					<div class="col-md-3 col-lg-4">
+
+						<div class="thumb img-fluid">
+							<li id="item-<%= item.id %>" class="item" >
+
+								<%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail #{ @collection.thumbnail == item.id ? 'chosen_thumbnail' : '' if user_signed_in? }")), [@collection, item], class: "image" %>
+								<div class="caption">
+									<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
+									<br>
+									<% if user_signed_in? %>
+										<%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %> |
+										<%= link_to "Feature", thumbnail_collection_path(@collection, item), method: :patch  %>
+									<% end %>
+								</div>
+							</li>
+						</div>
+						<br>
+					</div>
+				<% end %>
+			<% else %>
+				<p>There are no images in this collection.</p>
+			<% end %>
+		</ul>
+	</div>
+</div>
+
+<div class="row" id="links">
+  <% if user_signed_in? %>
+		<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-custom btn-sm', id: "add-image", remote: true %>
+		<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-custom btn-sm' %>
+	<% end %>
+	<%= link_to 'Back', gallery_collections_path(@collection.gallery_id), class: 'btn btn-custom btn-sm' %>
+</div>

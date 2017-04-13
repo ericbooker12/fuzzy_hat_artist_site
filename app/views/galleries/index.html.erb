@@ -1,0 +1,24 @@
+<%= @status %>
+<%= @id %>
+<div class="row">
+  <div class="col-lg-4">
+    <h1 class="home-header">Mark Einert</h1>
+  </div>
+  <div class="col-lg-8">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-4">
+    <ul id="main-galleries">
+      <% @galleries.each do |gallery|  %>
+        <li class="item">
+          <%= link_to gallery.name, gallery_collections_path(gallery.id), title: 'gallery' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-lg-8">
+  </div>
+</div>
+<a href="http://localhost:3000/users/sign-in"><div class="sign-in"></div></a>
