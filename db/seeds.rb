@@ -20,15 +20,23 @@ def create_collection(collection_name, gallery_name)
 	collection.save
 end
 
+s3 = Aws::S3::Resource.new
+bucket = s3.bucket('fh-artist-site')
+bucket.objects(prefix: images_folder).collect(&:key)
+
 def add_items(collection_name, images_folder)
 	collection = Collection.where(name: collection_name).first
 	# images = Dir.glob("#{Rails.root}/public/images/glass/*.jpg")
-	images = Dir.glob(File.join("#{Rails.root}", images_folder))
+	# images = Dir.glob(File.join("#{Rails.root}", images_folder))
+
+	s3 = Aws::S3::Resource.new
+	bucket = s3.bucket('fh-artist-site')
+	images = bucket.objects(prefix: images_folder).collect(&:key).shift
 
 	i = 1
 	images.each do |photo_image|
 		item = collection.items.build(title: "Title #{i}")
-		item.image = File.new(photo_image)
+		item.image = "https://s3-us-west-1.amazonaws.com/fh-artist-site/#{photo_image}"
 		item.save
 		i += 1
 	end
@@ -48,19 +56,29 @@ create_gallery('Photography', user)
 
 create_collection('Primordial Roots', 'Glass')
 create_collection('River Rocks', 'Glass')
+create_collection('Perfume Bottles', 'Glass')
+create_collection('Sculpture', 'Glass')
 create_collection('Borne from the Earth', 'Ceramic')
-create_collection('Light & Shadow', 'Photography')
-create_collection('Somthing else @@@@@@@@@@@@', 'Photography')
+create_collection('Bones', 'Photography')
+create_collection('Wandering', 'Photography')
+create_collection('Patina', 'Photography')
+
 
 # http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/S3/ObjectCollection.html
-add_items('Primordial Roots', '/')
-add_items('River Rocks', '/')
-add_items('Borne from the Earth', '/')
-add_items('Light & Shadow', '/')
-add_items('Somthing else @@@@@@@@@@@@', '/')
+add_items('Primordial Roots', 'g-primordial')
+add_items('River Rocks', 'g-riverrocks')
+add_items('Perfume Bottles', 'g-perfumebottles')
+add_items('Sculpture', 'g-sculpture')
+add_items('Borne from the Earth', 'c-earth')
+add_items('Bones', 'p-bones')
+add_items('Wandering', 'p-wander')
+add_items('Patina', 'p-patina')
 
 assign_thumbnail('Primordial Roots')
 assign_thumbnail('River Rocks')
+assign_thumbnail('Perfume Bottles')
+assign_thumbnail('Sculpture')
 assign_thumbnail('Borne from the Earth')
-assign_thumbnail('Light & Shadow')
-assign_thumbnail('Somthing else @@@@@@@@@@@@')
+assign_thumbnail('Bones')
+assign_thumbnail('Wandering')
+assign_thumbnail('Patina')
