@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-md-8">
     <h1 class="page-header inline"><%= @collection.name %></h1>
 		<% if user_signed_in? %>
 			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-outline-primary btn-lg right btn-header-area btn-custom', id: "add-image", remote: true %>
@@ -46,8 +46,4 @@
 			<% end %>
 		</ul>
 	</div>
-</div>
-
-<div class="row" id="links">
-	<%= link_to "Back to #{@gallery.name} collections", gallery_collections_path(@collection.gallery_id), class: 'btn btn-custom btn-sm' %>
 </div>
