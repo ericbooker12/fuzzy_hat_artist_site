@@ -41,7 +41,7 @@ def add_items(collection_name, images_folder)
 end
 
 def assign_thumbnail(collection_name)
-	collection = Collection.where(name: collection_name)
+	collection = Collection.where(name: collection_name).first
 	collection[:thumbnail] = collection.items.first.id
 	collection.save
 end
