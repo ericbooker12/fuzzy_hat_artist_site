@@ -32,8 +32,9 @@ body {
 
 .home-image {
   background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/g-perfumebottles/DSCN0375.JPG");
+  background-repeat:no-repeat;
   -webkit-background-size: cover;
-  -moz-background-size: cover;
+  -moz-background-size: 100% 100%;
   background-size: cover;
 }
 
