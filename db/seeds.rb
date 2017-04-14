@@ -20,9 +20,6 @@ def create_collection(collection_name, gallery_name)
 	collection.save
 end
 
-s3 = Aws::S3::Resource.new
-bucket = s3.bucket('fh-artist-site')
-bucket.objects(prefix: images_folder).collect(&:key)
 
 def add_items(collection_name, images_folder)
 	collection = Collection.where(name: collection_name).first
