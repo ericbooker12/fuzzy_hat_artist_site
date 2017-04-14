@@ -1,8 +1,8 @@
 <footer class="footer navbar-fixed-bottom">
 	<% if !user_signed_in? %>
 		<small>
-			<class="text-muted"><%= link_to "Contact the Artist ", '#', id: "contact-artist" %> |
-			<%= link_to "Back to #{@gallery.name} collections", gallery_collections_path(@collection.gallery_id), class: 'text-muted' %>
+			<%= link_to "Galleries", galleries_path, class: 'text-muted' %> |
+			<class="text-muted"><%= link_to "Contact the Artist ", '#', id: "contact-artist" %>
 		</small>
 	<% end %>
 </footer>

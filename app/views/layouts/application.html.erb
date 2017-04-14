@@ -18,7 +18,7 @@
         <%= render 'layouts/header' %>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      <%= render 'layouts/footer', locals: {collection: @collection}%>
     </div>
   </body>
 </html>
