@@ -45,14 +45,15 @@ Rails.application.configure do
   #paperclip S3
   config.paperclip_defaults = {
       storage: :s3,
-      s3_region: ENV["AWS_REGION"],
+      s3_protocol: 'http',
       s3_credentials: {
-        s3_host_name: ENV["AWS_S3_HOST_NAME"],
         bucket: ENV["S3_BUCKET"],
         access_key_id: ENV["AWS_ACCESS_KEY_ID"],
         secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+        s3_region: ENV["AWS_REGION"],
         }
       }
+  config.action_controller.asset_host = "//#{ENV['fh-artist-site']}.s3.amazonaws.com"
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

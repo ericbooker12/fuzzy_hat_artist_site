@@ -1,4 +1,4 @@
-<div class="row">
+	<div class="row">
 	<div class="col-lg-12">
     <p id="notice"><%= notice %></p>
 
@@ -10,11 +10,10 @@
 </div>
 
 <div class="row">
-	<div class="col-md-12">
     <% if @collections.count > 0 %>
       <ul>
         <% @collections.each do |collection| %>
-          <div class="col-md-3 col-lg-4">
+          <div class="col-md-6 col-lg-4">
             <div class="thumb img-fluid">
               <li class="item">
               <% if collection.thumbnail %>
@@ -36,5 +35,4 @@
       No collections added yet
     <% end %>
     <br>
-  </div>
 </div>

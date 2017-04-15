@@ -1,0 +1,681 @@
+Started GET "/collections/9.109" for ::1 at 2017-04-13 23:36:29 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"9"}
+  [1m[36mCollection Load (0.5ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 9]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 9]]
+  Rendered collections/show.html.erb within layouts/application (104.7ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 947ms (Views: 861.9ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/galleries/4/collections" for ::1 at 2017-04-13 23:36:37 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCollection Load (0.9ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 109], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (27.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 122ms (Views: 102.0ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/collections/12.149" for ::1 at 2017-04-13 23:36:39 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"12"}
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 12]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 12]]
+  Rendered collections/show.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 137ms (Views: 117.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/collections/12/items/149" for ::1 at 2017-04-13 23:36:41 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"collection_id"=>"12", "id"=>"149"}
+  [1m[36mItem Load (1.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  [1m[36mCollection Load (0.8ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mItem Load (1.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 12]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 120ms (Views: 104.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/collections/9.109" for ::1 at 2017-04-13 23:37:06 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"9"}
+  [1m[36mCollection Load (0.5ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 9]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 9]]
+  Rendered collections/show.html.erb within layouts/application (23.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 193ms (Views: 170.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-13 23:37:08 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_footer.html.erb (2.4ms)
+Completed 200 OK in 100ms (Views: 95.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/galleries/5/collections" for ::1 at 2017-04-13 23:37:13 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"5"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mCollection Load (0.5ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 153], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 119ms (Views: 111.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-13 23:37:15 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (27.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 175ms (Views: 148.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/collections/13/items/153" for ::1 at 2017-04-13 23:37:16 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"collection_id"=>"13", "id"=>"153"}
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 153], ["LIMIT", 1]]
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (27.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 196ms (Views: 186.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-13 23:37:43 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 99ms (Views: 95.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/galleries/6/collections" for ::1 at 2017-04-13 23:37:45 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"6"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 6], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 6], ["archive", false]]
+  [1m[36mCollection Load (0.8ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 6], ["archive", false]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 172], ["LIMIT", 1]]
+  [1m[36mItem Load (3.0ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 187], ["LIMIT", 1]]
+  [1m[36mItem Load (1.8ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 202], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (24.5ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 124ms (Views: 112.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/collections/14.172" for ::1 at 2017-04-13 23:37:47 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"14"}
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 14]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 14]]
+  Rendered collections/show.html.erb within layouts/application (20.6ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 156ms (Views: 131.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/collections/14/items/172" for ::1 at 2017-04-13 23:37:50 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"collection_id"=>"14", "id"=>"172"}
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 172], ["LIMIT", 1]]
+  [1m[36mCollection Load (0.6ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 14]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (19.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 145ms (Views: 129.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/collections/15.187" for ::1 at 2017-04-13 23:39:10 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"15"}
+  [1m[36mCollection Load (0.9ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 15]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 15]]
+  Rendered collections/show.html.erb within layouts/application (28.7ms)
+  Rendered layouts/_footer.html.erb (3.5ms)
+Completed 200 OK in 212ms (Views: 183.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/collections/15/items/187" for ::1 at 2017-04-13 23:39:12 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"collection_id"=>"15", "id"=>"187"}
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 187], ["LIMIT", 1]]
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 15]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (22.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 136ms (Views: 118.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/collections/16.202" for ::1 at 2017-04-13 23:39:29 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"16"}
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 16]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 16]]
+  Rendered collections/show.html.erb within layouts/application (24.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 173ms (Views: 147.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/collections/16/items/202" for ::1 at 2017-04-13 23:39:31 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"collection_id"=>"16", "id"=>"202"}
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 202], ["LIMIT", 1]]
+  [1m[36mCollection Load (0.6ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 16]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 137ms (Views: 122.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-13 23:39:47 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 168ms (Views: 164.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-14 10:15:49 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (6.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (7.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (52.2ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 815ms (Views: 729.1ms | ActiveRecord: 43.3ms)
+
+
+Started GET "/galleries/4/collections" for ::1 at 2017-04-14 10:16:24 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (17.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 109], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (56.2ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 248ms (Views: 165.9ms | ActiveRecord: 29.7ms)
+
+
+Started GET "/collections/11.135" for ::1 at 2017-04-14 10:18:36 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"11"}
+  [1m[36mCollection Load (0.6ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 11]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 11]]
+  Rendered collections/show.html.erb within layouts/application (69.1ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 293ms (Views: 238.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/collections/11/items/137" for ::1 at 2017-04-14 10:19:32 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"collection_id"=>"11", "id"=>"137"}
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 137], ["LIMIT", 1]]
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 11]]
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 135ms (Views: 123.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-14 10:27:21 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (93.6ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 372ms (Views: 287.7ms | ActiveRecord: 14.6ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-04-14 10:27:50 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oxsm1L7MV77BOhK/UoOE/AdaWQIEqNXyK1yhkANnr2isUVMg8ZtibrV7hoLyKRYH8c+i/OsC4JNxNad5+3cDjg==", "user"=>{"email"=>"be@bop.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (31.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "be@bop.com"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (11.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", 2017-04-14 17:27:51 UTC], ["last_sign_in_at", 2017-04-14 17:27:51 UTC], ["current_sign_in_ip", "::1/128"], ["last_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", 2017-04-14 17:27:51 UTC], ["id", 2]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 314ms (ActiveRecord: 46.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-14 10:27:51 -0700
+Processing by GalleriesController#index as HTML
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 11ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/users/2" for ::1 at 2017-04-14 10:27:51 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 4]]
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 5]]
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 6]]
+  Rendered users/show.html.erb within layouts/application (19.0ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 136ms (Views: 129.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2017-04-14 11:00:06 -0700
+Processing by GalleriesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 32ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2" for ::1 at 2017-04-14 11:00:07 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  [1m[36mCollection Load (0.8ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 4]]
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 5]]
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1[0m  [["gallery_id", 6]]
+  Rendered users/show.html.erb within layouts/application (25.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 175ms (Views: 165.6ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-04-14 11:00:14 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Vqqj00nMBBGCz557+2e3bILKKHdKBU9Y6LaC7QXrgLBtVGxP8w8p3G56DqXWbo6ATbJzJW2XkPCv/rkKMfLnUQ=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-14 11:00:14 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 105ms (Views: 99.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/galleries/5/collections" for ::1 at 2017-04-14 11:00:16 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"5"}
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mCollection Load (1.5ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 153], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (24.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 141ms (Views: 125.1ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/galleries/4/collections" for ::1 at 2017-04-14 11:00:20 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCollection Load (0.5ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 109], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (20.2ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 194ms (Views: 168.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/galleries/4/collections" for ::1 at 2017-04-14 11:00:23 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 109], ["LIMIT", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 110ms (Views: 103.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/galleries/4/collections" for ::1 at 2017-04-14 11:00:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 109], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (76.8ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 796ms (Views: 710.6ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/galleries/4/collections" for ::1 at 2017-04-14 11:01:28 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (2.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCollection Load (0.7ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 109], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (21.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 161ms (Views: 145.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/galleries/4/collections" for ::1 at 2017-04-14 11:01:33 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (1.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCollection Load (0.5ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 109], ["LIMIT", 1]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (18.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 125ms (Views: 114.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/galleries/4/collections" for ::1 at 2017-04-14 11:03:40 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mCollection Load (1.0ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 4], ["archive", false]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 109], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (32.7ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 3064ms (Views: 3025.1ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-14 11:09:55 -0700
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (1.2ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."archive" = $1[0m  [["archive", false]]
+  Rendered galleries/index.html.erb within layouts/application (20.2ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 272ms (Views: 248.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/galleries/5/collections" for ::1 at 2017-04-14 11:09:58 -0700
+Processing by CollectionsController#index as HTML
+  Parameters: {"gallery_id"=>"5"}
+  [1m[36mGallery Load (1.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/index.html.erb within layouts/application
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mCollection Load (1.9ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."gallery_id" = $1 AND "collections"."archive" = $2[0m  [["gallery_id", 5], ["archive", false]]
+  [1m[36mItem Load (1.9ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 153], ["LIMIT", 1]]
+  Rendered collections/index.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 192ms (Views: 173.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:09:59 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (1.2ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (44.7ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 214ms (Views: 176.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/collections/13.153" for 127.0.0.1 at 2017-04-14 11:10:03 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (0.5ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (26.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 193ms (Views: 168.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/collections/13.153" for 127.0.0.1 at 2017-04-14 11:10:05 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (2.4ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (32.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 204ms (Views: 178.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:10:16 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (38.0ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 183ms (Views: 160.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:10:54 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (3.0ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (1.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (56.7ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 6441ms (Views: 6396.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:12:02 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (0.9ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (1.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (82.1ms)
+  Rendered layouts/_footer.html.erb (508.2ms)
+Completed 500 Internal Server Error in 968ms (ActiveRecord: 3.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_signed_in' for #<#<Class:0x007fb8ba1799e8>:0x007fb8c04ef6d0>):
+    1: <footer class="footer navbar-fixed-bottom">
+    2: 	<% if !user_signed_in %>
+    3: 		<small>
+    4: 			<p class="text-muted"><%= link_to "Contact the Artist ", '#', id: "contact-artist" %> </p>
+    5: 		</small>
+  
+app/views/layouts/_footer.html.erb:2:in `_app_views_layouts__footer_html_erb___3736821119471921099_70215774276100'
+app/views/layouts/application.html.erb:21:in `_app_views_layouts_application_html_erb__338991844259653448_70215700400840'
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.3ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendering /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/shawntuttle/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (137.2ms)
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:12:15 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (0.6ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 172ms (Views: 146.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:12:55 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (1.0ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 167ms (Views: 143.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:13:14 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (0.9ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (1.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (30.4ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 221ms (Views: 189.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:13:28 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (0.9ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (28.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 168ms (Views: 145.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/collections/13.153" for ::1 at 2017-04-14 11:17:14 -0700
+Processing by CollectionsController#show as 
+  Parameters: {"id"=>"13"}
+  [1m[36mCollection Load (2.7ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mGallery Load (1.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering collections/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."collection_id" = $1[0m  [["collection_id", 13]]
+  Rendered collections/show.html.erb within layouts/application (60.4ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 3329ms (Views: 3258.2ms | ActiveRecord: 5.3ms)
+
+

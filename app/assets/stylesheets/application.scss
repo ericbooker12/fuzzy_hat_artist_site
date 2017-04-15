@@ -32,8 +32,9 @@ body {
 
 .home-image {
   background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/g-perfumebottles/DSCN0375.JPG");
+  background-repeat:no-repeat;
   -webkit-background-size: cover;
-  -moz-background-size: cover;
+  -moz-background-size: 100% 100%;
   background-size: cover;
 }
 
@@ -60,7 +61,7 @@ body {
 }
 
 .btn-custom {
-	background: $gray-light;
+	// background: $gray-light;
 	box-shadow: 2px 2px 1px $btn-color;
 }
 
@@ -88,6 +89,10 @@ body {
 	margin-top: 10px;
 }
 
+.text-muted {
+  color: #337ab7;
+}
+
 #gallery {
 	background-color: $gray-lighter;
 	padding: 10px 20px 20px 40px;
@@ -99,6 +104,10 @@ body {
   li {
     line-height: 200%;
   }
+}
+
+.thumbnail img {
+  min-height:200px; height:200px;
 }
 
 .chosen_thumbnail {

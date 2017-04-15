@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-md-8">
     <h1 class="page-header inline"><%= @collection.name %></h1>
 		<% if user_signed_in? %>
 			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-outline-primary btn-lg right btn-header-area btn-custom', id: "add-image", remote: true %>
@@ -18,11 +18,10 @@
 	<div class="col-md-6" id="new-image-form"></div>
 </div>
 <div class="row">
-	<div class="col-md-12">
 		<ul id="list-of-images">
 			<% if @collection.items.count > 0 %>
 				<%	@collection.items.each do |item| %>
-					<div class="col-md-3 col-lg-4">
+					<div class="col-md-6 col-lg-4">
 
 						<div class="thumb img-fluid">
 							<li id="item-<%= item.id %>" class="item" >
@@ -45,9 +44,4 @@
 				<p>There are no images in this collection.</p>
 			<% end %>
 		</ul>
-	</div>
-</div>
-
-<div class="row" id="links">
-	<%= link_to "Back to #{@gallery.name} collections", gallery_collections_path(@collection.gallery_id), class: 'btn btn-custom btn-sm' %>
 </div>
