@@ -168,9 +168,9 @@ input[type=checkbox] {
   line-height: 2;
 }
 
-.email, .password  {
-  width: 400px;
-}
+// .email, .password  {
+//   // width: 400px;
+// }
 
 input.btn {
   background-color: #fff;
@@ -220,6 +220,34 @@ input.btn {
   padding-left: 40px;
   padding-right: 40px;
   background-color: whitesmoke;
+}
+
+// Devise forms
+.border-form-div {
+  min-width: 300px;
+  max-width: 500px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
 }
 
 // @media (min-width: @screen-sm-min) {

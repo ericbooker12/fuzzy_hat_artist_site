@@ -12,7 +12,7 @@
 
 
   <body class="<%= @show_page ? 'artwork' : ''%> <%= @home_page ? 'home-image' : ''%>">
-    <div class="container">
+    <div class="container-fluid">
       <p class="notice"><%= notice %></p>
       <% if user_signed_in? %>
         <%= render 'layouts/header' %>
