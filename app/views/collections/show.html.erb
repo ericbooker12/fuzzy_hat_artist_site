@@ -28,12 +28,11 @@
 								<%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail image #{ @collection.thumbnail == item.id ? 'chosen_thumbnail' : '' if user_signed_in? }")), [@collection, item] %>
 								<div class="caption">
 									<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption center-block" %>
-								</div>
-									<br>
 									<% if user_signed_in? %>
-										<%= link_to "Edit", edit_collection_item_path(item.collection_id, item) %> |
-										<%= link_to "Feature", thumbnail_collection_path(@collection, item), method: :patch  %>
+										<%= link_to "Edit", edit_collection_item_path(item.collection_id, item), class: "img-caption center-block edit-links" %> |
+										<%= link_to "Feature", thumbnail_collection_path(@collection, item), method: :patch, class: "img-caption center-block edit-links"  %>
 									<% end %>
+								</div>
 							</li>
 						</div>
 						<br>
