@@ -1,17 +1,17 @@
 
 <div class="row top" >
-  <div class="col-lg-12">
-    <h1 class="page-header inline">Galleries</h1>
-    <%= link_to 'New gallery', new_gallery_path, class: "btn btn-outline-primary btn-lg right btn-header-area btn-custom" %>
+  <div class="page-header col-lg-12">
+    <h1 class="inline">Galleries</h1>
+    <%= link_to 'New gallery', new_gallery_path, class: "btn btn-outline-primary btn-lg btn-header-area btn-custom" %>
   </div>
 </div>
 
 <div class="row" >
   <% @galleries.each do |gallery| %>
-  <div class="col-lg-4">
+  <div class="col-md-4">
     <div id="gallery">
       <h2><%= link_to gallery.name, gallery_collections_path(gallery.id) %></h2>
-      <br>
+
 
       <ul class="gallery-list">
         <% gallery.collections.each do |collection| %>
@@ -33,6 +33,9 @@
 </div>
 <hr>
 <div class="row" >
-  <%= link_to 'Show archived galleries', archived_gallery_path %>
-  <div class='archived_galleries'></div>
+  <div class="col-md-4">
+    <div class='archived_galleries'>
+      <%= link_to 'Show archived galleries', archived_gallery_path %>
+    </div>
+  </div>
 </div>
