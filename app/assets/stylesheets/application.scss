@@ -7,6 +7,11 @@ $gray-lighter: #ecf0f1;
 $gray-dark: #383636;
 $dusty-blue: #337ab7;
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body {
 	font-family: Futura;
   color: $gray-dark;
@@ -15,8 +20,40 @@ body {
 	padding-bottom: 120px;
 }
 
+//
+// .navbar-inverse .navbar-nav > li > a {
+//   color: #337ab7;
+// }
+//
+// .navbar-inverse .navbar-nav > li > a:hover {
+//   color: #333;
+// }
+.navbar-header {
+  background-color: #000;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar.navbar-default {
+    // background-color: #99ccff;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar, .navbar-default, .navbar-collapse {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .artwork {
   background-color: #000;
+}
+
+.carousel {
+  margin-top: 60px;
 }
 
 .header {
@@ -31,13 +68,19 @@ body {
 }
 
 .home-image {
-  // background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/g-perfumebottles/DSCN0375.JPG");
-  background-image: url("/images/cover-glass.jpg");
+  background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/images/cover-1440-990.jpg");
+  // background-image: url("/images/cover-1440-990.jpg");
 
-  background-repeat:no-repeat;
+
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   -webkit-background-size: cover;
-  -moz-background-size: 100% 100%;
+  -moz-background-size: cover;
   background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .links {
@@ -66,12 +109,11 @@ body {
     text-align: left;
   }
   a {
-    color: $gray-dark;
+    color: $gray-light;
   }
 }
 
 .btn-custom {
-	// background: $gray-light;
 	box-shadow: 2px 2px 1px $btn-color;
 }
 
@@ -88,6 +130,7 @@ body {
 
 .btn-header-area {
   margin-top: 35px;
+  float: right;
 }
 
 .item-image:hover, .item-image:focus {
@@ -119,6 +162,10 @@ body {
   li {
     line-height: 200%;
   }
+}
+
+.archived_galleries {
+  margin-left: 20px;
 }
 
 .thumbnail img {
@@ -172,10 +219,6 @@ input[type=checkbox] {
   line-height: 2;
 }
 
-// .email, .password  {
-//   // width: 400px;
-// }
-
 input.btn {
   background-color: #fff;
   color: $dusty-blue;
@@ -208,10 +251,6 @@ input.btn {
 
 .inline {
   display: inline-block;
-}
-
-.right {
-  float: right;
 }
 
 #new-image-form {
@@ -254,30 +293,147 @@ input.btn {
   padding: 7px 9px;
 }
 
-// @media (min-width: @screen-sm-min) {
-// }
+@media only all and (min-device-width: 320px) and (max-device-width: 667px) {
+  body {
+    font-size: 2em;
+  }
 
-@media only screen
-  and (min-device-width: 320px)
-  and (max-device-width: 667px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
+  #main-galleries {
+    margin-top: 10px;
+  }
 
-body {
-  background-color: lightgreen;
-  font-size: 3em;
+  .artwork {
+    padding-top: 5px;
+  }
+
+  .page-header {
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    h1 {
+      margin-bottom: 0px;
+    }
+  }
+
+  .inline {
+    display:inherit;
+  }
+  .btn-header-area {
+    float: none;
+    margin-top: 0px;
+  }
+
+  .btn {
+    font-size: .7em;
+    border: none;
+  }
+
+  .btn-lg {
+    padding: 0px;
+  }
+
+  .btn-custom {
+    box-shadow: none;
+  }
+
+  ul {
+    padding-left: 10px;
+  }
+
+  #gallery {
+    padding-left: 10px;
+  }
+
+  .img-caption {
+    padding-top: 0px;
+  }
+
 }
+
+@media only all and (min-device-width: 668px) and (max-device-width: 1025px) {
+  body {
+    font-size: 2em;
+    max-width: 95vw;
+  }
+
+  .artwork {
+    padding-top: 5px;
+  }
+
+  .page-header {
+    text-align: center;
+    width: 95%;
+    margin: auto;
+  }
+
+  .btn-header-area {
+    float: none;
+    margin-top: 0px;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .btn {
+    font-size: .7em;
+    border: none;
+  }
+
+  .btn-lg {
+    padding: 0px;
+  }
+
+  .btn-custom {
+    box-shadow: none;
+  }
+
+  ul {
+    padding-left: 10px;
+  }
+
+  #gallery {
+    padding-left: 10px;
+  }
+
+  .img-caption {
+    padding-top: 0px;
+  }
+
 }
 
-// @media only screen and (min-width: 768px) {
-//
-//     .home-image {  ///////not working
-//       // background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/g-perfumebottles/DSCN0375.JPG");
-//       background-image: url("/images/cover-glass.jpg");
-//
-//       background-repeat:no-repeat;
-//       -webkit-background-size: cover;
-//       -moz-background-size: 100% 100%;
-//       background-size: cover;
-//     }
-// }
+@media (max-width: 2000px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}

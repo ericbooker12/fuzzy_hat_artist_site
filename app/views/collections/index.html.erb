@@ -1,38 +1,43 @@
 	<div class="row">
-	<div class="col-sm-12">
+	<div class="col-sm-12 page-header ">
     <p id="notice"><%= notice %></p>
 
-    <h1 class="page-header inline"><%= @gallery.name %> <%= "Collection".pluralize(@collections.count > 1 ? 2 : 1 ) %></h1>
+    <h1 class="inline"><%= @gallery.name %> <%= "Collection".pluralize(@collections.count > 1 ? 2 : 1 ) %></h1>
 		<% if user_signed_in? %>
-      <%= link_to 'New Collection', new_gallery_collection_path, class: "btn btn-outline-primary btn-lg right btn-header-area btn-custom" %>
+      <%= link_to 'New Collection', new_gallery_collection_path, class: "btn btn-outline-primary btn-lg btn-header-area btn-custom" %>
     <% end %>
   </div>
 </div>
 
 <div class="row">
-    <% if @collections.count > 0 %>
-      <ul>
-        <% @collections.each do |collection| %>
-          <div class="col-sm-12 col-md-3">
-            <div class="img-fluid">
-              <li class="item">
-	              	<% if collection.thumbnail %>
-	                <% item = Item.find(collection.thumbnail) %>
-	                <%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail image")), collection_path(collection.id, item.id), title: "image thumb" %>
-									<div class="caption">
-										<%= link_to collection.name, collection_path(collection.id, item.id), title: collection.name, class: "img-caption center-block" %>
-									</div>
-	              <% else %>
-	                (No thumbnail set)
-	              <% end %>
+	<div class="col-xs-12 col-md-8">
+		&nbsp;
+	</div>
+</div>
+<div class="row">
+  <% if @collections.count > 0 %>
+    <ul>
+      <% @collections.each do |collection| %>
+        <div class="col-sm-12 col-md-3">
+          <div class="img-fluid">
+            <li class="item">
+              	<% if collection.thumbnail %>
+                <% item = Item.find(collection.thumbnail) %>
+                <%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail image")), collection_path(collection.id, item.id), title: "image thumb" %>
+								<div class="caption">
+									<%= link_to collection.name, collection_path(collection.id, item.id), title: collection.name, class: "img-caption center-block" %>
+								</div>
+              <% else %>
+                (No thumbnail set)
+              <% end %>
 
-              </li>
-            </div>
+            </li>
           </div>
-        <% end %>
-      </ul>
-    <% else %>
-      No collections added yet
-    <% end %>
-    <br>
+        </div>
+      <% end %>
+    </ul>
+  <% else %>
+    No collections added yet
+  <% end %>
+  <br>
 </div>

@@ -1,15 +1,12 @@
 <div class="row">
-	<div class="col-sm-12">
-    <h1 class="page-header inline"><%= @collection.name %></h1>
+	<div class="col-sm-12 page-header">
+    <h1 class="inline"><%= @collection.name %></h1>
 		<% if user_signed_in? %>
-			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-outline-primary btn-lg right btn-header-area btn-custom', id: "add-image", remote: true %>
-			<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-outline-primary btn-lg right btn-header-area btn-custom' %>
-		<% end %>
-
-		<p>
-			<strong>Gallery:</strong>
+			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-outline-primary btn-lg btn-header-area btn-custom', id: "add-image", remote: true %>
+			<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-outline-primary btn-lg btn-header-area btn-custom' %>
+		<% end %><br />
+		<strong>Gallery:</strong>
 			<%= link_to @collection.gallery.name, gallery_collections_path(@collection.gallery_id) %>
-		</p>
 	</div>
 
 </div>

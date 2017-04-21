@@ -11,7 +11,7 @@
 		<div class="carousel-inner">
 			<% @items.each_with_index do |item, index| %>
 
-				<div class="item <%= index == @thumb_index ? 'active' : '' %>" id="item-<%= item.id %>">
+				<div class="img-responsive item <%= index == @thumb_index ? 'active' : '' %>" id="item-<%= item.id %>">
 					<%= image_tag(item.image.url(:large)) %>
 				</div>
 			<% end %>
