@@ -7,6 +7,11 @@ $gray-lighter: #ecf0f1;
 $gray-dark: #383636;
 $dusty-blue: #337ab7;
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body {
 	font-family: Futura;
   color: $gray-dark;
@@ -15,8 +20,42 @@ body {
 	padding-bottom: 120px;
 }
 
+//
+// .navbar-inverse .navbar-nav > li > a {
+//   color: #337ab7;
+// }
+//
+// .navbar-inverse .navbar-nav > li > a:hover {
+//   color: #333;
+// }
+.navbar-header {
+  background-color: #000;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar.navbar-default {
+    // background-color: #99ccff;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar, .navbar-default, .navbar-collapse {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+// @navbar-default-border:none;
+
 .artwork {
   background-color: #000;
+}
+
+.carousel {
+  margin-top: 60px;
 }
 
 .header {
@@ -254,7 +293,10 @@ input.btn {
   margin-bottom: 15px;
   padding: 7px 9px;
 }
-
+.carousel-inner > .item > img {
+  // width: 100%;
+  max-height: 50%;
+}
 // @media (min-width: @screen-sm-min) {
 // }
 
@@ -265,8 +307,11 @@ input.btn {
   and (orientation: portrait) {
 
   body {
-    background-color: lightgreen;
     font-size: 2em;
+  }
+
+  .artwork {
+    padding-top: 5px;
   }
 
   .page-header {
@@ -310,6 +355,7 @@ input.btn {
   .img-caption {
     padding-top: 0px;
   }
+
 }
 
 @media only screen
@@ -319,9 +365,12 @@ input.btn {
   and (orientation: landscape) {
 
   body {
-    background-color: yellow;
     font-size: 2em;
     max-width: 95vw;
+  }
+
+  .artwork {
+    padding-top: 5px;
   }
 
   .page-header {
@@ -362,8 +411,45 @@ input.btn {
   .img-caption {
     padding-top: 0px;
   }
+
 }
 
+@media (max-width: 2000px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
 // @media only screen and (min-width: 768px) {
 //
 //     .home-image {  ///////not working
