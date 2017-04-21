@@ -4,7 +4,7 @@
 
     <h1 class="inline"><%= @gallery.name %> <%= "Collection".pluralize(@collections.count > 1 ? 2 : 1 ) %></h1>
 		<% if user_signed_in? %>
-      <%= link_to 'New Collection', new_gallery_collection_path, class: "btn btn-outline-primary btn-lg right btn-header-area btn-custom" %>
+      <%= link_to 'New Collection', new_gallery_collection_path, class: "btn btn-outline-primary btn-lg btn-header-area btn-custom" %>
     <% end %>
   </div>
 </div>

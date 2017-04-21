@@ -48,8 +48,6 @@ body {
   box-shadow: none;
 }
 
-// @navbar-default-border:none;
-
 .artwork {
   background-color: #000;
 }
@@ -70,13 +68,19 @@ body {
 }
 
 .home-image {
-  // background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/g-perfumebottles/DSCN0375.JPG");
-  background-image: url("/images/cover-glass.jpg");
+  background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/images/cover-1440-990.jpg");
+  // background-image: url("/images/cover-1440-990.jpg");
 
-  background-repeat:no-repeat;
+
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   -webkit-background-size: cover;
-  -moz-background-size: 100% 100%;
+  -moz-background-size: cover;
   background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .links {
@@ -105,12 +109,11 @@ body {
     text-align: left;
   }
   a {
-    color: $gray-dark;
+    color: $gray-light;
   }
 }
 
 .btn-custom {
-	// background: $gray-light;
 	box-shadow: 2px 2px 1px $btn-color;
 }
 
@@ -216,10 +219,6 @@ input[type=checkbox] {
   line-height: 2;
 }
 
-// .email, .password  {
-//   // width: 400px;
-// }
-
 input.btn {
   background-color: #fff;
   color: $dusty-blue;
@@ -293,21 +292,14 @@ input.btn {
   margin-bottom: 15px;
   padding: 7px 9px;
 }
-.carousel-inner > .item > img {
-  // width: 100%;
-  max-height: 50%;
-}
-// @media (min-width: @screen-sm-min) {
-// }
 
-@media only screen
-  and (min-device-width: 320px)
-  and (max-device-width: 667px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-
+@media only all and (min-device-width: 320px) and (max-device-width: 667px) {
   body {
     font-size: 2em;
+  }
+
+  #main-galleries {
+    margin-top: 10px;
   }
 
   .artwork {
@@ -358,12 +350,7 @@ input.btn {
 
 }
 
-@media only screen
-  and (min-device-width: 668px)
-  and (max-device-width: 1025px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) {
-
+@media only all and (min-device-width: 668px) and (max-device-width: 1025px) {
   body {
     font-size: 2em;
     max-width: 95vw;
@@ -450,15 +437,3 @@ input.btn {
         display:block !important;
     }
 }
-// @media only screen and (min-width: 768px) {
-//
-//     .home-image {  ///////not working
-//       // background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/g-perfumebottles/DSCN0375.JPG");
-//       background-image: url("/images/cover-glass.jpg");
-//
-//       background-repeat:no-repeat;
-//       -webkit-background-size: cover;
-//       -moz-background-size: 100% 100%;
-//       background-size: cover;
-//     }
-// }
