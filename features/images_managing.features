@@ -1,8 +1,0 @@
-Feature: Changing image attributes
-  In order to keep images current
-  As an artist
-  I should be able to change images's title, collection and dimensions
-
-  Scenario: Changing the collection that the image belongs to
-
-  Scenario: Deleting an image
