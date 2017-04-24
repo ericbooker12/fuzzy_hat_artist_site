@@ -1,5 +1,4 @@
-*.rbc
-capybara-*.html
+*.rbccapybara-*.html
 .rspec
 /tmp/
 /db/*.sqlite3
