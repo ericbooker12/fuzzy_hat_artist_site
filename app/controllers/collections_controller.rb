@@ -33,6 +33,7 @@ class CollectionsController < ApplicationController
   def create
     @gallery = Gallery.find(params["gallery_id"])
     @collection = @gallery.collections.build(collection_params)
+    @collection.thumbnail = 1
 
     respond_to do |format|
       if @collection.save
