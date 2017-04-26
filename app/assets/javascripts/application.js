@@ -18,7 +18,7 @@
 
 $(document).ready(function(){
 
-	$('#contact-artist').click(function (e) {
+	$('.contact-artist').click(function (e) {
 		e.preventDefault();
 		var at = '@'
 		var ending = ".com"
