@@ -15,7 +15,7 @@
           <%= link_to "Log out", destroy_user_session_path, method: :delete, alt: "Log out", class: "links" %>
         <% else %>
           <li><%= link_to "Galleries", galleries_path %></li>
-          <li><%= link_to "Contact", '#', id: "contact-artist" %></li>
+          <li><%= link_to "Contact", '#', class: "contact-artist" %></li>
         <% end %>
       </ul>
     </div>
