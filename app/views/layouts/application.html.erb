@@ -3,7 +3,8 @@
   <head>
     <title>FuzzyHatArtistSite</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "My Application" %></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Droid+Serif' %>
@@ -12,13 +13,12 @@
 
 
   <body class="<%= @show_page ? 'artwork' : ''%> <%= @home_page ? 'home-image' : ''%>">
-    <div class="container">
+    <div class="container-fluid">
       <p class="notice"><%= notice %></p>
-      <% if user_signed_in? %>
-        <%= render 'layouts/header' %>
+      <% if !@home_page %>
+        <%= render 'layouts/header2' %>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>

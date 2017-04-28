@@ -7,6 +7,11 @@ $gray-lighter: #ecf0f1;
 $gray-dark: #383636;
 $dusty-blue: #337ab7;
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body {
 	font-family: Futura;
   color: $gray-dark;
@@ -15,8 +20,40 @@ body {
 	padding-bottom: 120px;
 }
 
+//
+// .navbar-inverse .navbar-nav > li > a {
+//   color: #337ab7;
+// }
+//
+// .navbar-inverse .navbar-nav > li > a:hover {
+//   color: #333;
+// }
+.navbar-header {
+  background-color: #000;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar.navbar-default {
+    // background-color: #99ccff;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar, .navbar-default, .navbar-collapse {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .artwork {
   background-color: #000;
+}
+
+.carousel {
+  margin-top: 60px;
 }
 
 .header {
@@ -24,21 +61,30 @@ body {
 }
 
 .home-header {
-  color: $gray-light;
-  font-size: 2em;
+  color: $gray-lighter;
+  font-size: 3em;
   opacity: .5;
   text-align: left;
 }
 
 .home-image {
-  background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/g-perfumebottles/DSCN0375.JPG");
+  background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/images/cover-1440-990.jpg");
+  // background-image: url("/images/cover-1440-990.jpg");
+
+
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .links {
-	color: white;
+	color: $gray-dark;
 	font-size: 20px;
   margin-left: 15px;
 }
@@ -48,19 +94,26 @@ body {
 	padding-bottom: 10px;
 }
 
+.img-responsive {
+  margin: auto;
+}
+
+.center-block {
+  text-align: center;
+}
+
 #main-galleries {
   margin-top: 200px;
   font-size: 2em;
   .item {
-    text-align: right;
+    text-align: left;
   }
   a {
-    color: $gray-dark;
+    color: $gray-light;
   }
 }
 
 .btn-custom {
-	background: $gray-light;
 	box-shadow: 2px 2px 1px $btn-color;
 }
 
@@ -77,6 +130,7 @@ body {
 
 .btn-header-area {
   margin-top: 35px;
+  float: right;
 }
 
 .item-image:hover, .item-image:focus {
@@ -86,8 +140,17 @@ body {
 .img-caption {
 	padding-top: 5px;
 	margin-top: 10px;
+  font-size: 1.3em;
 }
 
+.text-muted {
+  color: #337ab7;
+}
+
+.edit-links {
+  display: inline-block;
+  margin:auto;
+}
 #gallery {
 	background-color: $gray-lighter;
 	padding: 10px 20px 20px 40px;
@@ -99,6 +162,14 @@ body {
   li {
     line-height: 200%;
   }
+}
+
+.archived_galleries {
+  margin-left: 20px;
+}
+
+.thumbnail img {
+  min-height:200px; height:200px;
 }
 
 .chosen_thumbnail {
@@ -129,7 +200,9 @@ body {
   bottom:0;
   position:fixed;
   right:0;
-  z-index:150;
+  z-index:9999;
+  visibility: 'none';
+  opacity: 0;
 }
 
 input {
@@ -146,10 +219,6 @@ input[type=checkbox] {
   vertical-align: middle;
   margin: -5px;
   line-height: 2;
-}
-
-.email, .password  {
-  width: 400px;
 }
 
 input.btn {
@@ -186,10 +255,6 @@ input.btn {
   display: inline-block;
 }
 
-.right {
-  float: right;
-}
-
 #new-image-form {
   margin-bottom: 20px;
 }
@@ -200,4 +265,185 @@ input.btn {
   padding-left: 40px;
   padding-right: 40px;
   background-color: whitesmoke;
+}
+
+// Devise forms
+.border-form-div {
+  min-width: 300px;
+  max-width: 500px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+// li {
+//   display: inline-block;
+// }
+
+@media only all and (min-device-width: 320px) and (max-device-width: 667px) {
+
+  body {
+    font-size: 2em;
+  }
+
+  #main-galleries {
+    margin-top: 10px;
+  }
+
+  .artwork {
+    padding-top: 5px;
+  }
+
+  .page-header {
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    h1 {
+      margin-bottom: 0px;
+    }
+  }
+
+  .inline {
+    display:inherit;
+  }
+  .btn-header-area {
+    float: none;
+    margin-top: 0px;
+  }
+
+  .btn {
+    font-size: .7em;
+    border: none;
+  }
+
+  .btn-lg {
+    padding: 0px;
+  }
+
+  .btn-custom {
+    box-shadow: none;
+  }
+
+  ul {
+    padding-left: 10px;
+  }
+
+  #gallery {
+    padding-left: 10px;
+  }
+
+  .img-caption {
+    padding-top: 0px;
+  }
+
+}
+
+@media only all and (min-device-width: 668px) and (max-device-width: 1025px) {
+  body {
+    font-size: 2em;
+    max-width: 95vw;
+  }
+
+  .artwork {
+    padding-top: 5px;
+  }
+
+  .page-header {
+    text-align: center;
+    width: 95%;
+    margin: auto;
+  }
+
+  .btn-header-area {
+    float: none;
+    margin-top: 0px;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .btn {
+    font-size: .7em;
+    border: none;
+  }
+
+  .btn-lg {
+    padding: 0px;
+  }
+
+  .btn-custom {
+    box-shadow: none;
+  }
+
+  ul {
+    padding-left: 10px;
+  }
+
+  #gallery {
+    padding-left: 10px;
+  }
+
+  .img-caption {
+    padding-top: 0px;
+  }
+
+}
+
+@media (max-width: 2000px) {
+
+
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+
 }

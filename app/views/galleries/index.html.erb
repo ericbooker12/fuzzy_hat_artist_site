@@ -1,15 +1,13 @@
 <%= @status %>
 <%= @id %>
 <div class="row">
-  <div class="col-lg-4">
+  <div class="col-sm-12 col-md-3">
     <h1 class="home-header">Mark Einert</h1>
-  </div>
-  <div class="col-lg-8">
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-4">
+<div class="row smaller">
+  <div class="col-sm-12 col-md-3">
     <ul id="main-galleries">
       <% @galleries.each do |gallery|  %>
         <li class="item">
@@ -18,7 +16,7 @@
       <% end %>
     </ul>
   </div>
-  <div class="col-lg-8">
+  <div class="col-sm-12 col-md-3">
   </div>
 </div>
-<a href="http://localhost:3000/users/sign-in"><div class="sign-in"></div></a>
+<a href="<%= new_user_session_path %>"><div class="sign-in"></div></a>
