@@ -84,7 +84,7 @@ body {
 }
 
 .links {
-	color: white;
+	color: $gray-dark;
 	font-size: 20px;
   margin-left: 15px;
 }
@@ -201,6 +201,8 @@ body {
   position:fixed;
   right:0;
   z-index:9999;
+  visibility: 'none';
+  opacity: 0;
 }
 
 input {
@@ -293,7 +295,12 @@ input.btn {
   padding: 7px 9px;
 }
 
+// li {
+//   display: inline-block;
+// }
+
 @media only all and (min-device-width: 320px) and (max-device-width: 667px) {
+
   body {
     font-size: 2em;
   }
@@ -402,6 +409,8 @@ input.btn {
 }
 
 @media (max-width: 2000px) {
+
+
     .navbar-header {
         float: none;
     }
@@ -436,4 +445,5 @@ input.btn {
     .collapse.in{
         display:block !important;
     }
+
 }
