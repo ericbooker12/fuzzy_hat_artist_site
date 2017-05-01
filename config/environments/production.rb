@@ -53,7 +53,7 @@ Rails.application.configure do
         s3_region: ENV["AWS_REGION"]
         }
       }
-  config.action_controller.asset_host = "d1vbh98hzc4ro6.cloudfront.net"
+  config.action_controller.asset_host = "d3uuadfuxdjf12.cloudfront.net/"
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
