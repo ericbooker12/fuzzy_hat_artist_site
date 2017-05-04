@@ -43,16 +43,29 @@ Rails.application.configure do
   # config.force_ssl = true
 
   #paperclip S3
+  # config.paperclip_defaults = {
+  #     storage: :s3,
+  #     s3_protocol: 'https',
+  #     s3_credentials: {
+  #       bucket: ENV["S3_BUCKET"],
+  #       access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+  #       secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
+  #       s3_region: ENV["AWS_REGION"]
+  #       }
+  #     }
+
   config.paperclip_defaults = {
-      storage: :s3,
-      s3_protocol: 'https',
-      s3_credentials: {
-        bucket: ENV["S3_BUCKET"],
-        access_key_id: ENV["AWS_ACCESS_KEY_ID"],
-        secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
-        s3_region: ENV["AWS_REGION"]
-        }
-      }
+    storage: :s3,
+    url: ":s3_alias_url",
+    path: "/:class/:attachment/:id_partition/:style/:filename",
+    s3_host_alias: "d3uuadfuxdjf12.cloudfront.net",
+    s3_credentials: {
+        bucket: ENV['S3_BUCKET'],
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    }
+}
+
   config.action_controller.asset_host = "d3uuadfuxdjf12.cloudfront.net/"
 
   # Use the lowest log level to ensure availability of diagnostic information
