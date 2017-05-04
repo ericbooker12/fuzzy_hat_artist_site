@@ -66,8 +66,7 @@ Rails.application.configure do
     }
 }
 
-  # config.action_controller.asset_host = "d3uuadfuxdjf12.cloudfront.net/"
-  config.action_controller.asset_host = "//#{ENV['S3_BUCKET']}.s3.amazonaws.com"
+  config.action_controller.asset_host = "d1vbh98hzc4ro6.cloudfront.net/"
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
