@@ -22,13 +22,13 @@ $(document).ready(function(){
 		e.preventDefault();
 		var at = '@'
 		var ending = ".com"
-		var dom = "bop"
-		var user = 'be';
+		var dom = "markeinert"
+		var user = 'hello';
 
-		var subject = "Want to learn more";
-		var emailBody = "Hi Mark, \r\nI really like your artwork and would like to inquire about purchasing some of your pieces.";
+		var subject = "Connecting from website";
+		// var emailBody = "Hi Mark, \r\nI really like your artwork and would like to inquire about purchasing some of your pieces.";
 
-		document.location = "mailto:"+ user +  at + dom + ending + "?subject="+subject+"&body="+emailBody;
+		document.location = "mailto:"+ user +  at + dom + ending + "?subject="+subject;
 	});
 
 })
