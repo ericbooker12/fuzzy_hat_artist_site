@@ -3,5 +3,6 @@ FactoryGirl.define do
     sequence :name do |n|
     	"Name #{n}"
     end
+    user
   end
 end
