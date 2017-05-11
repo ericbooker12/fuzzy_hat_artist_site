@@ -5,7 +5,7 @@ RSpec.describe Collection, type: :model do
     collection = create(:collection)
     expect(collection).to be_valid
   end
-  
+
   describe "associations and validations" do
     it { should have_many(:items) }
 
@@ -15,38 +15,6 @@ RSpec.describe Collection, type: :model do
     it { should validate_uniqueness_of(:name) }
     it { should validate_numericality_of(:thumbnail) }
 
-  end
-
-  describe "name and thumbnail" do
-    it "is valid with a name and a thumbnail" do
-      collection = build(:collection)
-      expect(collection).to be_valid
-    end
-
-    it "is invalid without a name" do
-      collection = build(:collection, name: nil)
-      collection.valid?
-      expect(collection.errors[:name]).to include("can't be blank")
-    end
-
-    it "is invalid without a thumbnail" do
-      collection = build(:collection, thumbnail: nil)
-      collection.valid?
-      expect(collection.errors[:thumbnail]).to include("can't be blank")
-    end
-
-    it "is invalid if thumbnail is not a number" do
-      collection = build(:collection, thumbnail: "vase")
-      collection.valid?
-      expect(collection.errors[:thumbnail]).to include("is not a number")
-    end
-
-    it "is invalid with a duplicate name" do
-      collection1 = create(:collection, name: "Primordial")
-      collection2 = build(:collection, name: "Primordial")
-      collection2.valid?
-      expect(collection2.errors[:name]).to include("has already been taken")
-    end
   end
 
   describe "item" do
