@@ -1,6 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Collection, type: :model do
+  it "is valid with valid attributes" do
+    collection = create(:collection)
+    expect(collection).to be_valid
+  end
+  
+  describe "associations and validations" do
+    it { should have_many(:items) }
+
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:thumbnail) }
+
+    it { should validate_uniqueness_of(:name) }
+    it { should validate_numericality_of(:thumbnail) }
+
+  end
 
   describe "name and thumbnail" do
     it "is valid with a name and a thumbnail" do

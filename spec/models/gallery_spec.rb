@@ -1,22 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Gallery, type: :model do
-  it "is valid with name" do
-    gallery = build(:gallery)
+  it "is valid with valid attributes" do
+    gallery = create(:gallery)
     expect(gallery).to be_valid
   end
 
-  it "is invalid without a name" do
-    gallery = build(:gallery, name: nil)
-    gallery.valid?
-    expect(gallery.errors[:name]).to include("can't be blank")
-  end
+  describe "associations and validations" do
+    it { should have_many(:collections) }
 
-  it "is invalid with a duplicate name" do
-    gallery1 = create(:gallery, name: "Glass")
-    gallery2 = build(:gallery, name: "Glass")
-    gallery2.valid?
-    expect(gallery2.errors[:name]).to include("has already been taken")
+    it { should validate_presence_of(:name) }
+
+    it { should validate_uniqueness_of(:name) }
   end
 
   describe ".active" do
@@ -28,4 +23,15 @@ RSpec.describe Gallery, type: :model do
       expect(galleries).to eq [gallery1, gallery2]
     end
   end
+
+  describe ".archived" do
+    it "return archived galleries" do
+      gallery1 = create(:gallery, archive: false)
+      gallery2 = create(:gallery, archive: true)
+      gallery3 = create(:gallery, archive: true)
+      galleries = Gallery.archived
+      expect(galleries).to eq [gallery2, gallery3]
+    end
+  end
+
 end
