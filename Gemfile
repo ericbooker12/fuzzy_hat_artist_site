@@ -60,6 +60,7 @@ group :test do
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'selenium-webdriver', '~> 3.3'
   gem 'cucumber-rails', '~> 1.4', '>= 1.4.5', :require => false
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
