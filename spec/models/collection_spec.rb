@@ -1,29 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe Collection, type: :model do
-
-  it "is valid with a name and a thumbnail" do
-    collection = build(:collection)
+  it "is valid with valid attributes" do
+    collection = create(:collection)
     expect(collection).to be_valid
   end
 
-  it "is invalid without a name" do
-    collection = build(:collection, name: nil)
-    collection.valid?
-    expect(collection.errors[:name]).to include("can't be blank")
+  describe "associations and validations" do
+    it { should have_many(:items) }
+    it { should belong_to(:gallery) }
+
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:thumbnail) }
+
+    it { should validate_uniqueness_of(:name) }
+    it { should validate_numericality_of(:thumbnail) }
+
   end
 
-  it "is invalid without a thumbnail" do
-    collection = build(:collection, thumbnail: nil)
-    collection.valid?
-    expect(collection.errors[:thumbnail]).to include("can't be blank")
-  end
-
-  it "is invalid with a duplicate name" do
-    collection1 = create(:collection, name: "Primordial")
-    collection2 = build(:collection, name: "Primordial")
-    collection2.valid?
-    expect(collection2.errors[:name]).to include("has already been taken")
+  describe "item" do
+    it "returns warning when destroy collection with items" do
+      collection = create(:collection)
+      new_item = create(:item)
+      collection.items << new_item
+      collection.save
+      collection.destroy
+      expect(collection.errors[:base]).to include("Cannot delete record because dependent items exist")
+    end
   end
 
   describe ".active" do
