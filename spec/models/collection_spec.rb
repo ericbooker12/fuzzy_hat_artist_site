@@ -8,6 +8,7 @@ RSpec.describe Collection, type: :model do
 
   describe "associations and validations" do
     it { should have_many(:items) }
+    it { should belong_to(:gallery) }
 
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:thumbnail) }
