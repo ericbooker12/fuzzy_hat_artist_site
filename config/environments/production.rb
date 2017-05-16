@@ -22,10 +22,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
-  #Needs to be false on Heroku
-  config.assets.initialize_on_precompile = false
   config.assets.enabled = true
-  config.serve_static_assets = true
   config.assets.digest = true
   config.assets.compile = true
 
