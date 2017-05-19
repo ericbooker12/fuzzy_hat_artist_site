@@ -12,4 +12,8 @@ class Gallery < ApplicationRecord
     Gallery.where(archive: true)
   end
 
+  def active?
+    self.archive == false
+  end
+
 end

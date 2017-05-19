@@ -18,6 +18,12 @@
 <br />
 <br />
 <% if user_signed_in? %>
+  <% if @gallery.active? %>
+    <%= link_to 'Archive', archive_gallery_path(@gallery.id), method: :patch %>
+  <% else %>
+    <%= link_to 'UN-archive gallery', un_archive_gallery_path(@gallery.id), method: :patch %>
+  <% end %>
+  <!-- Show archive link if active
+  else show UN-archive link if not active -->
 
-  <%= link_to 'Archived galleries', archived_gallery_path %>
 <% end %>
