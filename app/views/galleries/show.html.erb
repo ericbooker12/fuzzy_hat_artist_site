@@ -1,3 +1,7 @@
+<% if !@gallery.active? %>
+  <h1>** Archived **</h1>
+<% end %>
+
 
 <h1><%= @gallery.name %></h1>
 
@@ -5,6 +9,7 @@
   <div class="col-md-4">
     <div id="gallery">
       <ul class="gallery-list">
+        <h4>Collections</h4>
         <% @collections.each do |collection| %>
         <li>
           <%= link_to collection.name, collection, class: "show-collection" %>
@@ -17,13 +22,8 @@
 
 <br />
 <br />
-<% if user_signed_in? %>
-  <% if @gallery.active? %>
-    <%= link_to 'Archive', archive_gallery_path(@gallery.id), method: :patch %>
-  <% else %>
-    <%= link_to 'UN-archive gallery', un_archive_gallery_path(@gallery.id), method: :patch %>
-  <% end %>
-  <!-- Show archive link if active
-  else show UN-archive link if not active -->
-
+<% if @gallery.active? %>
+  <%= link_to 'Archive', archive_gallery_path(@gallery.id), method: :patch %>
+<% else %>
+  <%= link_to 'Restore gallery', un_archive_gallery_path(@gallery.id), method: :patch %>
 <% end %>

@@ -1,9 +1,11 @@
 <% if @archived_galleries %>
-  <h1>These have been archived</h1>
+  <h1>** Archived **</h1>
     <ul>
       <% @archived_galleries.each do |gallery| %>
       <li>
-        <%= link_to gallery.name, gallery_path(gallery.id)  %>
+        <%= gallery.name  %>
+        <%= link_to 'edit', edit_gallery_path(gallery) %>
+
       </li>
       <% end %>
     </ul>
