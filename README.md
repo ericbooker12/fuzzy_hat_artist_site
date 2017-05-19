@@ -5,7 +5,7 @@ An Artist's gallery to showcase his various artistic mediums. Admin area reflect
 
 Live at: [MarkEinert.com](http://www.markeinert.com/)
 
-![Home page](/public/index_page.jpg "Home page")
+![Home page](/public/index_page.png "Home page")
 
 animated gif coming
 
