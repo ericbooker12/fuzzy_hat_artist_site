@@ -61,6 +61,7 @@ body {
 
 .home-image {
   background-image: url("https://s3-us-west-1.amazonaws.com/fh-artist-site/images/cover2-1440-990.jpg");
+  // background-image: url('<%= asset_path("logo.png") %> ')
   // background-image: url("/images/cover2-1440-990.jpg");
 
   background-color: #000;
@@ -73,6 +74,7 @@ body {
   height: 100%;
   width: 100%;
 }
+
 
 .links {
 	color: $gray-dark;
