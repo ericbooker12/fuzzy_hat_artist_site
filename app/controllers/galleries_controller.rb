@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery, only: [:show, :edit, :update, :destroy]
+  before_action :set_gallery, only: [:show, :edit, :update, :destroy, :archive, :un_archive]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -31,6 +31,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
+    p 'in gallery show action'
     @collections = @gallery.collections
   end
 
@@ -51,6 +52,13 @@ class GalleriesController < ApplicationController
 
   def archive
     @gallery.update_attribute(:archive, true)
+    redirect_to galleries_path
+  end
+
+  def un_archive
+    p 'in gallery un_archive show action'
+
+    @gallery.update_attribute(:archive, false)
     redirect_to galleries_path
   end
 

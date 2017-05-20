@@ -1,5 +1,16 @@
-<h1>Edit <%= @gallery.name %></h1>
+<% if !@gallery.active? %>
+  <h1>** Archived **</h1>
+<% end %>
+
+<h1>Edit <%= @gallery.name %> Gallery</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', galleries_path %>
+<% if @gallery.active? %>
+  <%= link_to 'Archive', archive_gallery_path(@gallery.id), method: :patch %>
+<% else %>
+  <%= link_to 'Restore gallery', un_archive_gallery_path(@gallery.id), method: :patch %>
+<% end %>
+<p>
+  <%= link_to 'Back', galleries_path %>
+</p>

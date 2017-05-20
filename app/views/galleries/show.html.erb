@@ -1,16 +1,29 @@
+<% if !@gallery.active? %>
+  <h1>** Archived **</h1>
+<% end %>
 
-<ul>
-  <% @collections.each do |collection| %>
-  <li>
-    <%= link_to collection.name, collection %>
-  </li>
-  <% end %>
-</ul>
 
-link to: UN-Archive  (action not yet created)
+<h1><%= @gallery.name %></h1>
+
+<div class="row" >
+  <div class="col-md-4">
+    <div id="gallery">
+      <ul class="gallery-list">
+        <h4>Collections</h4>
+        <% @collections.each do |collection| %>
+        <li>
+          <%= link_to collection.name, collection, class: "show-collection" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <br />
 <br />
-<% if user_signed_in? %>
-  <%= link_to 'Archived galleries', archived_gallery_path %>
+<% if @gallery.active? %>
+  <%= link_to 'Archive', archive_gallery_path(@gallery.id), method: :patch %>
+<% else %>
+  <%= link_to 'Restore gallery', un_archive_gallery_path(@gallery.id), method: :patch %>
 <% end %>
