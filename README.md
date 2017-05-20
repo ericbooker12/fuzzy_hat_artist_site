@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Summary
+An Artist's gallery to showcase his various artistic mediums. Admin area reflects Artist's desire for minimalistic interface. (Built with Ruby on Rails.)
 
-Things you may want to cover:
+Live at: [MarkEinert.com](http://www.markeinert.com/)
 
-* Ruby version
+![Home page](/public/index_page.png "Home page")
 
-* System dependencies
+animated gif coming
 
-* Configuration
+### Features
+- Artist's work organized in Galleries and Collections
+- Carousel display of Items in selected Collection
+- Mobile responsive design
+- Minimalist backend for Artist management
+- Ability for Artist to un/archive Galleries
 
-* Database creation
+### Built with
+- Ruby on Rails
+- Bootstrap Carousel
+- Paperclip gem for image uploading
+- Simple_form for minimalist forms
+- Devise for secure login
+- AWS S3 for static image storage
+- AWS Cloudfront CDN for delivery
 
-* Database initialization
+### Testing strategy
+Development mostly followed BDD using:
+- Cucumber
 
-* How to run the test suite
+We also are doing unit tests for models and controllers.
+- FactoryGirl
+- Rspec
 
-* Services (job queues, cache servers, search engines, etc.)
+### Contributors
+- [Shawn Tuttle](https://github.com/shawnte)
+- [Eric Booker](https://github.com/ericbooker12)
 
-* Deployment instructions
+### License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
-* ...
+### Todo
+- Add drag and drop capability for artist to order images
