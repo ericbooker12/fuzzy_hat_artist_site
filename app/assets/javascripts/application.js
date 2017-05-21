@@ -1,4 +1,3 @@
-
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -14,10 +13,8 @@ $(document).ready(function(){
 		var dom = "markeinert"
 		var user = 'hello';
 
-		var subject = "Your artwork";
+		var subject = "Your artwork is beautiful!";
 		// var emailBody = "Hi Mark, \r\nI really like your artwork and would like to inquire about purchasing some of your pieces.";
-
 		document.location = "mailto:"+ user +  at + dom + ending + "?subject="+subject;
 	});
-
 })
