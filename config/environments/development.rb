@@ -27,6 +27,7 @@ Rails.application.configure do
   end
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
+  config.assets.prefix = "/dev-assets"
 
   # For deployment, should point to host
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
