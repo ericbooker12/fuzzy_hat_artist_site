@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
-  # get 'users/show'
-
   devise_for :users
 
 	resources :galleries do
 		resources :collections, only: [:index, :new, :create]
     member do
       patch :archive
+      patch :un_archive
       get :archived
     end
 	end
