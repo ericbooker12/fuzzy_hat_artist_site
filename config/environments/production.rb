@@ -45,7 +45,7 @@ Rails.application.configure do
     storage: :s3,
     url: ":s3_alias_url",
     path: "/:class/:attachment/:id_partition/:style/:filename",
-    s3_host_alias: "d2cobm7dsc46xl.cloudfront.net",
+    s3_host_alias: "d1vbh98hzc4ro6.cloudfront.net",
     s3_credentials: {
         bucket: ENV['S3_BUCKET'],
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
