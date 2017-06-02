@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FuzzyHatArtistSite</title>
+    <title>Mark Einert Gallery</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "My Application" %></title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Droid+Serif' %>
+
   </head>
 
   <body class="<%= @show_page ? 'artwork' : ''%> <%= @home_page ? 'home-image' : ''%>">
