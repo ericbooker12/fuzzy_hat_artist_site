@@ -7,6 +7,8 @@
 $(document).ready(function(){
 
 	$('.contact-artist').click(function (e) {
+		console.log(e)
+		// debugger
 		e.preventDefault();
 		var at = '@'
 		var ending = ".com"
@@ -16,4 +18,9 @@ $(document).ready(function(){
 		var subject = "Contact from website";
 		document.location.href = "mailto:"+ user +  at + dom + ending + "?subject="+subject;
 	});
+
+	$(document).on('click',function(e){
+    $('.collapse').collapse('hide');
+})
+
 })
