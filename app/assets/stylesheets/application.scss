@@ -250,6 +250,12 @@ label {
   margin-bottom: 20px;
 }
 
+#id-of-addition {
+  font-family: Futura;
+  font-size: 5em;
+  // honestly, added in hopes that there is a change that triggers a big enough change to get re-loaded by heroku
+}
+
 // Devise forms
 .border-form-div {
   min-width: 300px;
