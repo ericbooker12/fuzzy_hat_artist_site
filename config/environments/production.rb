@@ -50,7 +50,7 @@ Rails.application.configure do
     storage: :s3,
     url: ":s3_alias_url",
     path: "/:class/:attachment/:id_partition/:style/:filename",
-    s3_host_alias: ENV['AWS_CDN_ORIGIN'],
+    s3_host_alias: "https://#{ENV['AWS_CDN_S3']}",
     s3_region: ENV['AWS_REGION'],
     s3_credentials: {
         bucket: ENV['S3_BUCKET'],
@@ -59,7 +59,7 @@ Rails.application.configure do
     }
 }
 
-config.action_controller.asset_host = ENV['AWS_CDN_ORIGIN']
+config.action_controller.asset_host = ENV['AWS_CDN_HEROKU']
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
