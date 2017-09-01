@@ -50,7 +50,7 @@ Rails.application.configure do
     storage: :s3,
     url: ":s3_alias_url",
     path: "/:class/:attachment/:id_partition/:style/:filename",
-    s3_host_alias: URI("https://#{ENV['AWS_CDN_S3']}"),
+    s3_host_alias: ENV['AWS_CDN_S3'],
     s3_region: ENV['AWS_REGION'],
     s3_credentials: {
         bucket: ENV['S3_BUCKET'],
