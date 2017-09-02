@@ -48,6 +48,11 @@ body {
   box-shadow: none;
 }
 
+.navbar-toggle {
+  float: left;
+  margin: 8px 15px;
+}
+
 .home-header {
   color: $gray-lighter;
   font-size: 3em;
@@ -412,6 +417,7 @@ label {
 
   .navbar-toggle {
     display: block;
+
   }
 
   .navbar-collapse {
