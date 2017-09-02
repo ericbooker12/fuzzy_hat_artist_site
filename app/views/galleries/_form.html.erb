@@ -1,16 +1,23 @@
-<%= minimal_form_for @gallery, html: { multipart: true } do |f| %>
-  <% if @gallery.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+<div class="border-form-div">
+  <%= minimal_form_for @gallery, html: { multipart: true } do |f| %>
+    <% if @gallery.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
 
-      <ul>
-      <% @gallery.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @gallery.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-inputs">
+      <%= f.input :name, input_html: {class: 'form-control taller'} %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary space-below" %>
     </div>
   <% end %>
-  <%= f.input :name, input_html: {class: 'form-control'} %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-
-<% end %>
+</div>

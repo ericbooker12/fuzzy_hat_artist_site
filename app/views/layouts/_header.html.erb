@@ -11,9 +11,6 @@
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
       <% if user_signed_in? %>
-        <% if @collection %>
-          <li><%= link_to "Back to #{@collection.name}", collection_path(@collection.id) %></li>
-        <% end %>
         <li><%= link_to "Homebase", root_path, alt: "Go Home", class: "links" %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, alt: "Log out", class: "links" %></li>
       <% else %>

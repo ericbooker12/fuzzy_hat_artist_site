@@ -244,6 +244,7 @@ label {
   border-radius: 6px;
   margin: 7px;
   color: $gray-dark;
+  border: 1px solid #004489;
 }
 
 #new-image-form {
@@ -259,10 +260,10 @@ label {
 // Devise forms
 .border-form-div {
   min-width: 300px;
-  max-width: 500px;
+  max-width: 600px;
   padding: 19px 29px 29px;
-  margin: 0 auto 20px;
-  background-color: #fff;
+  margin: 3%;
+  background-color: $gray-lighter;
   border: 1px solid $gray-light;
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
@@ -282,8 +283,14 @@ label {
   height: auto;
   margin-bottom: 15px;
   padding: 7px 9px;
+  border: 1px solid #004489;
 }
-
+.space-below {
+  margin-bottom: 20px;
+}
+.taller {
+  min-height: 50px;
+}
 
 @media only all and (min-device-width: 320px) and (max-device-width: 667px) {
   body {
