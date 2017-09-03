@@ -1,5 +1,5 @@
 <% if @archived_galleries %>
-  <h1>** Archived **</h1>
+  <h1 class="clear">** Archived **</h1>
     <ul>
       <% @archived_galleries.each do |gallery| %>
       <li>
@@ -11,6 +11,6 @@
     </ul>
 
 <% else %>
-  <h1>There aren't any archived galleries.</h1>
+  <h1 class="clear">There aren't any archived galleries.</h1>
 <% end %>
 <%= link_to 'Back', galleries_path %>

@@ -1,8 +1,8 @@
 <% if !@gallery.active? %>
-  <h1>** Archived **</h1>
+  <h1 class="clear">** Archived **</h1>
 <% end %>
 
-<h1>Edit <%= @gallery.name %> Gallery</h1>
+<h1 class="clear">Edit <%= @gallery.name %> Gallery</h1>
 
 <%= render 'form' %>
 

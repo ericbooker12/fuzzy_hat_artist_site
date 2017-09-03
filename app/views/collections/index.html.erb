@@ -2,7 +2,7 @@
 	<div class="col-sm-12 page-header ">
     <p id="notice"><%= notice %></p>
 
-    <h1 class="inline"><%= @gallery.name %> <%= "Collection".pluralize(@collections.count > 1 ? 2 : 1 ) %></h1>
+    <h1 class="clear"><%= @gallery.name %> <%= "Collection".pluralize(@collections.count > 1 ? 2 : 1 ) %></h1>
 		<% if user_signed_in? %>
       <%= link_to 'New Collection', new_gallery_collection_path, class: "btn btn-outline-primary btn-lg btn-header-area btn-custom" %>
     <% end %>

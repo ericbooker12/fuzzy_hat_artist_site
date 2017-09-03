@@ -1,12 +1,13 @@
 <div class="row">
 	<div class="col-sm-12 page-header">
-    <h1 class="inline"><%= @collection.name %></h1>
+    <h1 class="clear"><%= @collection.name %></h1>
+		<p class="clear strong">Gallery:
+			<%= link_to @collection.gallery.name, gallery_collections_path(@collection.gallery_id) %>
+		</p>
 		<% if user_signed_in? %>
 			<%= link_to 'Add image', fetch_new_form_path(collection_id: @collection.id), class: 'btn btn-outline-primary btn-lg btn-header-area btn-custom', id: "add-image", remote: true %>
 			<%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-outline-primary btn-lg btn-header-area btn-custom' %>
 		<% end %><br />
-		<strong>Gallery:</strong>
-			<%= link_to @collection.gallery.name, gallery_collections_path(@collection.gallery_id) %>
 	</div>
 
 </div>
@@ -40,4 +41,5 @@
 				<p>There are no images in this collection.</p>
 			<% end %>
 		</ul>
+		<%= link_to 'Back', gallery_collections_path(@collection.gallery_id) %>
 </div>
