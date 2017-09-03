@@ -16,31 +16,33 @@
 	<div class="col-xs-12 col-md-8" id="new-image-form"></div>
 </div>
 <div class="row">
-		<ul id="list-of-images">
-			<% if @collection.items.count > 0 %>
-				<%	@collection.items.each do |item| %>
-					<div class="col-sm-12 col-md-3">
-						<div class="img-fluid">
-							<li id="item-<%= item.id %>" class="item" >
+	<ul id="list-of-images">
+		<% if @collection.items.count > 0 %>
+			<%	@collection.items.each do |item| %>
+				<div class="col-sm-12 col-md-3">
+					<div class="img-fluid">
+						<li id="item-<%= item.id %>" class="item" >
 
-								<%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail image #{ @collection.thumbnail == item.id ? 'chosen_thumbnail' : '' if user_signed_in? }")), [@collection, item] %>
-								<div class="caption center-block">
-									<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
-									<br>
-									<% if user_signed_in? %>
-										<%= link_to "Edit", edit_collection_item_path(item.collection_id, item), class: "img-caption edit-links" %> |
-										<%= link_to "Feature", thumbnail_collection_path(@collection, item), method: :patch, class: "img-caption edit-links"  %>
-									<% end %>
-								</div>
-							</li>
-						</div>
-						<br>
+							<%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail image #{ @collection.thumbnail == item.id ? 'chosen_thumbnail' : '' if user_signed_in? }")), [@collection, item] %>
+							<div class="caption center-block">
+								<%= link_to item.title, [@collection, item], title: 'show image', class: "img-caption" %>
+								<br>
+								<% if user_signed_in? %>
+									<%= link_to "Edit", edit_collection_item_path(item.collection_id, item), class: "img-caption edit-links" %> |
+									<%= link_to "Feature", thumbnail_collection_path(@collection, item), method: :patch, class: "img-caption edit-links"  %>
+								<% end %>
+							</div>
+						</li>
 					</div>
-				<% end %>
-			<% else %>
-				<p>There are no images in this collection.</p>
+					<br>
+				</div>
 			<% end %>
-		</ul>
-		<br />
-		<%= link_to 'Back', gallery_collections_path(@collection.gallery_id) %>
+		<% else %>
+			<p>There are no images in this collection.</p>
+		<% end %>
+	</ul>
+	<br />
+</div>
+<div class="row">
+	<%= link_to 'Back', gallery_collections_path(@collection.gallery_id) %>
 </div>
