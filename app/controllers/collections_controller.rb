@@ -21,6 +21,7 @@ class CollectionsController < ApplicationController
   def new
     @gallery = Gallery.find(params["gallery_id"])
     @collection = @gallery.collections.build
+    @collection.thumbnail = 9999
   end
 
   # GET /collections/1/edit
@@ -33,7 +34,7 @@ class CollectionsController < ApplicationController
   def create
     @gallery = Gallery.find(params["gallery_id"])
     @collection = @gallery.collections.build(collection_params)
-    @collection.thumbnail = 1
+    @collection.thumbnail = 9999
 
     respond_to do |format|
       if @collection.save

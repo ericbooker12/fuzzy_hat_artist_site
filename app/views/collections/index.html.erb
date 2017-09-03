@@ -21,14 +21,14 @@
         <div class="col-sm-12 col-md-3">
           <div class="img-fluid">
             <li class="item">
-              	<% if collection.thumbnail %>
-                <% item = Item.find(collection.thumbnail) %>
-                <%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail image")), collection_path(collection.id, item.id), title: "image thumb" %>
-								<div class="caption">
-									<%= link_to collection.name, collection_path(collection.id, item.id), title: collection.name, class: "img-caption center-block" %>
-								</div>
-              <% else %>
-                (No thumbnail set)
+              	<% if collection.thumbnail == 9999 %>
+									(No thumbnail set)
+								<% else %>
+	                <% item = Item.find(collection.thumbnail) %>
+	                <%= link_to (image_tag(item.image.url(:thumb), class: "img-rounded item-image img-responsive thumbnail image")), collection_path(collection.id, item.id), title: "image thumb" %>
+									<div class="caption">
+										<%= link_to collection.name, collection_path(collection.id, item.id), title: collection.name, class: "img-caption center-block" %>
+									</div>
               <% end %>
 
             </li>
