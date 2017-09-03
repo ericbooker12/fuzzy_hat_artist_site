@@ -14,3 +14,15 @@ end
 Given(/^I am on the item index page$/) do
   visit collection_items_path(@collection)
 end
+
+Given(/^I am on the create gallery page$/) do
+  visit new_gallery_path
+end
+
+Given(/^I am on the user log in page$/) do
+	visit user_session_path
+end
+
+Given(/^I am on the user profile page$/) do
+	expect(page).to have_current_path( user_path(@user.id))
+end

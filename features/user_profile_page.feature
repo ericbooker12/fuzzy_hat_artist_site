@@ -13,7 +13,7 @@ Background: Logging in an artist
 	Then I am on the user profile page
 
 Scenario: Following add new gallery link
-	When I click on "Add new gallery"
+	When I click on "New gallery"
 	Then I should see the add gallery page
 
 Scenario: Adding a new gallery
@@ -30,20 +30,20 @@ Scenario: don't enter a name
 	Then I should not be allowed to submit
 
 Scenario: add a new collection
-	Given a gallery exists
+	Given a gallery
 	And I am on the user profile page
 	When I click on the first link to add new Collection
 	Then I should see add collection page
-	When I fill in Name with "Series 99" and fill in Thumbnail with 1 and press "Create Collection"
+	When I fill in Name with "Series 99" and press "Create Collection"
 	Then I should see the collections show page
 	And I should see the name of the collection
 
 Scenario: don't enter a title
-	Given a gallery exists
-	And I am on the user profile page
+	Given a gallery
+	Then I am on the user profile page
 	And I click on the first link to add new Collection
 	Then I should see add collection page
-	When I fill in Name with "" and fill in Thumbnail with 1 and press "Create Collection"
+	When I fill in Name with "" and press "Create Collection"
 	Then I should not be allowed to submit
 
 Scenario: view archived galleries

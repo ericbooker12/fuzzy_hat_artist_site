@@ -16,5 +16,5 @@ Feature: Assigning a thumbnail image to a Collection
     When I click on a collection
 
   Scenario: change the collection thumbnail
-    And I click "Set as thumbnail"
+    And I click "Feature"
     Then I see success message "Thumbnail set"
