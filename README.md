@@ -7,8 +7,6 @@ Live at: [MarkEinert.com](http://www.markeinert.com/)
 
 ![Home page](/public/index_page.png "Home page")
 
-animated gif coming
-
 ### Features
 - Artist's work organized in Galleries and Collections
 - Carousel display of Items in selected Collection
@@ -42,3 +40,6 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ### Todo
 - Add drag and drop capability for artist to order images
+
+### Challenges
+- Get (font) glyphicons to work b/c of CORS.

@@ -7,9 +7,8 @@
 $(document).ready(function(){
 
 	$('.contact-artist').click(function (e) {
-		console.log(e)
-		// debugger
 		e.preventDefault();
+
 		var at = '@'
 		var ending = ".com"
 		var dom = "markeinert"
@@ -21,6 +20,6 @@ $(document).ready(function(){
 
 	$(document).on('click',function(e){
     $('.collapse').collapse('hide');
-})
+	})
 
 })

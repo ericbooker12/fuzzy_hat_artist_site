@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 Eric Booker
+Copyright (c) 2017 Eric Booker & Shawn Tuttle
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
