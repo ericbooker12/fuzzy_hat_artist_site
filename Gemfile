@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 5.1'
 gem 'simple_form', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'devise', '~> 4.2', '>= 4.2.1'
+gem 'devise', '~> 4.4', '>= 4.4.1'
 gem 'aws-sdk', '~> 2'
 
 group :development, :test do
@@ -46,7 +46,7 @@ group :test do
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'selenium-webdriver', '~> 3.3'
   gem 'cucumber-rails', '~> 1.4', '>= 1.4.5', :require => false
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
